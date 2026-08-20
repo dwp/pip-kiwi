@@ -1,0 +1,70 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+      <h1 class="govuk-heading-xl">Review the information and select documents you used</h1>
+
+      <h2 class="govuk-heading-m">Review supplied information</h2>
+      <ul class="govuk-list">
+  <li>
+    <p class="govuk-body">
+  <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Registration (PIP1) (opens in new tab)</a>
+</p>
+  </li>
+  <li>
+    <p class="govuk-body">
+  <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Health assessment report (opens in new tab)</a>
+</p>
+  </li>
+  <li>
+    <p class="govuk-body">
+  <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Supporting documents service (opens in new tab)</a>
+</p>
+  </li>
+</ul>
+
+      <h2 class="govuk-heading-m">Select which documents you used</h2>
+
+{{ govukTaskList({
+  idPrefix: "company-details",
+  items: [
+    {
+      title: {
+        text: "Select documents"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "To do",
+          classes: "govuk-tag--blue"
+        }
+      }
+    }
+  ]
+}) }}
+
+      <p class="govuk-body">
+  <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p>
+
+    </div>
+  </div>
+{% endblock %}
