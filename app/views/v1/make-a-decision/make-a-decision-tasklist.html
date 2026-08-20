@@ -1,0 +1,114 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Make a decision</h1>
+
+      <h2 class="govuk-heading-m">Supporting evidence</h2>
+
+      {% set completedStatus = {
+        text: "Completed"
+      } %}
+
+      {% set incompleteStatus = {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Review and select evidence used"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Qualifying period and prospective test</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Daily living"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Motability"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Payability checks</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Hospital or similar institutions"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Care homes"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Nursing homes"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Residential schools or colleges"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Prison or legal custody"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+      <p class="govuk-body">
+  <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p>
+
+    </div>
+  </div>
+{% endblock %}
