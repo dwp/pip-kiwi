@@ -1,0 +1,73 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "dailyLivingQualifyingPeriod",
+  fieldset: {
+    legend: {
+      text: "Did the applicant meet the 3 month qualifying period for daily living when they submitted their application on 1 January 2024 ?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "The assessment provider indicated they had daily living restrictions for at least 3 months before their assessment on 1 March 2024."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no-enter-date",
+      text: "No – I need to enter the date the qualifying period will be met"
+    },
+    {
+      value: "no-not-met",
+      text: "No – they will not meet the qualifying period for this application"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "split-rate",
+      text: "I need to make a split rate decision"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/pips/qppts-daily-living-q2"
+}) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

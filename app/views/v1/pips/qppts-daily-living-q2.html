@@ -1,0 +1,62 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "dailyLivingForNineMonths",
+  fieldset: {
+    legend: {
+      text: "Is the applicant likely to have daily living restrictions 9 months after 1 January 2024?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "The assessment provider indicated they are likely to have daily living restrictions 9 months after their assessment on undefined undefined undefined."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No – I need to enter the date the qualifying period will be met"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/make-a-decision/make-a-decision-tasklist"
+}) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}
