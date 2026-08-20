@@ -1,0 +1,39 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Application overview
+    </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Application submitted" },
+          value: { text: "1 March 2025" }
+        },
+        {
+          key: { text: "Age of applicant" },
+          value: { text: "XX" }
+        },
+        {
+          key: { text: "Date of birth" },
+          value: { text: "DD MM YYYY" }
+        }
+      ]
+    }) }}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/make-a-decision/make-a-decision-tasklist"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}
