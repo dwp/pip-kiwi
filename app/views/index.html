@@ -8,16 +8,19 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      PIP - Decision Making
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     </h1>
+
+    
       <h2 class="govuk-heading-m">MVP journey</h2>
-      <p class="govuk-body">content</p>
+      <p class="govuk-body">Prototype description. </p>
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
       {{ govukButton({
-        text: "Continue"
+        text: "Start", 
+        href: "/v1/pips/agent-home"
       }) }}
 
 
