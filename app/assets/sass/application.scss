@@ -4,3 +4,27 @@
 // 
 
 // Add extra styles here
+.pips-header {
+  background: #0b0c0c;
+}
+
+.pips-header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 72px;
+}
+
+.pips-header__service-name,
+.pips-header__link,
+.pips-header__link:visited {
+  color: #ffffff;
+}
+
+.pips-header__link {
+  text-decoration: none;
+}
+
+.pips-header__link:hover {
+  text-decoration: underline;
+}
