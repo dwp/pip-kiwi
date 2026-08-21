@@ -33,6 +33,16 @@
         }
       } %}
 
+      {% set dailyLivingComplete =
+  data['dailyLivingQualifyingPeriod']
+  and data['dailyLivingForNineMonths']
+%}
+
+{% set mobilityComplete =
+  data['mobilityQualifyingPeriod']
+  and data['mobilityLikelyToContinue']
+%}
+
       {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
       {{ govukTaskList({
@@ -58,14 +68,14 @@
               text: "Daily living"
             },
             href: "/v1/pips/qppts-daily-living-q1",
-            status: incompleteStatus
+            status: (completedStatus if dailyLivingComplete else incompleteStatus)
           },
           {
             title: {
               text: "Motability"
             },
             href: "/v1/pips/qppts-mobility-q1",
-            status: incompleteStatus
+            status: (completedStatus if mobilityComplete else incompleteStatus)
           }
         ]
       }) }}

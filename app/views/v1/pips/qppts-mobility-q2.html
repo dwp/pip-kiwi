@@ -20,7 +20,7 @@
 
 <br>
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+<form action="/mobility-nine-months-answer" method="post">
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -49,9 +49,10 @@
 }) }}
 
 {{ govukButton({
-  text: "Continue",
-  href: "/v1/make-a-decision/make-a-decision-tasklist"
+  text: "Continue"
 }) }}
+
+</form>
 
 
     </div>

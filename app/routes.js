@@ -58,3 +58,40 @@ router.post('/daily-living-nine-months-answer', function (req, res) {
 
   return res.redirect('back')
 })
+
+router.post('/mobility-qualifying-period-answer', function (req, res) {
+
+  const answer = req.session.data['mobilityQualifyingPeriod']
+
+  if (answer === 'yes' || answer === 'no-enter-date') {
+    return res.redirect('/v1/pips/qppts-mobility-q2')
+  }
+
+  if (answer === 'no-not-met' || answer === 'split-rate') {
+    return res.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+  }
+
+  return res.redirect('back')
+})
+
+router.post('/mobility-nine-months-answer', function (req, res) {
+
+  const qualifyingPeriod = req.session.data['mobilityQualifyingPeriod']
+  const nineMonths = req.session.data['mobilityLikelyToContinue']
+
+  if (
+    (qualifyingPeriod === 'yes' && nineMonths === 'yes') ||
+    (qualifyingPeriod === 'no-enter-date' && nineMonths === 'no-not-likely')
+  ) {
+    return res.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+  }
+
+  if (
+    (qualifyingPeriod === 'yes' && nineMonths === 'no-not-likely') ||
+    (qualifyingPeriod === 'no-enter-date' && nineMonths === 'yes')
+  ) {
+    return res.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+  }
+
+  return res.redirect('back')
+})

@@ -20,7 +20,7 @@
 
 <br>
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+<form action="/mobility-qualifying-period-answer" method="post">
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -60,12 +60,11 @@
 }) }}
 
 {{ govukButton({
-  text: "Continue",
-  href: "/v1/pips/qppts-mobility-q2"
+  text: "Continue"
 }) }}
 
 
-
+</form>
     </div>
   </div>
 {% endblock %}
