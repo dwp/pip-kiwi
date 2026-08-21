@@ -19,10 +19,8 @@
 </p>
 
 <br>
+<form action="/daily-living-nine-months-answer" method="post">
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
   name: "dailyLivingForNineMonths",
@@ -43,7 +41,7 @@
     },
     {
       value: "no",
-      text: "No – I need to enter the date the qualifying period will be met"
+      text: "No – the restrictions are unlikely to last 9 months"
     }
   ]
 }) }}
@@ -51,11 +49,10 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue",
-  href: "/v1/make-a-decision/make-a-decision-tasklist"
+  text: "Continue"
 }) }}
 
-
+</form>
 
     </div>
   </div>

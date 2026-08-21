@@ -42,7 +42,8 @@
             title: {
               text: "Review and select evidence used"
             },
-            href: "/v1/make-a-decision/review-and-select-evidence-used"
+            href: "/v1/make-a-decision/review-and-select-evidence-used",
+            status: incompleteStatus
           }
         ]
       }) }}
@@ -112,9 +113,15 @@
         ]
       }) }}
 
-      <p class="govuk-body">
-  <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
-</p>
+      <h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
+      <p class="govuk-body">We are currently unable to process it in this service.</p>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
 
     </div>
   </div>
