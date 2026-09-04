@@ -1,0 +1,63 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+<form class="form" action="/task-on-hold-gateway" method="post">
+
+{{ govukRadios({
+  name: "signIn",
+fieldset: {
+  legend: {
+    text: "Do you need to put this task on hold?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+hint: {
+  html: "
+    If you've selected an action that means you cannot process with the decision straight away, put the task on hold.<br><br>
+    If the result of the action means you can proceed with decision making, you don't need to put the task on hold.
+  "
+},
+items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

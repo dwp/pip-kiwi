@@ -1,4 +1,4 @@
-{% extends "layouts/dwp-task.html" %}
+{% extends "layouts/pips-nav.html" %}
 
 {% block pageTitle %}
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -20,7 +20,7 @@
 
 <br>
 
-<form method="post">
+<form class="form" action="/task-on-hold-gateway2" method="post">
 
 {{ govukRadios({
   name: "signIn",

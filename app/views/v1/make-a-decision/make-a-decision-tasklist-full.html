@@ -113,16 +113,16 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Resources and support</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Help with your decision</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
         items: [
           {
             title: {
-              text: "DMF tools"
+              text: "Get support or request more evidence"
             },
-            href: "/v1/dmwa-tools/select-dmf-tool"
+            href: "/v1/dmwa-tools/select-dmf-tool-2"
           }
         ]
       }) }}
@@ -134,27 +134,18 @@
         items: [
           {
             title: {
-              text: "Health conditions or disabilities"
+              text: "Record health conditions or disabilities"
             },
-            href: "#"
+            href: "#",
+            status: incompleteStatus
           }
         ]
       }) }}
 
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Daily living activities</h2>
 
-      {{ govukTaskList({
-        idPrefix: "second-section",
-        items: [
-          {
-            title: {
-              text: "-"
-            },
-            href: "#"
-          }
-        ]
-      }) }}
-
+      
+      
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Mobility activities</h2>
 
       {{ govukTaskList({

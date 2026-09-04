@@ -1,0 +1,75 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+<form class="form" action="/task-on-hold-answer" method="post">
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "What do you want to do?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "Contact the claimant"
+    },
+    {
+      value: "scotland",
+      text: "Get support from a service assurance manager (SAM)"
+    },
+    {
+      value: "wales",
+      text: "Get support from another DWP agent"
+    },
+    {
+      value: "northern-ireland",
+      text: "Get advice from a healthcare professional (HCP)"
+    },
+    {
+      value: "northern-ireland",
+      text: "Have a collaboration call with a health professional"
+    },
+    {
+      value: "northern-ireland",
+      text: "Refer the application for an assessment"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue", 
+  href: "/v1/dmwa-tools/put-task-on-hold-pips-eligibility"
+}) }}
+
+
+    </div>
+  </div>
+{% endblock %}

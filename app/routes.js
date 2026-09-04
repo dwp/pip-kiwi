@@ -191,7 +191,7 @@ router.post('/payability-q5-answer', function (request, response) {
 
   if (prisonStay == 'pause') {
 
-    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
 
   } else {
 
@@ -200,9 +200,33 @@ router.post('/payability-q5-answer', function (request, response) {
     if (prisonStay == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
     } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
     }
 
+  }
+
+})
+
+router.post('/task-on-hold-gateway', function (request, response) {
+
+  var answer = request.session.data['signIn']
+
+  if (answer == 'yes') {
+    response.redirect('/v1/dwp-task/dwp-agent-dashboard-1')
+  } else {
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+  }
+
+})
+
+router.post('/task-on-hold-gateway2', function (request, response) {
+
+  var answer = request.session.data['signIn']
+
+  if (answer == 'yes') {
+    response.redirect('/v1/dwp-task/dwp-agent-dashboard-2')
+  } else {
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
   }
 
 })
