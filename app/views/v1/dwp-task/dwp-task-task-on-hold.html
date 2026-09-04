@@ -1,0 +1,129 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "layouts/pips-nav.html" %}
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+  <div class="govuk-grid-row">
+
+
+   <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      You put Pre HAS review on hold and kept it in your queue until 26th September 2026.
+    </h3>
+    <p class="govuk-body">You can resume working on this task at any time, or change the date.</p>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+      
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form action="#" method="post" class="form">
+
+        <p class="govuk-heading-l govuk-!-margin-bottom-8">My tasks</p>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Claim new task
+</button>
+
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end;">
+
+  <!-- LEFT -->
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="filter">
+      Filter your tasks
+    </label>
+
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <input class="govuk-input" id="filter" name="filter" type="text">
+      <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0">Filter</button>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="govuk-form-group" style="text-align: right;">
+    <label class="govuk-label" for="sort">
+      Sort by
+    </label>
+    <select class="govuk-select" id="sort" name="sort">
+      <option>Claimed, newest to oldest</option>
+      <option>Claimed, oldest to newest</option>
+      <option>Due, soonest to latest</option>
+      <option>Due, latest to soonest</option>
+      <option>Created, newest to oldest</option>
+     <option>Created, oldest to newest</option>
+
+
+    </select>
+  </div>
+
+</div>
+
+<br>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Tasks</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="width: 5%;">Details</th>
+      <th scope="col" class="govuk-table__header" style="width: 15%;">Created</th>
+      <th scope="col" class="govuk-table__header" style="width: 25%;">Task</th>
+      <th scope="col" class="govuk-table__header" style="width: 20%;">National Insurance number</th>
+      <th scope="col" class="govuk-table__header" style="width: 15%;">Due</th>
+      <th scope="col" class="govuk-table__header" style="width: 10%;">Status</th>
+
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+     <tr class="govuk-table__row">
+      
+      <td class="govuk-table__cell"><a href="dwp-task-task-overview">Start</a></td>
+      <td class="govuk-table__cell">1 hour ago</td>
+       <td class="govuk-table__cell">Prepare an application for a decision maker</td>
+        <td class="govuk-table__cell">QQ 12 34 56 X</td>
+         <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">On hold</strong></td></tr>
+   
+  </tbody>
+</table>
+
+
+
+        
+
+
+
+
+
+
+
+        </div></div></form></div></div></main>
+      </div>
+
+    </div>{# /govuk-grid-column-two-thirds #}
+
+  </div>{# /govuk-grid-row #}
+
+{% endblock %}
