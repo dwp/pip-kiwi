@@ -122,6 +122,20 @@
         ]
       }) }}
 
+       <h2 class="govuk-heading-m govuk-!-margin-top-5">Help with your decision</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Get support or request more evidence"
+            },
+            href: "/v1/pips/qppts-daily-living-q1"
+          }
+        ]
+      }) }}
+
       <p class="govuk-body">
   <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
 </p>
