@@ -57,15 +57,15 @@
             title: {
               text: "Daily living"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/qppts-daily-living-q1",
+            status: (completedStatus if dailyLivingComplete else incompleteStatus)
           },
           {
             title: {
               text: "Motability"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/qppts-mobility-q1",
+            status: (completedStatus if mobilityComplete else incompleteStatus)
           }
         ]
       }) }}
@@ -80,35 +80,35 @@
               text: "Hospital or similar institutions"
             },
             href: "/v1/pips/payability-q1",
-            status: incompleteStatus
+            status: (completedStatus if data['hospitalStayStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Care homes"
             },
             href: "/v1/pips/payability-q2",
-            status: incompleteStatus
+            status: (completedStatus if data['careHomeStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Nursing homes"
             },
             href: "/v1/pips/payability-q3",
-            status: incompleteStatus
+            status: (completedStatus if data['nursingHomeStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Residential schools or colleges"
             },
             href: "/v1/pips/payability-q4",
-            status: incompleteStatus
+            status: (completedStatus if data['rescolStayStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Prison or legal custody"
             },
             href: "/v1/pips/payability-q5",
-            status: incompleteStatus
+            status: (completedStatus if data['prisonStayStatus'] else incompleteStatus)
           }
         ]
       }) }}

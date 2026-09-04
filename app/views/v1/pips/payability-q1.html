@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<form class="form" action="/payability-q1-answer" method="post">
 
   <div class="govuk-grid-row">
 
@@ -13,8 +14,8 @@
 
       {{ govukRadios({
         classes: "govuk-radios govuk-!-margin-bottom-4",
-        idPrefix: "dwa-prep-tasklist-item-21",
-        name: "dwa-prep-tasklist-item-21",
+        name: "hospital-stay",
+        value: data['hospital-stay'],
         fieldset: {
           legend: {
             html: "Do they have any stays in hospital or similar institutions?",
@@ -27,20 +28,15 @@
         },
         items: [
         {
-          value: "Unexpected",
-          text: "Yes",
-          checked: (data["dwa-prep-tasklist-item-21"] == "Unexpected")
+          value: "yes",
+          text: "Yes"
         },
         {
-          value: "Expected",
-          text: "No",
-          checked: (data["dwa-prep-tasklist-item-21"] == "Expected")
-        },
+          value: "no",
+          text: "No"        },
         {
-          value: "Pause",
-          text: "I need to come back to this later",
-          checked: (data["dwa-prep-tasklist-item-21"] == "Pause")
-        }
+          value: "pause",
+          text: "I need to come back to this later"        }
         ]
         }) }}
 
@@ -55,10 +51,7 @@
 
     </div>
   </div>
+</form>
 
-
-
-
-  </form>
 
 {% endblock %}

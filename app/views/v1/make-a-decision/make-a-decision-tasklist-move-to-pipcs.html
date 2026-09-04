@@ -52,8 +52,7 @@
             title: {
               text: "Review and select evidence used"
             },
-            href: "/v1/make-a-decision/review-and-select-evidence-used",
-            status: incompleteStatus
+            href: "/v1/make-a-decision/review-and-select-evidence-used"
           }
         ]
       }) }}
@@ -89,36 +88,36 @@
             title: {
               text: "Hospital or similar institutions"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/payability-q1",
+            status: (completedStatus if data['hospitalStayStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Care homes"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/payability-q2",
+            status: (completedStatus if data['careHomeStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Nursing homes"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/payability-q3",
+            status: (completedStatus if data['nursingHomeStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Residential schools or colleges"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/payability-q4",
+            status: (completedStatus if data['rescolStayStatus'] else incompleteStatus)
           },
           {
             title: {
               text: "Prison or legal custody"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/pips/payability-q5",
+            status: (completedStatus if data['prisonStayStatus'] else incompleteStatus)
           }
         ]
       }) }}

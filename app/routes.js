@@ -96,3 +96,113 @@ router.post('/mobility-nine-months-answer', function (req, res) {
   return res.redirect('back')
 })
 
+router.post('/payability-q1-answer', function (request, response) {
+
+  var hospitalStay = request.session.data['hospital-stay']
+
+  if (hospitalStay == 'pause') {
+
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+
+  } else {
+
+    request.session.data['hospitalStayStatus'] = 'Completed'
+
+    if (hospitalStay == 'yes') {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+    } else {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    }
+
+  }
+
+})
+
+router.post('/payability-q2-answer', function (request, response) {
+
+  var careHome = request.session.data['care-home']
+
+  if (careHome == 'pause') {
+
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+
+  } else {
+
+    request.session.data['careHomeStatus'] = 'Completed'
+
+    if (careHome == 'yes') {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+    } else {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    }
+
+  }
+
+})
+
+router.post('/payability-q3-answer', function (request, response) {
+
+  var nursingHome = request.session.data['nursing-home']
+
+  if (nursingHome == 'pause') {
+
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+
+  } else {
+
+    request.session.data['nursingHomeStatus'] = 'Completed'
+
+    if (nursingHome == 'yes') {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+    } else {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    }
+
+  }
+
+})
+
+
+router.post('/payability-q4-answer', function (request, response) {
+
+  var rescolStay = request.session.data['rescol-stay']
+
+  if (rescolStay == 'pause') {
+
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+
+  } else {
+
+    request.session.data['rescolStayStatus'] = 'Completed'
+
+    if (rescolStay == 'yes') {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+    } else {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    }
+
+  }
+
+})
+
+router.post('/payability-q5-answer', function (request, response) {
+
+  var prisonStay = request.session.data['prison-stay']
+
+  if (prisonStay == 'pause') {
+
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+
+  } else {
+
+    request.session.data['prisonStayStatus'] = 'Completed'
+
+    if (prisonStay == 'yes') {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
+    } else {
+      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    }
+
+  }
+
+})

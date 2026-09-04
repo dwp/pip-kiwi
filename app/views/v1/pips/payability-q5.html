@@ -6,6 +6,9 @@
 
 {% block content %}
 
+<form class="form" action="/payability-q5-answer" method="post">
+
+
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
@@ -13,8 +16,7 @@
 
       {{ govukRadios({
         classes: "govuk-radios govuk-!-margin-bottom-4",
-        idPrefix: "dwa-prep-tasklist-item-25",
-        name: "dwa-prep-tasklist-item-25",
+        name: "prison-stay",
         fieldset: {
           legend: {
             html: "Have they been detained in prison or legal custody?",
@@ -27,19 +29,16 @@
         },
         items: [
         {
-          value: "Unexpected",
-          text: "Yes",
-          checked: (data["dwa-prep-tasklist-item-25"] == "Unexpected")
+          value: "yes",
+          text: "Yes"
         },
         {
-          value: "Expected",
-          text: "No",
-          checked: (data["dwa-prep-tasklist-item-25"] == "Expected")
+          value: "no",
+          text: "No"
         },
         {
           value: "Pause",
-          text: "I need to come back to this later",
-          checked: (data["dwa-prep-tasklist-item-25"] == "Pause")
+          text: "I need to come back to this later"
         }
         ]
         }) }}
