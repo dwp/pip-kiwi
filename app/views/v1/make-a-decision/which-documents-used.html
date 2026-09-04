@@ -1,0 +1,78 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: "Which documents did you use when making your decision?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "This will be referenced in the decsion letter. Select all that apply."
+  },
+  items: [
+    {
+      value: "carcasses",
+      text: "example"
+    },
+    {
+      value: "mines",
+      text: "example"
+    },
+    {
+      value: "farm",
+      text: "example"
+    },
+    {
+      value: "farm",
+      text: "example"
+    },
+    {
+      value: "farm",
+      text: "example"
+    },
+    {
+      value: "farm",
+      text: "example"
+    },
+    {
+      value: "farm",
+      text: "example"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/make-a-decision/evidence-selected"
+}) }}
+
+    </div>
+  </div>
+{% endblock %}

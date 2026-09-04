@@ -48,17 +48,23 @@
   items: [
     {
       title: {
-        text: "Select documents"
+        text: "Letter from consultant"
       },
-      href: "/v1/make-a-decision/which-documents-used",
       status: {
         tag: {
-          text: "To do",
-          classes: "govuk-tag--blue"
+          text: "Done",
+          classes: "govuk-tag--grey"
         }
       }
     }
   ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/make-a-decision/make-a-decision-tasklist"
 }) }}
 
       <p class="govuk-body">

@@ -1,0 +1,62 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Process a PIP application
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukRadios({
+        classes: "govuk-radios govuk-!-margin-bottom-4",
+        idPrefix: "dwa-prep-tasklist-item-24",
+        name: "dwa-prep-tasklist-item-24",
+        fieldset: {
+          legend: {
+            html: "Do they have any stays in residential schools or colleges?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "Check the health information gather (PIP2) and assessment report."
+        },
+        items: [
+        {
+          value: "Unexpected",
+          text: "Yes",
+          checked: (data["dwa-prep-tasklist-item-24"] == "Unexpected")
+        },
+        {
+          value: "Expected",
+          text: "No",
+          checked: (data["dwa-prep-tasklist-item-24"] == "Expected")
+        },
+        {
+          value: "Pause",
+          text: "I need to come back to this later",
+          checked: (data["dwa-prep-tasklist-item-24"] == "Pause")
+        }
+        ]
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-bottom-8"
+        }) }}
+
+
+    </div>
+  </div>
+
+
+
+
+  </form>
+
+{% endblock %}
