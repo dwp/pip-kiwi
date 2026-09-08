@@ -1,0 +1,51 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<form class="form" action="/v1/move-to-pipcs/move-to-pipcs" method="post">
+
+    <h1 class="govuk-heading-l">There are issues with this application</h1>
+    <p class="govuk-body">You can move the application to PIPCS or continue to make a decision.</p>
+
+    <br>
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "signIn",
+  fieldset: {
+    legend: {
+      text: "What do you want to do now?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "make-decision",
+      text: "Continue to make a decision"
+    },
+    {
+      value: "move-pipcs",
+      text: "Move application to PIPCS - this will be end of journey in prototype."
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+    </div>
+  </div>
+{% endblock %}

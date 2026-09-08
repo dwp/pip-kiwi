@@ -374,3 +374,23 @@ router.post('/v1/activity-descriptors/mobility/moving-around-reason', function (
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
 })
+
+router.post('/v1/move-to-pipcs/move-to-pipcs', function (req, res) {
+
+  const action = req.session.data.signIn
+
+  if (action === 'make-decision') {
+    res.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+  } else if (action === 'move-pipcs') {
+    res.redirect('/v1/move-to-pipcs/end-of-journey-1')
+  }
+
+})
+
+router.post('/v1/about-your-health/rds-picker', function (req, res) {
+  res.redirect('/v1/about-your-health/rds-picker-option-selected')
+})
+
+router.post('/v1/about-your-health/rds-picker-manual-entry', function (req, res) {
+  res.redirect('/v1/about-your-health/rds-picker-option-selected')
+})

@@ -1,0 +1,26 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<form class="form" action="/" method="post">
+
+    <h1 class="govuk-heading-l">End of journey</h1>
+    <p class="govuk-body">Move to PIPCS continues in agent workflow.</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Back to start", 
+  href: "/index.html"
+}) }}
+
+
+    </div>
+  </div>
+{% endblock %}

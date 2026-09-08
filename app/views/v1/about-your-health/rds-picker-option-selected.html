@@ -1,0 +1,71 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+  Jeff Bridges
+</h1>
+
+<p class="govuk-body">
+  NA 11 22 33 C
+</p>
+
+<br>
+
+      <h1 class="govuk-heading-xl">Health conditions or disabilities</h1>
+
+      <h2 class="govuk-heading-m">Primary condition</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "A primary condition"
+      },
+      value: {
+        text: data.primaryCondition or data.primaryConditionManual
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/about-your-health/rds-picker-manual-entry",
+            text: "Change"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue",
+    href: "/v1/make-a-decision/make-a-decision-tasklist-full"
+  }) }}
+
+  {{ govukButton({
+    text: "Add another condition or disability",
+    classes: "govuk-button--secondary", 
+    href: "/v1/about-your-health/rds-picker"
+  }) }}
+</div>
+
+      <p class="govuk-body">
+  <a href="/v1/move-to-pipcs/move-to-pipcs" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p>
+
+    </div>
+  </div>
+{% endblock %}

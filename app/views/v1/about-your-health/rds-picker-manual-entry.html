@@ -20,29 +20,27 @@
 
 <br>
 
-<form class="form" action="/v1/about-your-health/rds-picker" method="post">
+<form class="form" action="/v1/about-your-health/rds-picker-manual-entry" method="post">
 
-
-      <h1 class="govuk-heading-xl">Record the primary condition or disability</h1>
+      <h1 class="govuk-heading-xl">Enter the primary condition or disability</h1>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {{ govukInput({
   label: {
-    text: "This is the condition or disability that affects them the most. You can add another condition later."
+    text: "Health condition or disability",
+    classes: "govuk-heading-s"
   },
-  id: "primaryCondition",
-  name: "primaryCondition"
+  id: "primaryConditionManual",
+  name: "primaryConditionManual"
 }) }}
+
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
   text: "Continue"
 }) }}
 
-<p class="govuk-body">
-  <a href="/v1/about-your-health/rds-picker-manual-entry" class="govuk-link govuk-link--no-visited-state">I cannot record a condition</a>
-</p>
       <p class="govuk-body">
   <a href="/v1/move-to-pipcs/move-to-pipcs" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
 </p>

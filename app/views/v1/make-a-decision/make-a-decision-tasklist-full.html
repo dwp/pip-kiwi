@@ -153,8 +153,8 @@
             title: {
               text: "Record health conditions or disabilities"
             },
-            href: "#",
-            status: incompleteStatus
+            href: "/v1/about-your-health/rds-picker",
+            status: (completedStatus if data['primaryCondition'] or data['primaryConditionManual'] else incompleteStatus)
           }
         ]
       }) }}
