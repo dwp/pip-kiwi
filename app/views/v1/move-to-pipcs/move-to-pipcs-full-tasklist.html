@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<form class="form" action="/" method="post">
+<form class="form" action="/v1/move-to-pipcs/move-to-pipcs-two" method="post">
 
     <h1 class="govuk-heading-l">There are issues with this application</h1>
     <p class="govuk-body">You can move the application to PIPCS or continue to make a decision.</p>
@@ -19,7 +19,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  name: "signIn",
+  name: "applicationIssue",
   fieldset: {
     legend: {
       text: "What do you want to do now?",
@@ -45,6 +45,7 @@
   text: "Continue", 
   href: "/v1/make-a-decision/make-a-decision-tasklist-full"
 }) }}
+
 
 
     </div>

@@ -1,0 +1,89 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "layouts/pips-nav.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+
+
+      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Submit your application by 3 December 2021
+
+          </p>
+        </div>
+      </div> -->
+
+<div class="govuk-width-container">
+        
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb" style="margin-top: 0;">
+
+</nav>
+
+          
+
+<br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "signIn",
+  fieldset: {
+    legend: {
+      text: "Resume task",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Resume this task to continue working on it or finish it."
+  },
+  items: [
+    {
+      value: "government-gateway",
+      text: "Yes, resume this task"
+    },
+    {
+      value: "govuk-one-login",
+      text: "No"
+    }
+  ]
+}) }}
+<div class="govuk-button-group">
+
+  <a href="/v1/dwp-task/dwp-task-task-off-hold-1" role="button" draggable="false" class="govuk-button">
+    Confirm
+  </a>
+
+  <a href="/v1/dwp-task/dwp-task-task-overview-to-pause" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+    Back
+  </a>
+
+</div>
+
+
+
+
+        </div></div></div></div></main>
+      </div>
+
+    </div>{# /govuk-grid-column-two-thirds #}
+
+  </div>{# /govuk-grid-row #}
+
+{% endblock %}

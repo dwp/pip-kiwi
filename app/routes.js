@@ -207,6 +207,7 @@ router.post('/payability-q5-answer', function (request, response) {
 
 })
 
+
 router.post('/task-on-hold-gateway', function (request, response) {
 
   var answer = request.session.data['signIn']
@@ -226,7 +227,7 @@ router.post('/task-on-hold-gateway2', function (request, response) {
   if (answer == 'yes') {
     response.redirect('/v1/dwp-task/dwp-agent-dashboard-2')
   } else {
-    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
   }
 
 })
