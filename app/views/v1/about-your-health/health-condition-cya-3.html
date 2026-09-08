@@ -1,0 +1,62 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers: about your health</h1>
+
+          
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Condition or disability name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-name-6'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-list-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Approximate start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-date-6'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-list-3">Change<span class="govuk-visually-hidden"> start date</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  About this condition or disability
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-detail-6'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-details-3">Change<span class="govuk-visually-hidden"> about this condition</span></a>
+                </dd>
+              </div>
+           
+            </dl>
+           
+
+
+    <p><a href="health-condition-cya-final" class="govuk-button">Confirm and save</a></p>
+
+    <!-- <p><a href="../task-list?aboutyourhealth=completed" class="govuk-button">Confirm and save</a></p> -->
+
+  </div><!-- govuk-grid-column-two-thirds -->
+</div><!-- govuk-grid-row -->
+{% endblock %}

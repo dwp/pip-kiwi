@@ -1,0 +1,14 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+{{
+    dwpHeader({
+        serviceName: "DWP Task",
+        serviceHref: '/',
+        action: "Personal Independence Payment",
+        actionHref: "#",
+        container: true
+    })
+}}
+{% endblock %}
+

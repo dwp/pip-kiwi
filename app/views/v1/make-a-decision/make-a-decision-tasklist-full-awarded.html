@@ -4,26 +4,9 @@
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set dailyLivingComplete =
-  data.preparingFoodStatus == "Complete" and
-  data.takingNutritionStatus == "Complete" and
-  data.managingTherapyStatus == "Complete" and
-  data.washingBathingStatus == "Complete" and
-  data.toiletNeedsStatus == "Complete" and
-  data.dressingUndressingStatus == "Complete" and
-  data.communicateVerballyStatus == "Complete" and
-  data.readUnderstandStatus == "Complete" and
-  data.engagingOthersStatus == "Complete" and
-  data.budgetDecisionsStatus == "Complete"
-%}
-
-{% set mobilityComplete =
-  data.planningJourneysStatus == "Complete" and
-  data.movingAroundStatus == "Complete"
-%}
+{% block containerStart %}{% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -426,17 +409,6 @@
 ]
   ]
 }) }}
-
-{% if dailyLivingComplete and mobilityComplete %}
-<p class="govuk-body">govuk-body</p>
-
-{{ govukButton({
-  text: "Continue",
-  href: "/v1/recommendation"
-}) }}
-
-{% endif %}
-
 
       <p class="govuk-body">
   <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>

@@ -1,0 +1,43 @@
+{% set question = "Which descriptor do you want to select for reading and understanding signs, symbols and words?" %}
+
+{% set descriptorField = "readUnderstandDescriptor" %}
+
+{% set radioItems = [
+  {
+    value: "Descriptor A (0 points)",
+    text: "Descriptor A (0 points)",
+    hint: {
+      text: "Can read and understand basic and complex written information either unaided or using spectacles or contact lenses."
+    }
+  },
+  {
+    value: "Descriptor B (2 points)",
+    text: "Descriptor B (2 points)",
+    hint: {
+      text: "Needs to use an aid or appliance, other than spectacles or contact lenses, to be able to read or understand either basic or complex written information."
+    }
+  },
+  {
+    value: "Descriptor C (2 points)",
+    text: "Descriptor C (2 points)",
+    hint: {
+      text: "Needs prompting to be able to read or understand complex written information."
+    }
+  },
+  {
+    value: "Descriptor D (4 points)",
+    text: "Descriptor D (4 points)",
+    hint: {
+      text: "Needs prompting to be able to read or understand basic written information."
+    }
+  },
+  {
+    value: "Descriptor E (8 points)",
+    text: "Descriptor E (8 points)",
+    hint: {
+      text: "Cannot read or understand signs, symbols or words at all."
+    }
+  }
+] %}
+
+{% extends "layouts/descriptor.html" %}

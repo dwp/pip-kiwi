@@ -230,3 +230,147 @@ router.post('/task-on-hold-gateway2', function (request, response) {
   }
 
 })
+
+router.post('/v1/activity-descriptors/preparing-food', function (req, res) {
+  res.redirect('/v1/activity-descriptors/preparing-food-reason')
+})
+
+router.post('/v1/activity-descriptors/preparing-food-reason', function (req, res) {
+
+  req.session.data.preparingFoodStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/taking-nutrition', function (req, res) {
+  res.redirect('/v1/activity-descriptors/taking-nutrition-reason')
+})
+
+router.post('/v1/activity-descriptors/taking-nutrition-reason', function (req, res) {
+
+  req.session.data.takingNutritionStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
+
+})
+
+router.post('/v1/activity-descriptors/managing-therapy', function (req, res) {
+  res.redirect('/v1/activity-descriptors/managing-therapy-reason')
+})
+
+router.post('/v1/activity-descriptors/managing-therapy-reason', function (req, res) {
+
+  req.session.data.managingTherapyStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
+
+})
+
+router.post('/v1/activity-descriptors/washing-and-bathing', function (req, res) {
+  res.redirect('/v1/activity-descriptors/washing-and-bathing-reason')
+})
+
+router.post('/v1/activity-descriptors/washing-and-bathing-reason', function (req, res) {
+
+  req.session.data.washingBathingStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/toilet-needs', function (req, res) {
+  res.redirect('/v1/activity-descriptors/toilet-needs-reason')
+})
+
+router.post('/v1/activity-descriptors/toilet-needs-reason', function (req, res) {
+
+  req.session.data.toiletNeedsStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/dressing-undressing', function (req, res) {
+  res.redirect('/v1/activity-descriptors/dressing-undressing-reason')
+})
+
+router.post('/v1/activity-descriptors/dressing-undressing-reason', function (req, res) {
+
+  req.session.data.dressingUndressingStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/communicate-verbally', function (req, res) {
+  res.redirect('/v1/activity-descriptors/communicate-verbally-reason')
+})
+
+router.post('/v1/activity-descriptors/communicate-verbally-reason', function (req, res) {
+
+  req.session.data.communicateVerballyStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/read-understand', function (req, res) {
+  res.redirect('/v1/activity-descriptors/read-understand-reason')
+})
+
+router.post('/v1/activity-descriptors/read-understand-reason', function (req, res) {
+
+  req.session.data.readUnderstandStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/engaging-others', function (req, res) {
+  res.redirect('/v1/activity-descriptors/engaging-others-reason')
+})
+
+router.post('/v1/activity-descriptors/engaging-others-reason', function (req, res) {
+
+  req.session.data.engagingOthersStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/budget-decisions', function (req, res) {
+  res.redirect('/v1/activity-descriptors/budget-decisions-reason')
+})
+
+router.post('/v1/activity-descriptors/budget-decisions-reason', function (req, res) {
+
+  req.session.data.budgetDecisionsStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/mobility/planning-journeys', function (req, res) {
+  res.redirect('/v1/activity-descriptors/mobility/planning-journeys-reason')
+})
+
+router.post('/v1/activity-descriptors/mobility/planning-journeys-reason', function (req, res) {
+
+  req.session.data.planningJourneysStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})
+
+router.post('/v1/activity-descriptors/mobility/moving-around', function (req, res) {
+  res.redirect('/v1/activity-descriptors/mobility/moving-around-reason')
+})
+
+router.post('/v1/activity-descriptors/mobility/moving-around-reason', function (req, res) {
+
+  req.session.data.movingAroundStatus = 'Complete'
+
+  res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
+
+})

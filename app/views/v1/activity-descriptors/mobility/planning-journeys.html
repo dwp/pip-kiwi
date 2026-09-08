@@ -1,0 +1,50 @@
+{% set question = "Which descriptor do you want to select for planning and following journeys?" %}
+
+{% set descriptorField = "planningJourneysDescriptor" %}
+
+{% set radioItems = [
+  {
+    value: "Descriptor A (0 points)",
+    text: "Descriptor A (0 points)",
+    hint: {
+      text: "	Can plan and follow the route of a journey unaided."
+    }
+  },
+  {
+    value: "Descriptor B (4 points)",
+    text: "Descriptor B (4 points)",
+    hint: {
+      text: "Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant. "
+    }
+  },
+  {
+    value: "Descriptor C (8 points)",
+    text: "Descriptor C (8 points)",
+    hint: {
+      text: "Cannot plan the route of a journey."
+    }
+  },
+  {
+    value: "Descriptor D (10 points)",
+    text: "Descriptor D (10 points)",
+    hint: {
+      text: "Cannot follow the route of an unfamiliar journey without another person, assistance dog or orientation aid."
+    }
+  },
+  {
+    value: "Descriptor E (10 points)",
+    text: "Descriptor E (10 points)",
+    hint: {
+      text: "Cannot undertake any journey because it would cause overwhelming psychological distress to the claimant."
+    }
+  },
+  {
+    value: "Descriptor F (12 points)",
+    text: "Descriptorf (12 points)",
+    hint: {
+      text: "Cannot follow the route of a familiar journey without another person, an assistance dog or an orientation aid."
+    }
+  }
+] %}
+
+{% extends "layouts/descriptor.html" %}

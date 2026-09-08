@@ -1,0 +1,52 @@
+{% set question = "Which descriptor do you want to select for managing toilet needs or incontinence?" %}
+
+{% set descriptorField = "toiletNeedsDescriptor" %}
+
+{% set radioItems = [
+  {
+    value: "Descriptor A (0 points)",
+    text: "Descriptor A (0 points)",
+    hint: {
+      text: "	
+Can manage toilet needs or incontinence unaided."
+    }
+  },
+  {
+    value: "Descriptor B (2 points)",
+    text: "Descriptor B (2 points)",
+    hint: {
+      text: "Needs to use an aid or appliance to be able to manage toilet needs or incontinence. "
+    }
+  },
+  {
+    value: "Descriptor C (2 points)",
+    text: "Descriptor C (2 points)",
+    hint: {
+      text: "Needs supervision or prompting to be able to manage toilet needs."
+    }
+  },
+  {
+    value: "Descriptor D (4 points)",
+    text: "Descriptor D (4 points)",
+    hint: {
+      text: "Needs assistance to be able to manage toilet needs."
+    }
+  },
+  {
+    value: "Descriptor E (6 points)",
+    text: "Descriptor E (6 points)",
+    hint: {
+      text: "	
+Needs assistance to be able to manage incontinence of either bladder or bowel."
+    }
+  },
+  {
+    value: "Descriptor F (8 points)",
+    text: "Descriptor F (8 points)",
+    hint: {
+      text: "Needs assistance to be able to manage incontinence of both bladder and bowel.."
+    }
+  }
+] %}
+
+{% extends "layouts/descriptor.html" %}

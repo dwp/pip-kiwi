@@ -1,22 +1,23 @@
-{% extends "layouts/main.html" %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 {% block header %}
+{{
+    dwpHeader({
+        serviceName: "Personal Independence Payment",
+        serviceHref: '/',
+        action: "My home page",
+        actionHref: "#",
+        container: true
+    })
+}}
 
-<header class="pips-header">
-  <div class="govuk-width-container pips-header__content">
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 pips-header__service-name">
-      Personal Independence Payment
-    </h2>
-
-    <h3 class="govuk-heading-s govuk-!-margin-bottom-0 pips-header__service-name">
-      My homepage
-    </h3>
-
-  </div>
-</header>
-
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  text: "This is a prototype."
+}) }}
 {% endblock %}
 
-{% block content %}
-{% endblock %}

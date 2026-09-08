@@ -1,0 +1,50 @@
+{% set question = "Which descriptor do you want to select for moving around?" %}
+
+{% set descriptorField = "movingAroundDescriptor" %}
+
+{% set radioItems = [
+  {
+    value: "Descriptor A (0 points)",
+    text: "Descriptor A (0 points)",
+    hint: {
+      text: "	Can stand and then move more than 200 metres, either aided or unaided."
+    }
+  },
+  {
+    value: "Descriptor B (4 points)",
+    text: "Descriptor B (4 points)",
+    hint: {
+      text: "Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided."
+    }
+  },
+  {
+    value: "Descriptor C (8 points)",
+    text: "Descriptor C (8 points)",
+    hint: {
+      text: "Can stand and then move unaided more than 20 metres but no more than 50 metres."
+    }
+  },
+  {
+    value: "Descriptor D (10 points)",
+    text: "Descriptor D (10 points)",
+    hint: {
+      text: "Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres."
+    }
+  },
+  {
+    value: "Descriptor E (12 points)",
+    text: "Descriptor E (12 points)",
+    hint: {
+      text: "Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided."
+    }
+  },
+  {
+    value: "Descriptor F (12 points)",
+    text: "Descriptor F (12 points)",
+    hint: {
+      text: "Cannot, either aided or unaided:stand; or move more than 1 metre  "
+    }
+  }
+] %}
+
+{% extends "layouts/descriptor.html" %}

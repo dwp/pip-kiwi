@@ -1,0 +1,113 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {% set conditionCount = 0 %}
+      {% if data["condition-name-4"] %}
+        {% set conditionCount = conditionCount + 1 %}
+      {% endif %}
+
+      {% if data["condition-name-5"] %}
+        {% set conditionCount = conditionCount + 1 %}
+      {% endif %}
+
+      {% if data["condition-name-6"] %}
+      {% set conditionCount = conditionCount + 1 %}
+       {% endif %}
+      
+
+      You have added {{ conditionCount }}
+      {{ "conditions" if conditionCount > 1 else "condition"}}
+      or {{ "disabilities" if conditionCount > 1 else "disability"}}
+    </h1>
+
+    <div class="govuk-form-group">
+
+      {% if data["condition-name-4"] %}
+
+      <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-4'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+
+        {% else %}
+        {% endif %}
+
+        {% if data["condition-name-5"] %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-5'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+
+
+        {% else %}
+        {% endif %}
+
+        {% if data["condition-name-6"] %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-6'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
+
+
+      </dl>
+
+    </div>
+
+
+
+    <a href="end-of-prototype" class="govuk-button">Confirm and save</a> &nbsp;
+
+    {% if data["condition-name-6"] %}
+  
+    {% elif data["condition-name-5"] %}
+    <a href="health-condition-list-3.html" class="govuk-button  govuk-button--secondary">Add another condition or
+      disability</a>
+
+    {% elif data["condition-name-4"] %}
+    <a href="health-condition-list-2.html" class="govuk-button  govuk-button--secondary">Add another condition or
+      disability</a>
+
+    {% endif %}
+
+
+  </div>
+</div>
+
+{% endblock %}

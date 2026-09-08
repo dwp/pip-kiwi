@@ -1,0 +1,36 @@
+{% set question = "Which descriptor do you want to select for making budgeting decisions?" %}
+
+{% set descriptorField = "budgetDecisionsDescriptor" %}
+
+{% set radioItems = [
+  {
+    value: "Descriptor A (0 points)",
+    text: "Descriptor A (0 points)",
+    hint: {
+      text: "	Can manage complex budgeting decisions unaided."
+    }
+  },
+  {
+    value: "Descriptor B (2 points)",
+    text: "Descriptor B (2 points)",
+    hint: {
+      text: "Needs prompting or assistance to be able to make complex budgeting decisions. "
+    }
+  },
+  {
+    value: "Descriptor C (4 points)",
+    text: "Descriptor C (4 points)",
+    hint: {
+      text: "Needs prompting or assistance to be able to make simple budgeting decisions."
+    }
+  },
+  {
+    value: "Descriptor D (6 points)",
+    text: "Descriptor D (6 points)",
+    hint: {
+      text: "Cannot make any budgeting decisions at all."
+    }
+  }
+] %}
+
+{% extends "layouts/descriptor.html" %}

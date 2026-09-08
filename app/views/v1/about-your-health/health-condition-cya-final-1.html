@@ -1,0 +1,96 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      
+      {% if data["health-condition-list-1"] %}
+      
+      You have added 1 condition or disability
+
+      {% if data["health-condition-list-2"] %}
+     
+      You have added 2 conditions or disabilities
+
+    {% else %}
+    You have added 3 conditions or disabilities
+
+    {% endif %}
+      
+      
+</h1>
+
+<div class="govuk-form-group">
+
+  <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        {{ data['condition-name-1'] | capitalize }}
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="condition"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{ data['condition-name-1'] }}</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{ data['condition-name-1'] }}</span></a></li>
+        </ul>
+      </dd>
+    </div>
+   
+   
+   
+   
+    {% if data['condition2'] === 'Yes' %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        {{ data['condition-name-2'] | capitalize }}
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{ data['condition-name-2'] }}</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{ data['condition-name-2'] }}</span></a></li>
+        </ul>
+      </dd>
+    </div>
+
+    {% if data['condition3'] === 'Yes' %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+        {{ data['condition-name-3'] | capitalize }}
+      </dt>
+      <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+        <ul class="govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{ data['condition-name-3'] }}</span></a></li>
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{ data['condition-name-3'] }}</span></a></li>
+        </ul>
+      </dd>
+    </div>
+
+
+  </dl>
+  {% endif %}
+
+</div>
+
+
+
+          
+    <a href="../task-list?aboutyourhealth=completed" class="govuk-button">Confirm and save</a> &nbsp;
+    <a href="condition2" class="govuk-button  govuk-button--secondary">Add another condition or disability</a>
+
+    
+    <!-- <p><a href="../task-list?aboutyourhealth=completed" class="govuk-button">Confirm and save</a></p> -->
+
+  </div><!-- govuk-grid-column-two-thirds -->
+</div><!-- govuk-grid-row -->
+
+{% endblock %}
