@@ -1,25 +1,24 @@
+{% set pageTitle = "page title here" %}
 {% extends "layouts/pips-nav.html" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
 
-{% set dailyLivingComplete =
-  data.preparingFoodStatus == "Complete" and
-  data.takingNutritionStatus == "Complete" and
-  data.managingTherapyStatus == "Complete" and
-  data.washingBathingStatus == "Complete" and
-  data.toiletNeedsStatus == "Complete" and
-  data.dressingUndressingStatus == "Complete" and
-  data.communicateVerballyStatus == "Complete" and
-  data.readUnderstandStatus == "Complete" and
-  data.engagingOthersStatus == "Complete" and
-  data.budgetDecisionsStatus == "Complete"
+
+{% set dailyLivingDone =
+  data.preparingFoodStatus == "Done" and
+  data.takingNutritionStatus == "Done" and
+  data.managingTherapyStatus == "Done" and
+  data.washingBathingStatus == "Done" and
+  data.toiletNeedsStatus == "Done" and
+  data.dressingUndressingStatus == "Done" and
+  data.communicateVerballyStatus == "Done" and
+  data.readUnderstandStatus == "Done" and
+  data.engagingOthersStatus == "Done" and
+  data.budgetDecisionsStatus == "Done"
 %}
 
-{% set mobilityComplete =
-  data.planningJourneysStatus == "Complete" and
-  data.movingAroundStatus == "Complete"
+{% set mobilityDone =
+  data.planningJourneysStatus == "Done" and
+  data.movingAroundStatus == "Done"
 %}
 
 {% block content %}
@@ -32,18 +31,18 @@
 
       <h2 class="govuk-heading-m">Supporting evidence</h2>
 
-      {% set completedStatus = {
-        text: "Completed"
+      {% set doneStatus = {
+        text: "Done"
       } %}
 
-      {% set incompleteStatus = {
+      {% set toDoStatus = {
         tag: {
-          text: "Incomplete",
+          text: "To do",
           classes: "govuk-tag--blue"
         }
       } %}
 
-      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+      {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
 
       {{ govukTaskList({
         idPrefix: "first-section",
@@ -67,14 +66,14 @@
               text: "Daily living"
             },
             href: "/v1/pips/qppts-daily-living-q1",
-            status: (completedStatus if dailyLivingComplete else incompleteStatus)
+            status: (doneStatus if dailyLivingDone else toDoStatus)
           },
           {
             title: {
               text: "Motability"
             },
             href: "/v1/pips/qppts-mobility-q1",
-            status: (completedStatus if mobilityComplete else incompleteStatus)
+            status: (doneStatus if mobilityDone else toDoStatus)
           }
         ]
       }) }}
@@ -89,35 +88,35 @@
               text: "Hospital or similar institutions"
             },
             href: "/v1/pips/payability-q1",
-            status: (completedStatus if data['hospitalStayStatus'] else incompleteStatus)
+            status: (doneStatus if data['hospitalStayStatus'] else toDoStatus)
           },
           {
             title: {
               text: "Care homes"
             },
             href: "/v1/pips/payability-q2",
-            status: (completedStatus if data['careHomeStatus'] else incompleteStatus)
+            status: (doneStatus if data['careHomeStatus'] else toDoStatus)
           },
           {
             title: {
               text: "Nursing homes"
             },
             href: "/v1/pips/payability-q3",
-            status: (completedStatus if data['nursingHomeStatus'] else incompleteStatus)
+            status: (doneStatus if data['nursingHomeStatus'] else toDoStatus)
           },
           {
             title: {
               text: "Residential schools or colleges"
             },
             href: "/v1/pips/payability-q4",
-            status: (completedStatus if data['rescolStayStatus'] else incompleteStatus)
+            status: (doneStatus if data['rescolStayStatus'] else toDoStatus)
           },
           {
             title: {
               text: "Prison or legal custody"
             },
             href: "/v1/pips/payability-q5",
-            status: (completedStatus if data['prisonStayStatus'] else incompleteStatus)
+            status: (doneStatus if data['prisonStayStatus'] else toDoStatus)
           }
         ]
       }) }}
@@ -146,7 +145,7 @@
               text: "Record health conditions or disabilities"
             },
             href: "/v1/about-your-health/rds-picker",
-            status: (completedStatus if data['primaryCondition'] or data['primaryConditionManual'] else incompleteStatus)
+            status: (doneStatus if data['primaryCondition'] or data['primaryConditionManual'] else toDoStatus)
           }
         ]
       }) }}
@@ -179,10 +178,10 @@
       },
       {
   html: (
-    'Completed'
-    if data.preparingFoodStatus == "Complete"
+    'Done'
+    if data.preparingFoodStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
 }
     ],
@@ -196,10 +195,10 @@
       },
       {
   html: (
-    'Completed'
-    if data.takingNutritionStatus == "Complete"
+    'Done'
+    if data.takingNutritionStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
 }
     ],
@@ -213,10 +212,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.managingTherapyStatus == "Complete"
+    'Done'
+    if data.managingTherapyStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -230,10 +229,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.washingBathingStatus == "Complete"
+    'Done'
+    if data.washingBathingStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -247,10 +246,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.toiletNeedsStatus == "Complete"
+    'Done'
+    if data.toiletNeedsStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
 
   )
   }
@@ -265,10 +264,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.dressingUndressingStatus == "Complete"
+    'Done'
+    if data.dressingUndressingStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -282,10 +281,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.communicateVerballyStatus == "Complete"
+    'Done'
+    if data.communicateVerballyStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -299,10 +298,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.readUnderstandStatus == "Complete"
+    'Done'
+    if data.readUnderstandStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -316,10 +315,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.engagingOthersStatus == "Complete"
+    'Done'
+    if data.engagingOthersStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
 
   )
   }
@@ -334,10 +333,10 @@
   },
   {
     html: (
-    'Completed'
-    if data.budgetDecisionsStatus == "Complete"
+    'Done'
+    if data.budgetDecisionsStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
   }
 ],
@@ -383,10 +382,10 @@
       },
       {
         html: (
-    'Completed'
-    if data.planningJourneysStatus == "Complete"
+    'Done'
+    if data.planningJourneysStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
       }
     ],
@@ -400,10 +399,10 @@
       },
       {
         html: (
-    'Completed'
-    if data.movingAroundStatus == "Complete"
+    'Done'
+    if data.movingAroundStatus == "Done"
     else
-    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
   )
       }
     ],
@@ -422,7 +421,7 @@
   ]
 }) }}
 
-{% if dailyLivingComplete and mobilityComplete %}
+{% if dailyLivingDone and mobilityDone %}
 <h1 class="govuk-heading-m">You have selected and justified your descriptors-</h1>
 <p class="govuk-body">This applicant will be awarded PIP</p>
 

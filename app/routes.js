@@ -106,7 +106,7 @@ router.post('/payability-q1-answer', function (request, response) {
 
   } else {
 
-    request.session.data['hospitalStayStatus'] = 'Completed'
+    request.session.data['hospitalStayStatus'] = 'Done'
 
     if (hospitalStay == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
@@ -128,7 +128,7 @@ router.post('/payability-q2-answer', function (request, response) {
 
   } else {
 
-    request.session.data['careHomeStatus'] = 'Completed'
+    request.session.data['careHomeStatus'] = 'Done'
 
     if (careHome == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
@@ -150,7 +150,7 @@ router.post('/payability-q3-answer', function (request, response) {
 
   } else {
 
-    request.session.data['nursingHomeStatus'] = 'Completed'
+    request.session.data['nursingHomeStatus'] = 'Done'
 
     if (nursingHome == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
@@ -173,7 +173,7 @@ router.post('/payability-q4-answer', function (request, response) {
 
   } else {
 
-    request.session.data['rescolStayStatus'] = 'Completed'
+    request.session.data['rescolStayStatus'] = 'Done'
 
     if (rescolStay == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
@@ -195,7 +195,7 @@ router.post('/payability-q5-answer', function (request, response) {
 
   } else {
 
-    request.session.data['prisonStayStatus'] = 'Completed'
+    request.session.data['prisonStayStatus'] = 'Done'
 
     if (prisonStay == 'yes') {
       response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
@@ -238,7 +238,7 @@ router.post('/v1/activity-descriptors/preparing-food', function (req, res) {
 
 router.post('/v1/activity-descriptors/preparing-food-reason', function (req, res) {
 
-  req.session.data.preparingFoodStatus = 'Complete'
+  req.session.data.preparingFoodStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -250,7 +250,7 @@ router.post('/v1/activity-descriptors/taking-nutrition', function (req, res) {
 
 router.post('/v1/activity-descriptors/taking-nutrition-reason', function (req, res) {
 
-  req.session.data.takingNutritionStatus = 'Complete'
+  req.session.data.takingNutritionStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
 
@@ -262,7 +262,7 @@ router.post('/v1/activity-descriptors/managing-therapy', function (req, res) {
 
 router.post('/v1/activity-descriptors/managing-therapy-reason', function (req, res) {
 
-  req.session.data.managingTherapyStatus = 'Complete'
+  req.session.data.managingTherapyStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
 
@@ -274,7 +274,7 @@ router.post('/v1/activity-descriptors/washing-and-bathing', function (req, res) 
 
 router.post('/v1/activity-descriptors/washing-and-bathing-reason', function (req, res) {
 
-  req.session.data.washingBathingStatus = 'Complete'
+  req.session.data.washingBathingStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -286,7 +286,7 @@ router.post('/v1/activity-descriptors/toilet-needs', function (req, res) {
 
 router.post('/v1/activity-descriptors/toilet-needs-reason', function (req, res) {
 
-  req.session.data.toiletNeedsStatus = 'Complete'
+  req.session.data.toiletNeedsStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -298,7 +298,7 @@ router.post('/v1/activity-descriptors/dressing-undressing', function (req, res) 
 
 router.post('/v1/activity-descriptors/dressing-undressing-reason', function (req, res) {
 
-  req.session.data.dressingUndressingStatus = 'Complete'
+  req.session.data.dressingUndressingStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -310,7 +310,7 @@ router.post('/v1/activity-descriptors/communicate-verbally', function (req, res)
 
 router.post('/v1/activity-descriptors/communicate-verbally-reason', function (req, res) {
 
-  req.session.data.communicateVerballyStatus = 'Complete'
+  req.session.data.communicateVerballyStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -322,7 +322,7 @@ router.post('/v1/activity-descriptors/read-understand', function (req, res) {
 
 router.post('/v1/activity-descriptors/read-understand-reason', function (req, res) {
 
-  req.session.data.readUnderstandStatus = 'Complete'
+  req.session.data.readUnderstandStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -334,7 +334,7 @@ router.post('/v1/activity-descriptors/engaging-others', function (req, res) {
 
 router.post('/v1/activity-descriptors/engaging-others-reason', function (req, res) {
 
-  req.session.data.engagingOthersStatus = 'Complete'
+  req.session.data.engagingOthersStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -346,7 +346,7 @@ router.post('/v1/activity-descriptors/budget-decisions', function (req, res) {
 
 router.post('/v1/activity-descriptors/budget-decisions-reason', function (req, res) {
 
-  req.session.data.budgetDecisionsStatus = 'Complete'
+  req.session.data.budgetDecisionsStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -358,7 +358,7 @@ router.post('/v1/activity-descriptors/mobility/planning-journeys', function (req
 
 router.post('/v1/activity-descriptors/mobility/planning-journeys-reason', function (req, res) {
 
-  req.session.data.planningJourneysStatus = 'Complete'
+  req.session.data.planningJourneysStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 
@@ -370,7 +370,7 @@ router.post('/v1/activity-descriptors/mobility/moving-around', function (req, re
 
 router.post('/v1/activity-descriptors/mobility/moving-around-reason', function (req, res) {
 
-  req.session.data.movingAroundStatus = 'Complete'
+  req.session.data.movingAroundStatus = 'Done'
 
   res.redirect('/v1/make-a-decision/make-a-decision-tasklist-full.html')
 

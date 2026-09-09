@@ -1,5 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+{% block pageTitle %}
+  {{ pageTitle or serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
 {% block header %}
 {{
     dwpHeader({

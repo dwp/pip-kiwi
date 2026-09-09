@@ -1,18 +1,16 @@
+{% set pageTitle = "page title here" %}
 {% set breadcrumbs = [
   {
     text: "Make a decision",
     href: "/v1/make-a-decision/make-a-decision-tasklist"
   },
   {
-    text: "Payability checks"
+    text: "Payability"
   }
 ] %}
 
 {% extends "layouts/pips-nav.html" %}
 
-{% block pageTitle %}
-  Process a PIP application
-{% endblock %}
 
 {% block content %}
 <form class="form" action="/payability-q1-answer" method="post">
