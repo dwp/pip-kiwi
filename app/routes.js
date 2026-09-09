@@ -56,11 +56,7 @@ router.post('/payability-q1-answer', function (request, response) {
 
     request.session.data['hospitalStayStatus'] = 'Done'
 
-    if (hospitalStay == 'yes') {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
-    } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
-    }
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   }
 
@@ -78,11 +74,7 @@ router.post('/payability-q2-answer', function (request, response) {
 
     request.session.data['careHomeStatus'] = 'Done'
 
-    if (careHome == 'yes') {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
-    } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
-    }
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   }
 
@@ -100,11 +92,7 @@ router.post('/payability-q3-answer', function (request, response) {
 
     request.session.data['nursingHomeStatus'] = 'Done'
 
-    if (nursingHome == 'yes') {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
-    } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
-    }
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   }
 
@@ -123,11 +111,7 @@ router.post('/payability-q4-answer', function (request, response) {
 
     request.session.data['rescolStayStatus'] = 'Done'
 
-    if (rescolStay == 'yes') {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
-    } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
-    }
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   }
 
@@ -145,11 +129,7 @@ router.post('/payability-q5-answer', function (request, response) {
 
     request.session.data['prisonStayStatus'] = 'Done'
 
-    if (prisonStay == 'yes') {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-move-to-pipcs')
-    } else {
-      response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
-    }
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
 
   }
 

@@ -82,6 +82,27 @@
   )
 %}
 
+{% set moveToPIPCS =
+  (
+    (
+      (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
+      or data['dailyLivingForNineMonths'] == 'no'
+    )
+    and
+    (
+      (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
+      or data['mobilityLikelyToContinue'] == 'no'
+    )
+  )
+  or data['hospital-stay'] == 'yes'
+  or data['care-home'] == 'yes'
+  or data['nursing-home'] == 'yes'
+  or data['rescol-stay'] == 'yes'
+  or data['prison-stay'] == 'yes'
+%}
+
+
+
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
 
       {{ govukTaskList({
@@ -147,28 +168,60 @@
               text: "Care homes"
             },
             href: "/v1/pips/payability-q2",
-            status: (doneStatus if data['careHomeStatus'] else toDoStatus)
+            status: (
+  issueStatus
+  if data['care-home'] == 'yes'
+  else (
+    doneStatus
+    if data['care-home'] == 'no'
+    else toDoStatus
+  )
+)
           },
           {
             title: {
               text: "Nursing homes"
             },
             href: "/v1/pips/payability-q3",
-            status: (doneStatus if data['nursingHomeStatus'] else toDoStatus)
+            status: (
+  issueStatus
+  if data['nursing-home'] == 'yes'
+  else (
+    doneStatus
+    if data['nursing-home'] == 'no'
+    else toDoStatus
+  )
+)
           },
           {
             title: {
               text: "Residential schools or colleges"
             },
             href: "/v1/pips/payability-q4",
-            status: (doneStatus if data['rescolStayStatus'] else toDoStatus)
+            status: (
+  issueStatus
+  if data['rescol-stay'] == 'yes'
+  else (
+    doneStatus
+    if data['rescol-stay'] == 'no'
+    else toDoStatus
+  )
+)
           },
           {
             title: {
               text: "Prison or legal custody"
             },
             href: "/v1/pips/payability-q5",
-            status: (doneStatus if data['prisonStayStatus'] else toDoStatus)
+            status: (
+  issueStatus
+  if data['prison-stay'] == 'yes'
+  else (
+    doneStatus
+    if data['prison-stay'] == 'no'
+    else toDoStatus
+  )
+)
           }
         ]
       }) }}
@@ -187,10 +240,29 @@
         ]
       }) }}
 
-      <p class="govuk-body">
-  <a href="/v1/move-to-pipcs/move-to-pipcs-half-tasklist" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+
+{% if moveToPIPCS %}
+
+<h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
+
+<p class="govuk-body">
+  We are currently unable to process it in this service.
 </p>
 
-    </div>
-  </div>
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/move-to-pipcs/move-to-pipcs-full-tasklist"
+}) }}
+
+{% else %}
+
+<p class="govuk-body">
+  <a href="/v1/move-to-pipcs/move-to-pipcs-half-tasklist"not process this application>
+  </a>
+</p>
+
+{% endif %}
+
+</div>
+</div>
 {% endblock %}

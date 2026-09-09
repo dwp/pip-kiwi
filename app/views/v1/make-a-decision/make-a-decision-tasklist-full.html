@@ -44,7 +44,6 @@
     text: "To do",
     classes: "govuk-tag--blue"
   }
-  
 } %}
 {% set dailyLivingStatus =
   issueStatus if (
@@ -88,6 +87,25 @@
       )
     )
   )
+%}
+
+{% set moveToPIPCS =
+  (
+    (
+      (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
+      or data['dailyLivingForNineMonths'] == 'no'
+    )
+    and
+    (
+      (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
+      or data['mobilityLikelyToContinue'] == 'no-not-likely'
+    )
+  )
+  or data['hospital-stay'] == 'yes'
+  or data['care-home'] == 'yes'
+  or data['nursing-home'] == 'yes'
+  or data['rescol-stay'] == 'yes'
+  or data['prison-stay'] == 'yes'
 %}
 
 {% block content %}
@@ -493,9 +511,28 @@
 {% endif %}
 
 
-      <p class="govuk-body">
-  <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+      {% if moveToPIPCS %}
+
+<h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
+
+<p class="govuk-body">
+  We are currently unable to process it in this service.
 </p>
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/move-to-pipcs/move-to-pipcs-full-tasklist"
+}) }}
+
+{% else %}
+
+<p class="govuk-body">
+  <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist"not process this application>
+  </a>
+</p>
+
+{% endif %}
+
 
     </div>
   </div>
