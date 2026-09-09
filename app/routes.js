@@ -395,3 +395,23 @@ router.post('/v1/about-your-health/rds-picker', function (req, res) {
 router.post('/v1/about-your-health/rds-picker-manual-entry', function (req, res) {
   res.redirect('/v1/about-your-health/rds-picker-option-selected')
 })
+
+router.post('/v1/make-a-decision/standard-three-yr-award-q', function (req, res) {
+
+  const answer = req.session.data.whereDoYouLive
+
+  if (answer === 'no') {
+    res.redirect('/v1/make-a-decision/award-review-period')
+  } else {
+    res.redirect('/v1/make-a-decision/select-award-review-period')
+  }
+
+})
+
+router.post('/v1/make-a-decision/award-review-period', function (req, res) {
+  res.redirect('/v1/make-a-decision/justifications')
+})
+
+router.post('/v1/make-a-decision/justifications', function (req, res) {
+  res.redirect('/v1/form-letter/form-decision-letter')
+})

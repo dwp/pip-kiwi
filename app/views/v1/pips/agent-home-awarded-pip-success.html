@@ -2,6 +2,14 @@
 {% extends "layouts/pips-nav.html" %}
 
 {% block content %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% call govukNotificationBanner({
+  type: "success"
+}) %}
+  <p class="govuk-body">You have successfully processed this application and sent the decison letter. This person has been awarded PIP.</p>
+    <p class="govuk-body">The sent letter will be available to view in ECMS shortly.</p>
+{% endcall %}
 
 <div class="govuk-width-container">
 
@@ -18,7 +26,7 @@
 </p>
 
       <p class="govuk-body">
-  <a href="/v1/dwp-task/dwp-task-no-tasks-claimed.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Go to DWP task (opens in new tab)</a>
+  <a href="" class="govuk-link" rel="noreferrer noopener" target="_blank">Go to DWP task (opens in new tab)</a>
 </p>
 
       <p class="govuk-body">
@@ -53,10 +61,18 @@
   <a href="#" class="govuk-link govuk-link--no-visited-state">View awarded claims</a>
 </p>
 
+
     </div>
 
   </div>
 
 </div>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "End of prototype go to start", 
+  href: "/v1/pips/agent-home"
+}) }}
 
 {% endblock %}

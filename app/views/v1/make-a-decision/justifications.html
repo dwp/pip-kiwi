@@ -1,0 +1,111 @@
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: "/v1/make-a-decision/make-a-decision-tasklist-full"
+  },
+  {
+    text: "Justification"
+  }
+] %}
+{% extends "layouts/pips-nav.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+
+  <div class="govuk-grid-row">
+
+
+      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Submit your application by 3 December 2021
+
+          </p>
+        </div>
+      </div> -->
+
+<div class="govuk-width-container">
+        
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb" style="margin-top: 0;">
+
+</nav>
+
+          
+
+<br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "reviewPeriodJustification",
+  fieldset: {
+    legend: {
+      html: "Add your justification for setting a x review period",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "under-25",
+      text: "The person is under 25"
+    },
+    {
+      value: "close-to-state-pension-age",
+      text: "The person is close to State Pension age"
+    },
+    {
+      value: "high-level-needs",
+      text: "The person has high-level needs which will either stay the same or get worse"
+    },
+    {
+      value: "likely-to-improve",
+      text: "The person has a health condition or disability that is likely to improve"
+    },
+    {
+      value: "treatment-period",
+      text: "The person is undergoing or waiting for treatment that will last a period of time"
+    },
+    {
+      value: "other-reasons",
+      text: "Other reasons"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+        </div></div></div></div>   <p class="govuk-body">
+  <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p></main>
+        
+      </div>
+
+    </div>{# /govuk-grid-column-two-thirds #}
+
+  </div>{# /govuk-grid-row #}
+  
+
+{% endblock %}

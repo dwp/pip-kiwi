@@ -1,3 +1,15 @@
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: "/v1/make-a-decision/make-a-decision-tasklist"
+  },
+  {
+    text: "Qualifying period and prospective test"
+  }
+] %}
+
+{% extends "layouts/pips-nav.html" %}
+
 {% extends "layouts/pips-nav.html" %}
 
 {% block pageTitle %}
@@ -9,16 +21,6 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
-  Jeff Bridges
-</h1>
-
-<p class="govuk-body">
-  NA 11 22 33 C
-</p>
-
-<br>
 
 <form action="/mobility-nine-months-answer" method="post">
 

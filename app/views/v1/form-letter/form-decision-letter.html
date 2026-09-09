@@ -1,0 +1,442 @@
+{% extends "layouts/pips-nav.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-thirds">
+
+      <h1 class="govuk-heading-l">Check the information you are adding to the decision letter</h1>
+
+      <h2 class="govuk-heading-m">Outcome</h2>
+      <p class="govuk-body">[XX] points for daily living means the applicant...</p>
+      <br>
+      <p class="govuk-body">XX] points for mobility means the applicant...</p>
+
+      <h2 class="govuk-heading-m">Qualifying period and prospective test</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Daily living qualifying period met"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Likely to still have daily living restrictions"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },{
+      key: {
+        text: "Mobility qualifying period met"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },{
+      key: {
+        text: "Likely to still have mobility restrictions"
+      },
+      value: {
+        text: "Yes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Review dates</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Award start date"
+      },
+      value: {
+        text: "2 March 2026"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Award review date"
+      },
+      value: {
+        text: "2 March 2030"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },{
+      key: {
+        text: "End date"
+      },
+      value: {
+        text: "1 March 2030"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+      <h2 class="govuk-heading-m">Supporting documents</h2>
+
+       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Selected documents"
+      },
+      value: {
+  html: "
+    <ul class='govuk-list govuk-list--bullet'>
+      <li>Information provided by care home</li>
+      <li>Care plan</li>
+      <li>Report from consultant</li>
+    </ul>
+  "
+},
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+
+
+      <h2 class="govuk-heading-m">Daily living scoring</h2>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Preparing food" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Taking nutrition" },
+        value: { html: "<strong>0 out of 10</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Managing therapy and monitoring a health condition" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Washing and bathing" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Managing toilet needs and incontinence" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Dressing and undressing" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Communicating verbally" },
+        value: { html: "<strong>0 out of 12</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Reading and understanding signs, symbols and words" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Engaging with other people face to face" },
+        value: { html: "<strong>0 out of 8</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-4">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Making budgeting decisions" },
+        value: { html: "<strong>0 out of 6</strong><br>Blank" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: { items: [{ href: "#", text: "Change" }] }
+      }
+    ]
+  }) }}
+</div>
+ 
+      <h2 class="govuk-heading-m">Mobility scoring</h2>
+
+<div class="govuk-!-margin-bottom-6">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Planning and following journeys" },
+        value: { html: "<strong>0 out of 12</strong><br>Blank" },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change"
+            }
+          ]
+        }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+</div>
+
+<div class="govuk-!-margin-bottom-6">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: { text: "Moving around" },
+        value: { html: "<strong>0 out of 12</strong><br>Blank" },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change"
+            }
+          ]
+        }
+      },
+      {
+        key: { text: "Justification" },
+        value: { text: "" },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+</div>
+
+      <h2 class="govuk-heading-m">What you need to do now</h2>
+      <p class="govuk-body">Select the appropriate letter template and copy the information on this page to the relevant sections</p>
+      <p class="govuk-body">You will then need to add the payment details once they are available in the applicant's records. The letter will be ready to send once you've added the payment details. The applicant's address is in their registration (PIP1).</p>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue", 
+  href: "/v1/pips/agent-home-awarded-pip-success"
+}) }}
+      
+
+      <p class="govuk-body">
+  <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,24 +1,28 @@
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: "/v1/make-a-decision/make-a-decision-tasklist"
+  },
+  {
+    text: "Record health conditions or disabilities"
+  }
+] %}
 {% extends "layouts/pips-nav.html" %}
+
 
 {% block pageTitle %}
   Task list template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
+
 {% block containerStart %}{% endblock %}
 
 {% block content %}
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
-  Jeff Bridges
-</h1>
-
-<p class="govuk-body">
-  NA 11 22 33 C
-</p>
-
-<br>
 
 <form class="form" action="/v1/about-your-health/rds-picker" method="post">
 

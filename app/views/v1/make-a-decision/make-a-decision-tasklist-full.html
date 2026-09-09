@@ -27,13 +27,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
-  Jeff Bridges
-</h1>
-
-<p class="govuk-body">
-  NA 11 22 33 C
-</p>
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
@@ -59,8 +52,7 @@
             title: {
               text: "Review and select evidence used"
             },
-            href: "/v1/make-a-decision/review-and-select-evidence-used",
-            status: incompleteStatus
+            href: "/v1/make-a-decision/review-and-select-evidence-used"
           }
         ]
       }) }}
@@ -161,6 +153,7 @@
 
       {% from "govuk/components/table/macro.njk" import govukTable %}
       
+      
     {{ govukTable({
   firstCellIsHeader: false,
   head: [
@@ -186,10 +179,10 @@
       },
       {
   html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.preparingFoodStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
 }
     ],
@@ -203,10 +196,10 @@
       },
       {
   html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.takingNutritionStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
 }
     ],
@@ -220,10 +213,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.managingTherapyStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -237,10 +230,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.washingBathingStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -254,10 +247,11 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.toiletNeedsStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+
   )
   }
 ],
@@ -271,10 +265,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.dressingUndressingStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -288,10 +282,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.communicateVerballyStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -305,10 +299,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.readUnderstandStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -322,10 +316,11 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.engagingOthersStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
+
   )
   }
 ],
@@ -339,10 +334,10 @@
   },
   {
     html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.budgetDecisionsStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
   }
 ],
@@ -388,10 +383,10 @@
       },
       {
         html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.planningJourneysStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
       }
     ],
@@ -405,10 +400,10 @@
       },
       {
         html: (
-    '<strong class="govuk-tag govuk-tag--blue">Complete</strong>'
+    'Completed'
     if data.movingAroundStatus == "Complete"
     else
-    '<strong class="govuk-tag govuk-tag--grey">To do</strong>'
+    '<strong class="govuk-tag govuk-tag--blue">Incomplete</strong>'
   )
       }
     ],
@@ -428,10 +423,12 @@
 }) }}
 
 {% if dailyLivingComplete and mobilityComplete %}
-<p class="govuk-body">govuk-body</p>
+<h1 class="govuk-heading-m">You have selected and justified your descriptors-</h1>
+<p class="govuk-body">This applicant will be awarded PIP</p>
 
 {{ govukButton({
-  text: "Continue"
+  text: "Continue",
+  href: "/v1/make-a-decision/standard-three-yr-award-q"
 }) }}
 
 {% endif %}
