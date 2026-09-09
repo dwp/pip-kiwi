@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = " Did the applicant meet the 3 month qualifying period for mobility when they submitted their application? - PIP Service" %}
 {% set breadcrumbs = [
   {
     text: "Make a decision",
@@ -29,13 +29,10 @@
   name: "mobilityQualifyingPeriod",
   fieldset: {
     legend: {
-      text: "Did the applicant meet the 3 month qualifying period for mobility when they submitted their application on 1 January 2024 ?",
+      text: "Did the applicant meet the 3 month qualifying period for mobility when they submitted their application on <application submitted date>?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
-  },
-  hint: {
-    text: "The assessment provider indicated they had mobility restrictions for at least 3 months before their assessment on DD M YYY."
   },
   items: [
     {
@@ -44,11 +41,11 @@
     },
     {
       value: "no-enter-date",
-      text: "No – I need to enter the date the qualifying period will be met"
+      text: "No, I need to enter the date the qualifying period will be met"
     },
     {
       value: "no-not-met",
-      text: "No – they will not meet the qualifying period for this application"
+      text: "No, they will not meet the qualifying period for this application"
     },
     {
       divider: "or"

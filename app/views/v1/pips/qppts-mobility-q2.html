@@ -1,5 +1,5 @@
-{{% set pageTitle = "page title here" %}
-% set breadcrumbs = [
+{% set pageTitle = " Is the applicant likely to have mobility restrictions 9 months after DD Month YYYY? - PIP Service" %}
+{% set breadcrumbs = [
   {
     text: "Make a decision",
     href: "/v1/make-a-decision/make-a-decision-tasklist"
@@ -31,13 +31,10 @@
   name: "mobilityLikelyToContinue",
   fieldset: {
     legend: {
-      text: "Is the applicant likely to have mobility restrictions 9 months after 1 January 2024?",
+      text: "Is the applicant likely to have mobility restrictions 9 months after <application submitted date>?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
-  },
-  hint: {
-    text: "The assessment provider indicated they are likely to have mobility restrictions 9 months after their assessment on undefined undefined undefined."
   },
   items: [
     {
@@ -45,9 +42,9 @@
       text: "Yes"
     },
     {
-      value: "no-not-likely",
-      text: "No – the restrictions are unlikely to last 9 months"
-    }
+  value: "no",
+  text: "No, the restrictions are unlikely to last 9 months"
+}
   ]
 }) }}
 

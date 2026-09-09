@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = " Did the applicant meet the 3 month qualifying period for daily living when they submitted their application? - PIP Service" %}
 {% set breadcrumbs = [
   {
     text: "Make a decision",
@@ -11,9 +11,6 @@
 
 {% extends "layouts/pips-nav.html" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
 
 {% block containerStart %}{% endblock %}
 
@@ -29,13 +26,10 @@
   name: "dailyLivingQualifyingPeriod",
   fieldset: {
     legend: {
-      text: "Did the applicant meet the 3 month qualifying period for daily living when they submitted their application on 1 January 2024 ?",
+      text: "Did the applicant meet the 3 month qualifying period for daily living when they submitted their application on 10 March 2026?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
-  },
-  hint: {
-    text: "The assessment provider indicated they had daily living restrictions for at least 3 months before their assessment on 1 March 2024."
   },
   items: [
     {
@@ -44,11 +38,11 @@
     },
     {
       value: "no-enter-date",
-      text: "No – I need to enter the date the qualifying period will be met"
+      text: "No, I need to enter the date the qualifying period will be met"
     },
     {
       value: "no-not-met",
-      text: "No – they will not meet the qualifying period for this application"
+      text: "No, they will not meet the qualifying period for this application"
     },
     {
       divider: "or"

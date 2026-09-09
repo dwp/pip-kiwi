@@ -21,6 +21,75 @@
   data.movingAroundStatus == "Done"
 %}
 
+{% set doneStatus = {
+  text: "Done"
+} %}
+
+{% set issueStatus = {
+  tag: {
+    text: "Issue",
+    classes: "govuk-tag--red"
+  }
+} %}
+
+{% set inProgressStatus = {
+  tag: {
+    text: "In progress",
+    classes: "govuk-tag--yellow"
+  }
+} %}
+
+{% set toDoStatus = {
+  tag: {
+    text: "To do",
+    classes: "govuk-tag--blue"
+  }
+  
+} %}
+{% set dailyLivingStatus =
+  issueStatus if (
+    data['dailyLivingQualifyingPeriod'] != 'yes'
+    and data['dailyLivingQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['dailyLivingForNineMonths'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['dailyLivingQualifyingPeriod'] == 'yes'
+        and data['dailyLivingForNineMonths'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['dailyLivingQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
+{% set mobilityStatus =
+  issueStatus if (
+    data['mobilityQualifyingPeriod'] != 'yes'
+    and data['mobilityQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['mobilityLikelyToContinue'] == 'no-not-likely'
+    )
+    else (
+      doneStatus if (
+        data['mobilityQualifyingPeriod'] == 'yes'
+        and data['mobilityLikelyToContinue'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['mobilityQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -31,16 +100,7 @@
 
       <h2 class="govuk-heading-m">Supporting evidence</h2>
 
-      {% set doneStatus = {
-        text: "Done"
-      } %}
-
-      {% set toDoStatus = {
-        tag: {
-          text: "To do",
-          classes: "govuk-tag--blue"
-        }
-      } %}
+      
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
 
@@ -66,14 +126,14 @@
               text: "Daily living"
             },
             href: "/v1/pips/qppts-daily-living-q1",
-            status: (doneStatus if dailyLivingDone else toDoStatus)
+            status: dailyLivingStatus
           },
           {
             title: {
               text: "Motability"
             },
             href: "/v1/pips/qppts-mobility-q1",
-            status: (doneStatus if mobilityDone else toDoStatus)
+            status: mobilityStatus
           }
         ]
       }) }}

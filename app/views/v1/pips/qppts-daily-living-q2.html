@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = " Is the applicant likely to have daily living restrictions 9 months after DD Month YYYY? - PIP Service" %}
 {% set breadcrumbs = [
   {
     text: "Make a decision",
@@ -28,13 +28,10 @@
   name: "dailyLivingForNineMonths",
   fieldset: {
     legend: {
-      text: "Is the applicant likely to have daily living restrictions 9 months after 1 January 2024?",
+      text: "Is the applicant likely to have daily living restrictions 9 months after <application submitted date>?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
-  },
-  hint: {
-    text: "The assessment provider indicated they are likely to have daily living restrictions 9 months after their assessment on undefined undefined undefined."
   },
   items: [
     {
@@ -43,7 +40,7 @@
     },
     {
       value: "no",
-      text: "No – the restrictions are unlikely to last 9 months"
+      text: "No, the restrictions are unlikely to last 9 months"
     }
   ]
 }) }}

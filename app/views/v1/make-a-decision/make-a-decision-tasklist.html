@@ -14,24 +14,72 @@
       <h2 class="govuk-heading-m">Supporting evidence</h2>
 
       {% set doneStatus = {
-        text: "Done"
-      } %}
+  text: "Done"
+} %}
 
-      {% set toDoStatus = {
-        tag: {
-          text: "To do",
-          classes: "govuk-tag--blue"
-        }
-      } %}
+{% set issueStatus = {
+  tag: {
+    text: "Issue",
+    classes: "govuk-tag--red"
+  }
+} %}
 
-      {% set dailyLivingDone =
-  data['dailyLivingQualifyingPeriod']
-  and data['dailyLivingForNineMonths']
+{% set inProgressStatus = {
+  tag: {
+    text: "In progress",
+    classes: "govuk-tag--yellow"
+  }
+} %}
+
+{% set toDoStatus = {
+  tag: {
+    text: "To do",
+    classes: "govuk-tag--blue"
+  }
+} %}
+
+ {% set dailyLivingStatus =
+  issueStatus if (
+    data['dailyLivingQualifyingPeriod'] != 'yes'
+    and data['dailyLivingQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['dailyLivingForNineMonths'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['dailyLivingQualifyingPeriod'] == 'yes'
+        and data['dailyLivingForNineMonths'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['dailyLivingQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
 %}
 
-{% set mobilityDone =
-  data['mobilityQualifyingPeriod']
-  and data['mobilityLikelyToContinue']
+{% set mobilityStatus =
+  issueStatus if (
+    data['mobilityQualifyingPeriod'] != 'yes'
+    and data['mobilityQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['mobilityLikelyToContinue'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['mobilityQualifyingPeriod'] == 'yes'
+        and data['mobilityLikelyToContinue'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['mobilityQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
 %}
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
@@ -54,19 +102,19 @@
         idPrefix: "second-section",
         items: [
           {
-            title: {
-              text: "Daily living"
-            },
-            href: "/v1/pips/qppts-daily-living-q1",
-            status: (doneStatus if dailyLivingDone else toDoStatus)
-          },
+  title: {
+    text: "Daily living"
+  },
+  href: "/v1/pips/qppts-daily-living-q1",
+  status: dailyLivingStatus
+},
           {
-            title: {
-              text: "Mobility"
-            },
-            href: "/v1/pips/qppts-mobility-q1",
-            status: (doneStatus if mobilityDone else toDoStatus)
-          }
+  title: {
+    text: "Mobility"
+  },
+  href: "/v1/pips/qppts-mobility-q1",
+  status: mobilityStatus
+}
         ]
       }) }}
 
@@ -80,7 +128,19 @@
               text: "Hospital or similar institutions"
             },
             href: "/v1/pips/payability-q1",
-            status: (doneStatus if data['hospitalStayStatus'] else toDoStatus)
+            status: (
+  issueStatus
+  if data['hospital-stay'] == 'yes'
+  else (
+    inProgressStatus
+    if data['hospital-stay'] == 'pause'
+    else (
+      doneStatus
+      if data['hospital-stay'] == 'no'
+      else toDoStatus
+    )
+  )
+)
           },
           {
             title: {
