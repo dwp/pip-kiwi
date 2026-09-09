@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = " Make a decision - PIP Service" %}
 {% extends "layouts/pips-nav.html" %}
 
 
@@ -11,7 +11,7 @@
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
-      <h2 class="govuk-heading-m">Supporting evidence</h2>
+      <h2 class="govuk-heading-m">Review supporting documents</h2>
 
       {% set doneStatus = {
   text: "Done"
@@ -110,14 +110,14 @@
         items: [
           {
             title: {
-              text: "Review and select evidence used"
+              text: "Review information and select documents used"
             },
             href: "/v1/make-a-decision/review-and-select-evidence-used"
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Qualifying period and prospective test</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
@@ -251,7 +251,7 @@
 
 {{ govukButton({
   text: "Continue",
-  href: "/v1/move-to-pipcs/move-to-pipcs-full-tasklist"
+  href: "/v1/move-to-pipcs/move-to-pipcs-half-tasklist"
 }) }}
 
 {% else %}

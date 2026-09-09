@@ -2,6 +2,13 @@
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% if breadcrumbs %}
+    {{ govukBreadcrumbs({
+      items: breadcrumbs
+    }) }}
+  {% endif %}
 
 {% block content %}
 
@@ -33,6 +40,7 @@
     </form>
 
   </div>
+
 </div>
 
 {% endblock %}

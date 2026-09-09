@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = " Make a decision - PIP Service" %}
 {% extends "layouts/pips-nav.html" %}
 
 
@@ -116,7 +116,7 @@
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
-      <h2 class="govuk-heading-m">Supporting evidence</h2>
+      <h2 class="govuk-heading-m">Review supporting documents</h2>
 
       
 
@@ -127,14 +127,14 @@
         items: [
           {
             title: {
-              text: "Review and select evidence used"
+              text: "Review information and select documents used"
             },
             href: "/v1/make-a-decision/review-and-select-evidence-used"
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Qualifying period and prospective test</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
@@ -148,7 +148,7 @@
           },
           {
             title: {
-              text: "Motability"
+              text: "Mobility"
             },
             href: "/v1/pips/qppts-mobility-q1",
             status: mobilityStatus
@@ -156,7 +156,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Payability checks</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Complete payability checks</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
@@ -213,29 +213,31 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Health conditions or disabilities</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Record health conditions or disabilities</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
         items: [
           {
             title: {
-              text: "Record health conditions or disabilities"
+              text: "Health conditions or disabilities"
             },
             href: "/v1/about-your-health/rds-picker",
             status: (doneStatus if data['primaryCondition'] or data['primaryConditionManual'] else toDoStatus)
           }
         ]
       }) }}
+      <br>
 
       {% from "govuk/components/table/macro.njk" import govukTable %}
-      
+                  <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each daily living activity</h2>
+
       
     {{ govukTable({
   firstCellIsHeader: false,
   head: [
     {
-      text: "Daily living activities"
+      text: "Activity"
     },
     {
       text: "Score",
@@ -368,7 +370,7 @@
 ],
     [
   {
-     html: '<a href="/v1/activity-descriptors/read-understand">Reading and understanding</a>'
+     html: '<a href="/v1/activity-descriptors/read-understand">Reading and understanding signs, symbols and words</a>'
   },
   {
     text: "0",
@@ -434,12 +436,13 @@
 }) }}
 
       {% from "govuk/components/table/macro.njk" import govukTable %}
-      
+                        <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each mobility activity</h2>
+
     {{ govukTable({
   firstCellIsHeader: false,
   head: [
     {
-      text: "Mobility activities"
+      text: "Activity"
     },
     {
       text: "Score",

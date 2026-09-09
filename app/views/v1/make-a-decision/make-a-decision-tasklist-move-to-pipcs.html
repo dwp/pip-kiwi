@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = "Make a decision - PIP Service" %}
 {% extends "layouts/pips-nav.html" %}
 
 
@@ -11,7 +11,7 @@
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
-      <h2 class="govuk-heading-m">Supporting evidence</h2>
+      <h2 class="govuk-heading-m">Review information and select documents used</h2>
 
       {% set doneStatus = {
         text: "Done"
@@ -48,7 +48,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Qualifying period and prospective test</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
@@ -70,7 +70,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Payability checks</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Complete payability checks</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
