@@ -1,4 +1,4 @@
-{% set pageTitle = "Move to PIPCS" %}
+{% set pageTitle = " Move to PIPCS - PIP Service" %}
 {% extends "layouts/pips-nav.html" %}
 
 
@@ -7,44 +7,24 @@
 
 {% block content %}
 
-<form class="form" action="/v1/move-to-pipcs/move-to-pipcs-two" method="post">
+<form class="form" action="" method="post">
 
-    <h1 class="govuk-heading-l">There are issues with this application</h1>
-    <p class="govuk-body">You can move the application to PIPCS or continue to make a decision.</p>
+    <h1 class="govuk-heading-xl">Move to PIPCS</h1>
+    <p class="govuk-body">Select ‘Identified need to move to PIPCS’ in event history to complete this action. </p>
 
     <br>
 
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{{ govukRadios({
-  name: "applicationIssue",
-  fieldset: {
-    legend: {
-      text: "What do you want to do now?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "make-decision",
-      text: "Continue to make a decision"
-    },
-    {
-      value: "move-pipcs",
-      text: "Move application to PIPCS - this will be end of journey in prototype."
-    }
-  ]
-}) }}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
   text: "Continue", 
-  href: "/v1/make-a-decision/make-a-decision-tasklist-full"
+  href: ""
 }) }}
 
+    <p class="govuk-body">(End of prototype.) </p>
 
 
     </div>
