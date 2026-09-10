@@ -95,10 +95,10 @@
       (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
       or data['dailyLivingForNineMonths'] == 'no'
     )
-    and
+    or
     (
       (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
-      or data['mobilityLikelyToContinue'] == 'no-not-likely'
+      or data['mobilityLikelyToContinue'] == 'no'
     )
   )
   or data['hospital-stay'] == 'yes'
@@ -107,8 +107,6 @@
   or data['rescol-stay'] == 'yes'
   or data['prison-stay'] == 'yes'
 %}
-
-{% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

@@ -88,7 +88,7 @@
       (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
       or data['dailyLivingForNineMonths'] == 'no'
     )
-    and
+    or
     (
       (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
       or data['mobilityLikelyToContinue'] == 'no'
@@ -139,7 +139,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Payability checks</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Complete payability checks</h2>
 
       {{ govukTaskList({
         idPrefix: "second-section",
