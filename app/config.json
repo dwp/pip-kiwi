@@ -1,5 +1,5 @@
 {
-  "serviceName": "Decide",
+  "serviceName": "PIP - Kiwi",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {
