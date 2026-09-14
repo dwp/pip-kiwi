@@ -101,6 +101,13 @@
   or data['prison-stay'] == 'yes'
 %}
 
+{% set allPayabilityDone =
+  data['hospital-stay'] == 'no'
+  and data['care-home'] == 'no'
+  and data['nursing-home'] == 'no'
+  and data['rescol-stay'] == 'no'
+  and data['prison-stay'] == 'no'
+%}
 
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
@@ -172,42 +179,56 @@
   issueStatus
   if data['care-home'] == 'yes'
   else (
+    inProgressStatus
+    if data['care-home'] == 'pause'
+  else (
     doneStatus
     if data['care-home'] == 'no'
     else toDoStatus
   )
 )
+            )
           },
+
           {
-            title: {
-              text: "Nursing homes"
-            },
-            href: "/v1/pips/payability-q3",
-            status: (
-  issueStatus
-  if data['nursing-home'] == 'yes'
-  else (
-    doneStatus
-    if data['nursing-home'] == 'no'
-    else toDoStatus
+  title: {
+    text: "Nursing homes"
+  },
+  href: "/v1/pips/payability-q3",
+  status: (
+    issueStatus
+    if data['nursing-home'] == 'yes'
+    else (
+      inProgressStatus
+      if data['nursing-home'] == 'pause'
+      else (
+        doneStatus
+        if data['nursing-home'] == 'no'
+        else toDoStatus
+      )
+    )
   )
-)
-          },
-          {
-            title: {
-              text: "Residential schools or colleges"
-            },
-            href: "/v1/pips/payability-q4",
-            status: (
-  issueStatus
-  if data['rescol-stay'] == 'yes'
-  else (
-    doneStatus
-    if data['rescol-stay'] == 'no'
-    else toDoStatus
+},
+{
+  title: {
+    text: "Residential schools or colleges"
+  },
+  href: "/v1/pips/payability-q4",
+  status: (
+    issueStatus
+    if data['rescol-stay'] == 'yes'
+    else (
+      inProgressStatus
+      if data['rescol-stay'] == 'pause'
+      else (
+        doneStatus
+        if data['rescol-stay'] == 'no'
+        else toDoStatus
+      )
+    )
   )
-)
-          },
+},
+
           {
             title: {
               text: "Prison or legal custody"
@@ -217,9 +238,13 @@
   issueStatus
   if data['prison-stay'] == 'yes'
   else (
-    doneStatus
-    if data['prison-stay'] == 'no'
-    else toDoStatus
+    inProgressStatus
+    if data['prison-stay'] == 'pause'
+    else (
+      doneStatus
+      if data['prison-stay'] == 'no'
+      else toDoStatus
+    )
   )
 )
           }
@@ -254,12 +279,11 @@
   href: "/v1/move-to-pipcs/move-to-pipcs-half-tasklist"
 }) }}
 
-{% else %}
+{% elif allPayabilityDone %}
 
-<p class="govuk-body">
-  <a href="/v1/move-to-pipcs/move-to-pipcs-half-tasklist"not process this application>
-  </a>
-</p>
+<script>
+  window.location.href = "/v1/make-a-decision/make-a-decision-tasklist-full";
+</script>
 
 {% endif %}
 

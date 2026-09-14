@@ -123,13 +123,13 @@ router.post('/payability-q5-answer', function (request, response) {
 
   if (prisonStay == 'pause') {
 
-    response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   } else {
 
     request.session.data['prisonStayStatus'] = 'Done'
 
-    response.redirect('/v1/make-a-decision/make-a-decision-tasklist-full')
+    response.redirect('/v1/make-a-decision/make-a-decision-tasklist')
 
   }
 
