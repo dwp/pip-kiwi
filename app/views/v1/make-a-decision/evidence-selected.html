@@ -10,8 +10,6 @@
 ] %}
 {% extends "layouts/pips-nav.html" %}
 
-{% extends "layouts/pips-nav.html" %}
-
 
 {% block containerStart %}{% endblock %}
 
@@ -21,6 +19,7 @@
 
 
       <h1 class="govuk-heading-xl">Review the information and select documents you used</h1>
+      
 
       <h2 class="govuk-heading-m">Review supplied information</h2>
       <ul class="govuk-list">
@@ -37,9 +36,9 @@
 </ul>
 
       <h2 class="govuk-heading-m">Select which documents you used</h2>
-
+      
 {{ govukTaskList({
-  idPrefix: "company-details",
+  idPrefix: "evidence-used",
   items: [
     {
       title: {
@@ -47,14 +46,22 @@
       },
       href: "/v1/make-a-decision/which-documents-used",
       status: {
-        tag: {
-          text: "Done",
-          classes: "govuk-tag--grey"
-        }
+          text: "Done"
       }
     }
   ]
 }) }}
+
+{% if data['evidenceUsed'] %}
+
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4">
+  {% for document in data['evidenceUsed'] %}
+    <li>{{ document }}</li>
+  {% endfor %}
+</ul>
+
+
+{% endif %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 

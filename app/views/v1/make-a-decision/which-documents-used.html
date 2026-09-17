@@ -1,4 +1,5 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = "Documents used to make decision" %}
+
 {% set breadcrumbs = [
   {
     text: "Make a decision",
@@ -8,75 +9,98 @@
     text: "Review and select evidence used"
   }
 ] %}
-{% extends "layouts/pips-nav.html" %}
 
 {% extends "layouts/pips-nav.html" %}
-
-
 
 {% block containerStart %}{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
 
 
-     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-{{ govukCheckboxes({
-  name: "waste",
-  fieldset: {
-    legend: {
-      text: "Which documents did you use when making your decision?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: "This will be referenced in the decsion letter. Select all that apply."
-  },
-  items: [
-    {
-      value: "carcasses",
-      text: "example"
-    },
-    {
-      value: "mines",
-      text: "example"
-    },
-    {
-      value: "farm",
-      text: "example"
-    },
-    {
-      value: "farm",
-      text: "example"
-    },
-    {
-      value: "farm",
-      text: "example"
-    },
-    {
-      value: "farm",
-      text: "example"
-    },
-    {
-      value: "farm",
-      text: "example"
-    }
-  ]
-}) }}
+    <form method="post" action="/v1/make-a-decision/evidence-selected">
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
+    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
 
+    {{ govukCheckboxes({
+      idPrefix: "evidence-used",
+      name: "evidenceUsed",
+      fieldset: {
+        legend: {
+          text: "Which documents did you use when making your decision?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "This will be referenced in the decision letter. Select all that apply."
+      },
+      items: [
+        {
+          value: "care-home-information",
+          text: "Information provided by care home"
+        },
+        {
+          value: "care-plan",
+          text: "Care plan"
+        },
+        {
+          value: "certificate-vision-impairment",
+          text: "Certificate of vision impairment"
+        },
+        {
+          value: "community-mental-health-team-information",
+          text: "Information provided by community mental health team"
+        },
+        {
+          value: "health-professional-consultation-report",
+          text: "Health professional consultation report"
+        },
+        {
+          value: "customer-compliance-officer-information",
+          text: "Information provided by Customer Compliance Officer"
+        },
+        {
+          value: "consultant-letter",
+          text: "Letter from consultant"
+        },
+        {
+          value: "counsellor-report",
+          text: "Report from counsellor"
+        },
+        {
+          value: "telephone-advice-counsellor",
+          text: "Telephone advice from counsellor"
+        },
+        {
+          value: "day-centre-information",
+          text: "Information provided by day centre"
+        }
+      ]
+      
+    }) }}
+
+ <p class="govuk-body">
+      Full evidence list pending...
+    </p>
+   
 {{ govukButton({
   text: "Continue",
   href: "/v1/make-a-decision/evidence-selected"
 }) }}
 
-<p class="govuk-body">
-  <a href="/v1/move-to-pipcs/move-to-pipcs-half-tasklist" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
-</p>
-    </div>
+</form>
+
+
+    <p class="govuk-body">
+      <a href="/v1/move-to-pipcs/move-tolf-tasklist">
+        I cannot process this application
+      </a>
+    </p>
+
   </div>
+</div>
 {% endblock %}

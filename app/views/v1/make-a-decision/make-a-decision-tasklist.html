@@ -109,6 +109,18 @@
   and data['prison-stay'] == 'no'
 %}
 
+{% set allSectionsDone =
+  data['dailyLivingQualifyingPeriod'] == 'yes'
+  and data['dailyLivingForNineMonths'] == 'yes'
+  and data['mobilityQualifyingPeriod'] == 'yes'
+  and data['mobilityLikelyToContinue'] == 'yes'
+  and data['hospital-stay'] == 'no'
+  and data['care-home'] == 'no'
+  and data['nursing-home'] == 'no'
+  and data['rescol-stay'] == 'no'
+  and data['prison-stay'] == 'no'
+%}
+
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
 
@@ -279,7 +291,7 @@
   href: "/v1/move-to-pipcs/move-to-pipcs-half-tasklist"
 }) }}
 
-{% elif allPayabilityDone %}
+{% elif allSectionsDone %}
 
 <script>
   window.location.href = "/v1/make-a-decision/make-a-decision-tasklist-full";

@@ -1,10 +1,10 @@
-{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "Check your answers: about your health" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
 {% endblock %}
-
-{% block containerStart %}{% endblock %}
 
 {% block content %}
 

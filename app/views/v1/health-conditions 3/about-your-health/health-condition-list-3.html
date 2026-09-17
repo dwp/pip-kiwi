@@ -1,10 +1,31 @@
-{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "What health conditions or disabilities do you have?" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+{% include "apply-for-pip/includes/phase-banner.html" %}
+{% include "apply-for-pip/includes/back-link.html" %}
 {% endblock %}
 
-{% block containerStart %}{% endblock %}
+{% block head %}
+{{super()}}
+
+<link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete.min.css" />
+<script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
+<script src="/public/javascripts/fuse.js"></script>
+
+<style>
+  .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
 
 
 

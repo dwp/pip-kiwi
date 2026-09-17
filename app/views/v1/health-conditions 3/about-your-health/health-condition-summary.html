@@ -1,10 +1,13 @@
-{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "What health conditions or disabilities do you have?" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+  {% include "apply-for-pip/includes/back-link.html" %}
 {% endblock %}
 
-{% block containerStart %}{% endblock %}
+{% block content %}
 
 
 <div class="govuk-grid-row">

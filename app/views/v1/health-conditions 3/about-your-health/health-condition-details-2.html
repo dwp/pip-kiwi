@@ -1,10 +1,11 @@
-{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "About your health conditions or disabilities" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+  {% include "apply-for-pip/includes/back-link.html" %}
 {% endblock %}
-
-{% block containerStart %}{% endblock %}
 
 {% block content %}
 
@@ -14,8 +15,8 @@
     <form action="#" method="post" novalidate>
 
       {{ govukTextarea({
-        name: "condition-detail-6",
-        id: "condition-detail-6",
+        name: "condition-detail-5",
+        id: "condition-detail-5",
         rows: "18",
         label: {
           text: "About this condition or disability" + data['conditions'][0]['condition_name'] | lower,
@@ -33,7 +34,7 @@
             <li>any side effects these have on you</li>
           </ul>"
         },
-        value: data["condition-detail-6"]
+        value: data["condition-detail-5"]
       }) }}
 
       <!-- <div class="govuk-form-group">

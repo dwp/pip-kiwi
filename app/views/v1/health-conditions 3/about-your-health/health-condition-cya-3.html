@@ -1,10 +1,10 @@
-{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "Check your answers: about your health" %}
 
-{% block pageTitle %}
-  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
 {% endblock %}
-
-{% block containerStart %}{% endblock %}
 
 {% block content %}
 
@@ -20,10 +20,10 @@
                   Condition or disability name
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['condition-name-5'] | capitalize }}
+                  {{ data['condition-name-6'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="./health-condition-list-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                  <a class="govuk-link" href="./health-condition-list-3">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -31,10 +31,10 @@
                   Approximate start date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['condition-date-5'] | capitalize }}
+                  {{ data['condition-date-6'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="./health-condition-list-2">Change<span class="govuk-visually-hidden"> start date</span></a>
+                  <a class="govuk-link" href="./health-condition-list-3">Change<span class="govuk-visually-hidden"> start date</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -42,10 +42,10 @@
                   About this condition or disability
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['condition-detail-5'] | capitalize }}
+                  {{ data['condition-detail-6'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="./health-condition-details-2">Change<span class="govuk-visually-hidden"> about this condition</span></a>
+                  <a class="govuk-link" href="./health-condition-details-3">Change<span class="govuk-visually-hidden"> about this condition</span></a>
                 </dd>
               </div>
            
