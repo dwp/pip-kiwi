@@ -3,6 +3,16 @@
 
 {% block content %}
 
+
+
+{% set payabilityDone =
+  data.hospitalStayStatus and
+  data.careHomeStatus and
+  data.nursingHomeStatus and
+  data.rescolStayStatus and
+  data.prisonStayStatus
+%}
+
 {% set dailyLivingDone =
   data.preparingFoodStatus == "Done" and
   data.takingNutritionStatus == "Done" and
@@ -19,6 +29,13 @@
 {% set mobilityDone =
   data.planningJourneysStatus == "Done" and
   data.movingAroundStatus == "Done"
+%}
+
+{% set allTasksDone =
+  dailyLivingDone and
+  mobilityDone and
+  qualifyingPeriodDone and
+  payabilityDone
 %}
 
 {% set doneStatus = {
@@ -87,6 +104,21 @@
       )
     )
   )
+%}
+
+{% set qualifyingPeriodDone =
+  data.dailyLivingQualifyingPeriod == "yes" and
+  data.dailyLivingForNineMonths == "yes" and
+  data.mobilityQualifyingPeriod == "yes" and
+  data.mobilityLikelyToContinue == "yes"
+%}
+
+{% set payabilityDone =
+  data.hospitalStayStatus and
+  data.careHomeStatus and
+  data.nursingHomeStatus and
+  data.rescolStayStatus and
+  data.prisonStayStatus
 %}
 
 {% set moveToPIPCS =
@@ -533,32 +565,32 @@
   (data.movingAroundDescriptor | default('0') | int)
 %}
 
-{% if dailyLivingScore >= 8 or mobilityScore >= 8 %}
+{% if allTasksDone %}
 
-<h1 class="govuk-heading-m">
-  You have selected and justified your descriptors
-</h1>
+  {% if dailyLivingScore >= 8 or mobilityScore >= 8 %}
 
-<p class="govuk-body">
-  This applicant will be awarded PIP
-</p>
+    <h1 class="govuk-heading-m">
+      You have selected and justified your descriptors
+    </h1>
 
-{{ govukButton({
-  text: "Continue",
-  href: "/v1/make-a-decision/standard-three-yr-award-q"
-}) }}
+    <p class="govuk-body">
+      This applicant will be awarded PIP
+    </p>
 
-{% else %}
+  {% else %}
 
-<h1 class="govuk-heading-m">
-  You have selected and justified your descriptors
-</h1>
+    <h1 class="govuk-heading-m">
+      You have selected and justified your descriptors
+    </h1>
 
-<p class="govuk-body">
-  This applicant will not be awarded PIP
-</p>
+    <p class="govuk-body">
+      This applicant will not be awarded PIP
+    </p>
+
+  {% endif %}
 
 {% endif %}
+
 
 <p class="govuk-body">
   <a href="">
