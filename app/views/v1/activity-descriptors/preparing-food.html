@@ -16,53 +16,56 @@
     text: "Award review period"
   }
 ] %}
+
+
 {% set question = "Which descriptor do you want to select for preparing food?" %}
 
 {% set descriptorField = "preparingFoodDescriptor" %}
 
 {% set radioItems = [
   {
-    value: "Descriptor A (0 points)",
+    value: "0",
     text: "Descriptor A (0 points)",
     hint: {
       text: "Can prepare and cook a simple meal unaided."
     }
   },
   {
-    value: "Descriptor B (2 points)",
+    value: "2",
     text: "Descriptor B (2 points)",
     hint: {
       text: "Needs to use an aid or appliance to prepare or cook a simple meal."
     }
   },
   {
-    value: "Descriptor C (2 points)",
+    value: "2",
     text: "Descriptor C (2 points)",
     hint: {
       text: "Cannot cook a simple meal using a conventional cooker but can do so using a microwave."
     }
   },
   {
-    value: "Descriptor D (2 points)",
+    value: "2",
     text: "Descriptor D (2 points)",
     hint: {
       text: "Needs prompting to be able to prepare or cook a simple meal."
     }
   },
   {
-    value: "Descriptor E (4 points)",
+    value: "4",
     text: "Descriptor E (4 points)",
     hint: {
       text: "Needs supervision or assistance to either prepare or cook a simple meal."
     }
   },
   {
-    value: "Descriptor F (8 points)",
+    value: "8",
     text: "Descriptor F (8 points)",
     hint: {
       text: "Cannot prepare and cook food."
     }
   }
 ] %}
+
 
 {% extends "layouts/descriptor.html" %}

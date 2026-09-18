@@ -251,7 +251,7 @@
         html: '<a href="/v1/activity-descriptors/preparing-food">Preparing food</a>'
       },
       {
-        text: "0",
+        text: data.preparingFoodDescriptor or "0",
         format: "numeric"
       },
       {
@@ -268,7 +268,7 @@
         html: '<a href="/v1/activity-descriptors/taking-nutrition">Taking nutrition</a>'
       },
       {
-        text: "0",
+        text: data.takingNutritionDescriptor or "0",
         format: "numeric"
       },
       {
@@ -285,7 +285,7 @@
      html: '<a href="/v1/activity-descriptors/managing-therapy">Managing therapy and monitoring a health condition</a>'
   },
   {
-    text: "0",
+    text: data.managingTherapyDescriptor or "0",
     format: "numeric"
   },
   {
@@ -302,7 +302,7 @@
      html: '<a href="/v1/activity-descriptors/washing-and-bathing">Washing and bathing</a>'
   },
   {
-    text: "0",
+    text: data.washingBathingDescriptor or "0",
     format: "numeric"
   },
   {
@@ -319,7 +319,7 @@
      html: '<a href="/v1/activity-descriptors/toilet-needs">Managing toilet needs and incontinence</a>'
   },
   {
-    text: "0",
+    text: data.toiletNeedsDescriptor or "0",
     format: "numeric"
   },
   {
@@ -337,7 +337,7 @@
      html: '<a href="/v1/activity-descriptors/dressing-undressing">Dressing and undressing</a>'
   },
   {
-    text: "0",
+    text: data.dressingUndressingDescriptor or "0",
     format: "numeric"
   },
   {
@@ -354,7 +354,7 @@
      html: '<a href="/v1/activity-descriptors/communicate-verbally">Communicating verbally</a>'
   },
   {
-    text: "0",
+    text: data.communicateVerballyDescriptor or "0",
     format: "numeric"
   },
   {
@@ -371,7 +371,7 @@
      html: '<a href="/v1/activity-descriptors/read-understand">Reading and understanding signs, symbols and words</a>'
   },
   {
-    text: "0",
+    text: data.readUnderstandDescriptor or "0",
     format: "numeric"
   },
   {
@@ -388,7 +388,7 @@
      html: '<a href="/v1/activity-descriptors/engaging-others">Engaging with other people face to face</a>'
   },
   {
-    text: "0",
+    text: data.engagingOthersDescriptor or "0",
     format: "numeric"
   },
   {
@@ -406,7 +406,7 @@
      html: '<a href="/v1/activity-descriptors/budget-decisions">Making budgeting decisions</a>'
   },
   {
-    text: "0",
+    text: data.budgetDecisionsDescriptor or "0",
     format: "numeric"
   },
   {
@@ -456,7 +456,7 @@
         html: '<a href="/v1/activity-descriptors/mobility/planning-journeys">Planning and following journeys</a>'
       },
       {
-        text: "0",
+        text: data.planningJourneysDescriptor or "0",
         format: "numeric"
       },
       {
@@ -473,7 +473,7 @@
         html: '<a href="/v1/activity-descriptors/mobility/moving-around">Moving around</a>'
       },
       {
-        text: "0",
+        text: data.movingAroundDescriptor or "0",
         format: "numeric"
       },
       {
@@ -500,19 +500,7 @@
   ]
 }) }}
 
-{% if dailyLivingDone and mobilityDone %}
-<h1 class="govuk-heading-m">You have selected and justified your descriptors-</h1>
-<p class="govuk-body">This applicant will be awarded PIP</p>
-
-{{ govukButton({
-  text: "Continue",
-  href: "/v1/make-a-decision/standard-three-yr-award-q"
-}) }}
-
-{% endif %}
-
-
-      {% if moveToPIPCS %}
+{% if moveToPIPCS %}
 
 <h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
 
@@ -527,15 +515,57 @@
 
 {% else %}
 
+{% set dailyLivingScore =
+  (data.preparingFoodDescriptor | default('0') | int) +
+  (data.takingNutritionDescriptor | default('0') | int) +
+  (data.managingTherapyDescriptor | default('0') | int) +
+  (data.washingBathingDescriptor | default('0') | int) +
+  (data.toiletNeedsDescriptor | default('0') | int) +
+  (data.dressingUndressingDescriptor | default('0') | int) +
+  (data.communicateVerballyDescriptor | default('0') | int) +
+  (data.readUnderstandDescriptor | default('0') | int) +
+  (data.engagingOthersDescriptor | default('0') | int) +
+  (data.budgetDecisionsDescriptor | default('0') | int)
+%}
+
+{% set mobilityScore =
+  (data.planningJourneysDescriptor | default('0') | int) +
+  (data.movingAroundDescriptor | default('0') | int)
+%}
+
+{% if dailyLivingScore >= 8 or mobilityScore >= 8 %}
+
+<h1 class="govuk-heading-m">
+  You have selected and justified your descriptors
+</h1>
+
 <p class="govuk-body">
-  <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist"not process this application>
-  </a>
+  This applicant will be awarded PIP
+</p>
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/make-a-decision/standard-three-yr-award-q"
+}) }}
+
+{% else %}
+
+<h1 class="govuk-heading-m">
+  You have selected and justified your descriptors
+</h1>
+
+<p class="govuk-body">
+  This applicant will not be awarded PIP
 </p>
 
 {% endif %}
 
+<p class="govuk-body">
+  <a href="">
+    I cannot process this application
+  </a>
+</p>
 
-    </div>
-  </div>
+{% endif %}
 
 {% endblock %}
