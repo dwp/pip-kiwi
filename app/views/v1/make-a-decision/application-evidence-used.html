@@ -1,0 +1,790 @@
+{% set pageTitle = " Select the award review period you want to set - PIP Service" %}
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: "/v1/make-a-decision/make-a-decision-tasklist-full"
+  },
+  {
+    text: "Award review period"
+  }
+] %}
+{% extends "layouts/pips-nav.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<form action="/v1/make-a-decision/evidence-selected" method="post" class="form">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+                <h2 class="govuk-heading-xl govuk-!-margin-bottom-6">Which documents did you use when making your decision?</h2>
+                <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-6">These will be referenced in the decision letter.<br>Select all that apply.</p>
+                <!------------H1 LEGEND------------>
+                  {% set dynamicDivide %}
+
+                  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+                      {% endset %}
+                <!------------Legend--------------->
+
+
+                <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-6"></h2>
+                <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8">Do not add documents that did not 'support' the applciation</p> -->
+
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">C</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third govuk-!-margin-bottom-0">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                          {
+                                            value: "Information provided by care home",
+                                            text: " Information provided by care home"
+                                          },
+                                          {
+                                            value: "Care plan",
+                                            text: " Care plan"                                          },
+                                          {
+                                            value: "Certificate of Vision Impairment (CVI)",
+                                            text: " Certificate of Vision Impairment (CVI)"
+                                          },
+                                          {
+                                            value: "Information provided by community mental health team",
+                                            text: " Information provided by community mental health team"
+                                          },
+                                          {
+                                            value: "Health professional consultation report",
+                                            text: " Health professional consultation report"
+                                          },
+                                          {
+                                            value: "Information provided by Customer Compliance Officer",
+                                            text: " Information provided by Customer Compliance Officer"
+                                          },
+                                          {
+                                            value: " Letter from consultant",
+                                            text: " Letter from consultant"
+                                          },
+                                          {
+                                            value: "Report from consultant",
+                                            text: " Report from consultant"
+                                          },
+                                          {
+                                            value: "Telephone advice from consultant",
+                                            text: " Telephone advice from consultant"
+                                          },
+                                          {
+                                            value: "Letter from counsellor",
+                                            text: " Letter from counsellor"
+                                          },
+                                          {
+                                            value: "Report from counsellor",
+                                            text: " Report from counsellor"
+                                          },
+                                          {
+                                            value: "Telephone advice from counsellor",
+                                            text: " Telephone advice from counsellor"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">D</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                          {
+                                            value: "Information provided by day centre",
+                                            text: " Information provided by day centre"
+                                          },
+                                          {
+                                            value: "Claim for Disability Living Allowance",
+                                            text: " Claim for Disability Living Allowance"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">E</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                          {
+                                            value: "Enquiry form",
+                                            text: "Enquiry form"
+                                          },
+                                          {
+                                            value: "Extra information applicant gave us",
+                                            text: "Extra information applicant gave us"
+                                          },
+                                          {
+                                            value: "Eye care professional's report",
+                                            text: " Eye care professional's report"
+                                          },
+                                          {
+                                            value: " Health care professional assessment for Employment and Support Allowance",
+                                            text: " Health care professional assessment for Employment and Support Allowance"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">F</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                          {
+                                            value: "Information provided by Fraud Investigation Service",
+                                            text: " Information provided by Fraud Investigation Service"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">G</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                          {
+                                            value: "Information provided by GP's surgery",
+                                            text: " Information provided by GP's surgery"
+                                          },
+                                          {
+                                            value: "Letter from GP",
+                                            text: " Letter from GP"
+                                          },
+                                          {
+                                            value: "Report from GP",
+                                            text: " Report from GP"
+                                          },
+                                          {
+                                            value: "Telephone advice from GP",
+                                            text: " Telephone advice from GP"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">H</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                      {{ govukCheckboxes({
+                                        idPrefix: "application-evidence-used",
+                                        name: "application-evidence-used",
+                                        classes: "govuk-checkboxes--small",
+                                        fieldset: {
+                                          legend: {
+                                            text: "",
+                                            isPageHeading: true,
+                                            classes: "govuk-fieldset__legend--m"
+                                          }
+                                        },
+                                        items: [
+                                        {
+                                          value: "Health information gather (PIP2)",
+                                          text: "Health information gather (PIP2)"
+                                        },
+                                          {
+                                            value: "Information provided by Home Office",
+                                            text: " Information provided by Home Office"
+                                          },
+                                          {
+                                            value: "Information provided by hospital",
+                                            text: " Information provided by hospital"
+                                          },
+                                          {
+                                            value: "Letter from hospital doctor",
+                                            text: " Letter from hospital doctor"
+                                          },
+                                          {
+                                            value: "Report from hospital doctor",
+                                            text: " Report from hospital doctor"
+                                          },
+                                          {
+                                            value: "Telephone advice from hospital doctor",
+                                            text: " Telephone advice from hospital doctor"
+                                          }
+                                        ]
+                                      }) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                    <div class="govuk-grid-row">
+                                      <div class="govuk-grid-column-one-third">
+                                        <h1 class="govuk-heading-l">I</h1>
+                                      </div>
+
+                                      <div class="govuk-grid-column-two-third">
+
+                                  {{ govukCheckboxes({
+  idPrefix: "application-evidence-used",
+  name: "application-evidence-used",
+  classes: "govuk-checkboxes--small",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Health care professional assessment for Incapacity Benefit",
+      text: "Health care professional assessment for Incapacity Benefit"
+    },
+    {
+      value: "Interview under caution",
+      text: "Interview under caution"
+    },
+    {
+      value: "Claim for Industrial Injuries Disablement Benefit",
+      text: "Claim for Industrial Injuries Disablement Benefit"
+    }
+  ]
+}) }}
+
+                                      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                      </div>
+                                    </div>
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">J</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by Jobcentre Plus",
+                                          text: "Information provided by Jobcentre Plus"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">L</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by local authority",
+                                          text: " Information provided by local authority"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">N</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by nurse",
+                                          text: " Information provided by nurse"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">O</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Letter from occupational therapist",
+                                          text: "Letter from occupational therapist"
+                                        },
+                                        {
+                                          value: "Report from occupational therapist",
+                                          text: " Report from occupational therapist"
+                                        },
+                                        {
+                                          value: "Telephone advice from occupational therapist",
+                                          text: " Telephone advice from occupational therapist"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">P</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by Pension Service",
+                                          text: " Information provided by Pension Service"
+                                        },
+                                        {
+                                          value: "Information provided by Primary Care Trust",
+                                          text: " Information provided by Primary Care Trust"
+                                        },
+                                        {
+                                          value: "Information provided by Prison Service",
+                                          text: " Information provided by Prison Service"
+                                        },
+                                        {
+                                          value: "Letter from community psychiatric nurse",
+                                          text: " Letter from community psychiatric nurse"
+                                        },
+                                        {
+                                          value: "Report from community psychiatric nurse",
+                                          text: " Report from community psychiatric nurse"
+                                        },
+                                        {
+                                          value: "Telephone advice from community psychiatric nurse",
+                                          text: " Telephone advice from community psychiatric nurse"
+                                        },
+                                        {
+                                          value: "Letter from physiotherapist",
+                                          text: " Letter from physiotherapist"
+                                        },
+                                        {
+                                          value: "Report from physiotherapist",
+                                          text: " Report from physiotherapist"
+                                        },
+                                        {
+                                          value: "Telephone advice from physiotherapist",
+                                          text: " Telephone advice from physiotherapist"
+                                        },
+                                        {
+                                          value: "Letter from psychiatric social worker",
+                                          text: " Letter from psychiatric social worker"
+                                        },
+                                        {
+                                          value: "Report from psychiatric social worker",
+                                          text: " Report from psychiatric social worker"
+                                        },
+                                        {
+                                          value: "Telephone advice from psychiatric social worker",
+                                          text: " Telephone advice from psychiatric social worker"
+                                        },
+                                        {
+                                          value: "Letter from psychiatrist",
+                                          text: " Letter from psychiatrist"
+                                        },
+                                        {
+                                          value: "Report from psychiatrist",
+                                          text: " Report from psychiatrist"
+                                        },
+                                        {
+                                          value: "Telephone advice from psychiatrist",
+                                          text: " Telephone advice from psychiatrist"
+                                        },
+                                        {
+                                          value: "Letter from psychologist",
+                                          text: " Letter from psychologist"
+                                        },
+                                        {
+                                          value: "Report from psychologist",
+                                          text: " Report from psychologist"
+                                        },
+                                        {
+                                          value: "Telephone advice from psychologist",
+                                          text: " Telephone advice from psychologist"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">R</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Health professional review report",
+                                          text: " Health professional review report"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">S</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Health professional supplementary advice",
+                                          text: " Health professional supplementary advice"
+                                        },
+                                        {
+                                          value: "Information provided by school",
+                                          text: " Information provided by school"
+                                        },
+                                        {
+                                          value: "Information provided by school",
+                                          text: " Information provided by school"
+                                        },
+                                        {
+                                          value: "Information provided by social worker",
+                                          text: " Information provided by social worker"
+                                        },
+                                        {
+                                          value: "Surveillance logs",
+                                          text: "Surveillance logs"
+                                        },
+                                        {
+                                          value: "Letter from specialist nurse",
+                                          text: " Letter from specialist nurse"
+                                        },
+                                        {
+                                          value: "Report from specialist nurse",
+                                          text: " Report from specialist nurse"
+                                        },
+                                        {
+                                          value: "Telephone advice from specialist nurse",
+                                          text: " Telephone advice from specialist nurse"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">T</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by teacher",
+                                          text: " Information provided by teacher"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">V</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Visiting officer's report",
+                                          text: " Visiting officer's report"
+                                        }
+                                      ]
+                                    }) }}
+
+                                    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
+
+                                    </div>
+                                  </div>
+
+
+                                  <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-one-third">
+                                      <h1 class="govuk-heading-l">W</h1>
+                                    </div>
+
+                                    <div class="govuk-grid-column-two-third">
+
+                                    {{ govukCheckboxes({
+                                      idPrefix: "application-evidence-used",
+                                      name: "application-evidence-used",
+                                      classes: "govuk-checkboxes--small",
+                                      fieldset: {
+                                        legend: {
+                                          text: "",
+                                          isPageHeading: true,
+                                          classes: "govuk-fieldset__legend--m"
+                                        }
+                                      },
+                                      items: [
+                                        {
+                                          value: "Information provided by Welfare Rights Advisor",
+                                          text: " Information provided by Welfare Rights Advisor"
+                                        }
+                                      ]
+                                    }) }}
+
+
+                                    </div>
+                                  </div>
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

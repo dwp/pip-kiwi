@@ -42,26 +42,15 @@
   items: [
     {
       title: {
-        text: "Letter from consultant"
+text: data["application-evidence-used"][0]
       },
-      href: "/v1/make-a-decision/which-documents-used",
+      href: "/v1/make-a-decision/application-evidence-used",
       status: {
           text: "Done"
       }
     }
   ]
 }) }}
-
-{% if data['evidenceUsed'] %}
-
-<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4">
-  {% for document in data['evidenceUsed'] %}
-    <li>{{ document }}</li>
-  {% endfor %}
-</ul>
-
-
-{% endif %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
