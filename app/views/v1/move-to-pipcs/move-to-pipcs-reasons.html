@@ -7,12 +7,12 @@
 
 {% block content %}
 
-<form class="form" action="" method="post">
+<form class="form" action="/v1/move-to-pipcs/select-reason" method="post">
 
    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "pipcs-move-reasons",
   fieldset: {
     legend: {
       text: "Select the reason for moving to PIPCS",
@@ -22,87 +22,87 @@
   },
   items: [
     {
-      value: "scotland",
+      value: "alternative-format-needed",
       text: "Alternative format needed"
     },
     {
-      value: "wales",
+      value: "applicant-gets-other-benefits",
       text: "Applicant gets other benefits"
     },
     {
-      value: "northern-ireland",
+      value: "appointee-added",
       text: "Appointee added"
     },
     {
-      value: "northern-ireland",
+      value: "change-of-personal-details",
       text: "Change of personal details"
     },
     {
-      value: "northern-ireland",
+      value: "claimant-did-not-receive-payment",
       text: "Claimant did not receive payment"
     },
     {
-      value: "northern-ireland",
+      value: "death-of-applicant-or-claimant",
       text: "Death of applicant or claimant"
     },
     {
-      value: "northern-ireland",
+      value: "details-do-not-match-searchlight-record",
       text: "Details do not match Searchlight record"
     },
     {
-      value: "northern-ireland",
+      value: "evidence-of-fraud",
       text: "Evidence of fraud"
     },
     {
-      value: "northern-ireland",
+      value: "health-assessment-could-not-be-completed",
       text: "Health assessment could not be completed"
     },
     {
-      value: "northern-ireland",
+      value: "immigration-status",
       text: "Immigration status"
     },
     {
-      value: "northern-ireland",
+      value: "kcis-marker",
       text: "Keep customer interactions safe (KCIS) marker"
     },
     {
-      value: "northern-ireland",
+      value: "mandatory-reconsideration",
       text: "Mandatory reconsideration"
     },
     {
-      value: "northern-ireland",
+      value: "new-evidence-sent-after-decision",
       text: "New evidence sent after decision"
     },
     {
-      value: "northern-ireland",
+      value: "new-motability-agreement",
       text: "New Motability agreement"
     },
     {
-      value: "northern-ireland",
+      value: "residence-and-presence-criteria",
       text: "Residence and presence criteria"
     },
     {
-      value: "northern-ireland",
+      value: "request-for-split-payment",
       text: "Request for split payment"
     },
     {
-      value: "northern-ireland",
+      value: "special-rules-for-end-of-life",
       text: "Special rules for end of life (SREL)"
     },
     {
-      value: "northern-ireland",
+      value: "stays-in-prison-hospital-or-other-accommodation",
       text: "Stays in prison, hospital or other accommodation"
     },
     {
-      value: "northern-ireland",
+      value: "withdrawn-claim",
       text: "Withdrawn claim"
     },
     {
-      value: "northern-ireland",
+      value: "working-abroad",
       text: "Working abroad"
     },
     {
-      value: "northern-ireland",
+      value: "other",
       text: "Other"
     }
   ]
@@ -111,8 +111,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue", 
-  href: ""
+  text: "Continue"
 }) }}
 
 

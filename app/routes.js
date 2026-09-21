@@ -343,3 +343,15 @@ router.post('/v1/make-a-decision/award-review-period', function (req, res) {
 router.post('/v1/make-a-decision/justifications', function (req, res) {
   res.redirect('/v1/form-letter/form-decision-letter')
 })
+
+router.post('/v1/move-to-pipcs/select-reason', function (req, res) {
+
+  const reason = req.session.data['pipcs-move-reasons']
+
+  if (reason === 'other') {
+    res.redirect('/v1/move-to-pipcs/move-to-pipcs-reasons-freetext')
+  } else {
+    res.redirect('/index')
+  }
+
+})

@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<form class="form" action="" method="post">
+<form class="form" action="/v1/move-to-pipcs" method="post">
 
 {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
@@ -34,8 +34,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue", 
-  href: ""
+  text: "Continue"
 }) }}
 
 
