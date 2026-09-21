@@ -1,0 +1,44 @@
+{% set pageTitle = "  Select the reason for moving to PIPCS - PIP Service" %}
+{% extends "layouts/pips-nav.html" %}
+
+
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<form class="form" action="" method="post">
+
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{{ govukFieldset({
+  legend: {
+    text: "Add a note",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  }
+}) }}
+
+<p class="govuk-hint">
+  This information will be added to the event history within the person’s record so that others can see what’s happened.
+</p>
+
+<p>Record the details of this event.</p>
+
+{{ govukCharacterCount({
+  name: "withHint",
+  id: "with-hint",
+  maxlength: 2000
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue", 
+  href: ""
+}) }}
+
+
+    </div>
+  </div>
+{% endblock %}

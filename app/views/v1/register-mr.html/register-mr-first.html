@@ -1,0 +1,122 @@
+{% set pageTitle = "  Select the reason for moving to PIPCS - PIP Service" %}
+{% extends "layouts/pips-nav.html" %}
+
+
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+<form class="form" action="" method="post">
+
+   {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Select the reason for moving to PIPCS",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "scotland",
+      text: "Alternative format needed"
+    },
+    {
+      value: "wales",
+      text: "Applicant gets other benefits"
+    },
+    {
+      value: "northern-ireland",
+      text: "Appointee added"
+    },
+    {
+      value: "northern-ireland",
+      text: "Change of personal details"
+    },
+    {
+      value: "northern-ireland",
+      text: "Claimant did not receive payment"
+    },
+    {
+      value: "northern-ireland",
+      text: "Death of applicant or claimant"
+    },
+    {
+      value: "northern-ireland",
+      text: "Details do not match Searchlight record"
+    },
+    {
+      value: "northern-ireland",
+      text: "Evidence of fraud"
+    },
+    {
+      value: "northern-ireland",
+      text: "Health assessment could not be completed"
+    },
+    {
+      value: "northern-ireland",
+      text: "Immigration status"
+    },
+    {
+      value: "northern-ireland",
+      text: "Keep customer interactions safe (KCIS) marker"
+    },
+    {
+      value: "northern-ireland",
+      text: "Mandatory reconsideration"
+    },
+    {
+      value: "northern-ireland",
+      text: "New evidence sent after decision"
+    },
+    {
+      value: "northern-ireland",
+      text: "New Motability agreement"
+    },
+    {
+      value: "northern-ireland",
+      text: "Residence and presence criteria"
+    },
+    {
+      value: "northern-ireland",
+      text: "Request for split payment"
+    },
+    {
+      value: "northern-ireland",
+      text: "Special rules for end of life (SREL)"
+    },
+    {
+      value: "northern-ireland",
+      text: "Stays in prison, hospital or other accommodation"
+    },
+    {
+      value: "northern-ireland",
+      text: "Withdrawn claim"
+    },
+    {
+      value: "northern-ireland",
+      text: "Working abroad"
+    },
+    {
+      value: "northern-ireland",
+      text: "Other"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue", 
+  href: ""
+}) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}
