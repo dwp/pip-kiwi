@@ -1,0 +1,82 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<h1 class="govuk-heading-l">
+  Register a mandatory reconsideration
+</h1>
+
+<p class="govuk-body govuk-!-font-size-19">
+  Make sure the person who has asked for their decision to be reconsidered understands that:
+</p>
+
+<ul class="govuk-list govuk-list--bullet govuk-!-font-size-19">
+  <li>PIP is assessed on how their condition affects them, not the condition itself.</li>
+  <li>They have been given points for each activity based on the information they submitted.</li>
+  <li>The rate of PIP awarded depends on the total points for all activities.</li>
+</ul>
+
+<h2 class="govuk-heading-m">
+  Explain what will happen next
+</h2>
+
+<ul class="govuk-list govuk-list--bullet govuk-!-font-size-19">
+  <li>We'll record the details of which parts of the decision they disagree with.</li>
+  <li>There'll be an opportunity to send additional evidence to support the application.</li>
+  <li>Someone will look at all the information again and make another decision.</li>
+  <li>Their points could go up, down or remain the same.</li>
+</ul>
+
+{{ govukRadios({
+  idPrefix: "how-disagree",
+  name: "howDisagree",
+  fieldset: {
+    legend: {
+      text: "How would they like to tell us why they disagree with their decision?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "phone-now",
+      text: "Over the phone now",
+      hint: {
+        text: "The call will take around 30 minutes"
+      }
+    },
+    {
+      value: "phone-later",
+      text: "Over the phone later",
+      hint: {
+        text: "They can call us back at a more suitable time"
+      }
+    },
+    {
+      value: "paper-form",
+      text: "On a paper form",
+      hint: {
+        text: "They can download this from the GOV.UK website"
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+{% endblock %}

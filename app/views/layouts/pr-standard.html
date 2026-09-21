@@ -1,0 +1,65 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block pageTitle %}
+  {{ pageTitle or serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {{
+    dwpHeader({
+      serviceName: "Personal Independence Payment",
+      serviceHref: "",
+      action: "My home page",
+      actionHref: "#",
+      container: true
+    })
+  }}
+
+  {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    text: "This is a prototype."
+  }) }}
+
+  <div class="govuk-width-container govuk-!-margin-top-4">
+
+    <div class="govuk-!-margin-bottom-6">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+        Jeff Bridges
+      </h2>
+
+      <p class="govuk-body govuk-!-margin-bottom-0">
+        NA 11 22 33 C
+      </p>
+    </div>
+
+    {% if breadcrumbs %}
+      {{ govukBreadcrumbs({
+        items: breadcrumbs
+      }) }}
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% block pageContent %}
+      {% endblock %}
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
