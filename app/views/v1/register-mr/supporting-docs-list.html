@@ -17,7 +17,7 @@
 {% block pageContent %}
 
 
-<form action="an-de-mr-anythingelse" method="post" class="form">
+<form action="/supporting-docs-list" method="post" class="form">
 
   {% set docsHtml %}
 
@@ -41,8 +41,8 @@
     <div class="govuk-grid-column-one-thirds">
 
       {{ govukCheckboxes({
-        idPrefix: "an-de-select-docs",
-        name: "an-de-select-docs",
+        idPrefix: "supporting-docs-list",
+        name: "supporting-docs-list",
         classes: "govuk-checkboxes",
         fieldset: {
           legend: {
@@ -56,345 +56,295 @@
         },
         items: [
         {
-          value: "111",
-          text: " Information provided by care home",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "care-home-information",
+          text: " Information provided by care home"
         },
         {
-          value: "111",
-          text: " Care plan",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "care-plan",
+          text: " Care plan"
         },
         {
-          value: "111",
-          text: " Certificate of Vision Impairment (CVI)",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "cvi",
+          text: " Certificate of Vision Impairment (CVI)"
         },
         {
-          value: "111",
-          text: " Information provided by community mental health team",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "cmht-information",
+          text: " Information provided by community mental health team"
         },
         {
-          value: "111",
-          text: " Health professional consultation report",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "hp-consultation-report",
+          text: " Health professional consultation report"
         },
         {
-          value: "111",
-          text: " Information provided by Customer Compliance Officer",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "customer-compliance-information",
+          text: " Information provided by Customer Compliance Officer"
         },
         {
-          value: "111",
-          text: " Letter from consultant",
-          checked: (data["an-de-select-docs"] == "1")
+          value: "consultant-letter",
+          text: " Letter from consultant"
         },
         {
-          value: "111",
+          value: "consultant-report",
           text: " Report from consultant",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "consultant-telephone-advice",
           text: " Telephone advice from consultant",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "counsellor-letter",
           text: " Letter from counsellor",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "counsellor-report",
           text: " Report from counsellor",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "counsellor-telephone-advice",
           text: " Telephone advice from counsellor",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "day-centre-information",
           text: " Information provided by day centre",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "dla-claim",
           text: " Claim for Disability Living Allowance",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "enquiry-form",
           text: "Enquiry form",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "additional-customer-information",
           text: "Extra information applicant gave us",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "eye-care-report",
           text: " Eye care professional's report",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "esa-assessment",
           text: " Health care professional assessment for Employment and Support Allowance",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "fraud-investigation-information",
           text: " Information provided by Fraud Investigation Service",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "gp-surgery-information",
           text: " Information provided by GP's surgery",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "gp-letter",
           text: " Letter from GP",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "gp-report",
           text: " Report from GP",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "gp-telephone-advice",
           text: " Telephone advice from GP",
           checked: (data["an-de-select-docs"] == "1")
         },
         {
-          value: "111",
+          value: "pip2-form",
           text: "Health information gather (PIP2)",
           checked: (data["an-de-select-docs"] == "1")
         },
           {
-            value: "111",
-            text: " Information provided by Home Office",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "home-office-information",
+            text: " Information provided by Home Office"
           },
           {
-            value: "111",
-            text: " Information provided by hospital",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hospital-information",
+            text: " Information provided by hospital"
           },
           {
-            value: "111",
-            text: " Letter from hospital doctor",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hospital-doctor-letter",
+            text: " Letter from hospital doctor"
           },
           {
-            value: "111",
-            text: " Report from hospital doctor",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hospital-doctor-report",
+            text: " Report from hospital doctor"
           },
           {
-            value: "111",
-            text: " Telephone advice from hospital doctor",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hospital-doctor-telephone-advice",
+            text: " Telephone advice from hospital doctor"
           },
           {
-            value: "111",
-            text: " Health care professional assessment for Incapacity Benefit",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "incapacity-benefit-assessment",
+            text: " Health care professional assessment for Incapacity Benefit"
           },
           {
-            value: "111",
-            text: "Interview under caution",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "interview-under-caution",
+            text: "Interview under caution"
           },
           {
-            value: "111",
-            text: " Claim for Industrial Injuries Disablement Benefit",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "iidb-claim",
+            text: " Claim for Industrial Injuries Disablement Benefit"
           },
           {
-            value: "111",
-            text: "Information provided by Jobcentre Plus",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "jobcentre-plus-information",
+            text: "Information provided by Jobcentre Plus"
           },
           {
-            value: "111",
-            text: " Information provided by local authority",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "local-authority-information",
+            text: " Information provided by local authority"
           },
           {
-            value: "111",
-            text: " Information provided by nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "nurse-information",
+            text: " Information provided by nurse"
           },
           {
-            value: "111",
-            text: "Letter from occupational therapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "ot-letter",
+            text: "Letter from occupational therapist"
           },
           {
-            value: "111",
-            text: " Report from occupational therapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "ot-report",
+            text: " Report from occupational therapist"
           },
           {
-            value: "111",
-            text: " Telephone advice from occupational therapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "ot-telephone-advice",
+            text: " Telephone advice from occupational therapist"
           },
           {
-            value: "111",
-            text: " Information provided by Pension Service",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "pension-service-information",
+            text: " Information provided by Pension Service"
           },
           {
-            value: "111",
-            text: " Information provided by Primary Care Trust",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "pct-information",
+            text: " Information provided by Primary Care Trust"
           },
           {
-            value: "111",
-            text: " Information provided by Prison Service",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "prison-service-information",
+            text: " Information provided by Prison Service"
           },
           {
-            value: "111",
-            text: " Letter from community psychiatric nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "cpn-letter",
+            text: " Letter from community psychiatric nurse"
           },
           {
-            value: "111",
-            text: " Report from community psychiatric nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "cpn-report",
+            text: " Report from community psychiatric nurse"
           },
           {
-            value: "111",
-            text: " Telephone advice from community psychiatric nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "cpn-telephone-advice",
+            text: " Telephone advice from community psychiatric nurse"
           },
           {
-            value: "111",
-            text: " Letter from physiotherapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "physiotherapist-letter",
+            text: " Letter from physiotherapist"
           },
           {
-            value: "111",
-            text: " Report from physiotherapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "physiotherapist-report",
+            text: " Report from physiotherapist"
           },
           {
-            value: "111",
-            text: " Telephone advice from physiotherapist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "physiotherapist-telephone-advice",
+            text: " Telephone advice from physiotherapist"
           },
           {
-            value: "111",
-            text: " Letter from psychiatric social worker",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatric-social-worker-letter",
+            text: " Letter from psychiatric social worker"
           },
           {
-            value: "111",
-            text: " Report from psychiatric social worker",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatric-social-worker-report",
+            text: " Report from psychiatric social worker"
           },
           {
-            value: "111",
-            text: " Telephone advice from psychiatric social worker",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatric-social-worker-telephone-advice",
+            text: " Telephone advice from psychiatric social worker"
           },
           {
-            value: "111",
-            text: " Letter from psychiatrist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatrist-letter",
+            text: " Letter from psychiatrist"
           },
           {
-            value: "111",
-            text: " Report from psychiatrist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatrist-report",
+            text: " Report from psychiatrist"
           },
           {
-            value: "111",
-            text: " Telephone advice from psychiatrist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychiatrist-telephone-advice",
+            text: " Telephone advice from psychiatrist"
           },
           {
-            value: "111",
-            text: " Letter from psychologist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychologist-letter",
+            text: " Letter from psychologist"
           },
           {
-            value: "111",
-            text: " Report from psychologist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychologist-report",
+            text: " Report from psychologist"
           },
           {
-            value: "111",
-            text: " Telephone advice from psychologist",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "psychologist-telephone-advice",
+            text: " Telephone advice from psychologist"
           },
           {
-            value: "111",
-            text: " Health professional review report",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hp-review-report",
+            text: " Health professional review report"
           },
           {
-            value: "111",
-            text: " Health professional supplementary advice",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "hp-supplementary-advice",
+            text: " Health professional supplementary advice"
           },
           {
-            value: "111",
-            text: " Information provided by school",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "school-information",
+            text: " Information provided by school"
           },
           {
-            value: "111",
-            text: " Information provided by social worker",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "social-worker-information",
+            text: " Information provided by social worker"
           },
           {
-            value: "111",
-            text: "Surveillance logs",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "surveillance-logs",
+            text: "Surveillance logs"
           },
           {
-            value: "111",
-            text: " Letter from specialist nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "specialist-nurse-letter",
+            text: " Letter from specialist nurse"
           },
           {
-            value: "111",
-            text: " Report from specialist nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "specialist-nurse-report",
+            text: " Report from specialist nurse"
           },
           {
-            value: "111",
-            text: " Telephone advice from specialist nurse",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "specialist-nurse-telephone-advice",
+            text: " Telephone advice from specialist nurse"
           },
           {
-            value: "111",
-            text: " Information provided by teacher",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "teacher-information",
+            text: " Information provided by teacher"
           },
           {
-            value: "111",
-            text: " Visiting officer's report",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "visiting-officer-report",
+            text: " Visiting officer's report"
           },
           {
-            value: "111",
-            text: " Information provided by Welfare Rights Advisor",
-            checked: (data["an-de-select-docs"] == "1")
+            value: "welfare-rights-information",
+            text: " Information provided by Welfare Rights Advisor"
           },
           {
             divider: "or"
           },
           {
-            value: "DocsSomethingElse",
+            value: "other-document",
             text: "Something else",
             checked: (data["an-de-select-docs"] == "DocsSomethingElse"),
             conditional: {

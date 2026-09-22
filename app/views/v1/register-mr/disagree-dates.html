@@ -16,7 +16,7 @@
 
 {% block pageContent %}
 
-<form action="an-de-points-reasons-conditional" method="post" class="form">
+<form action="/disagree-dates" method="post" class="form">
 
 
   <div class="govuk-grid-row">
@@ -157,20 +157,14 @@
           ]
         }) }}
 
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-bottom-8"
+}) }}
 
+    </div>
+  </div>
 
-
-      {{ govukButton({
-        text: "Continue",
-        classes: "govuk-!-margin-bottom-8"
-      }) }}
-
-
-
-
-        </div>
-      </div>
-
-  </form>
+</form>
 
 {% endblock %}

@@ -16,7 +16,7 @@
 
 {% block pageContent %}
 
-<h1 class="govuk-heading-l">This decision was made more than one month ago</h1>
+<h1 class="govuk-heading-xl">This decision was made more than one month ago</h1>
 
 <p class="govuk-body">Advise the person:</p>
 <ul class="govuk-list govuk-list--bullet">
@@ -37,7 +37,8 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue"
+  text: "Continue", 
+  href: "/v1/register-mr/disagree-reasons"
 }) }}
 
 {% endblock %}

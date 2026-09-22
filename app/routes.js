@@ -2,9 +2,9 @@
 // For guidance on how to create routes see:
 // https://prototype-kit.service.gov.uk/docs/create-routes
 //
-
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
+const registerMrRoutes = require('./routes/v1-routes/register-mr')
 
 // Add your routes here
 router.post('/daily-living-qualifying-period-answer', function (req, res) {
@@ -355,3 +355,5 @@ router.post('/v1/move-to-pipcs/select-reason', function (req, res) {
   }
 
 })
+
+registerMrRoutes(router)

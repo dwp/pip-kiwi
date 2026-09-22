@@ -16,7 +16,7 @@
 
 {% block pageContent %}
 
-<form action="an-de-reg-mr-cya" method="post" class="form">
+<form action="/extra-info" method="post" class="form">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-thirds">
@@ -27,8 +27,8 @@
                       {% set ConditionalHtml %}
 
                       {{ govukTextarea({
-                        name: "an-de-mr-anythingelse",
-                        id: "an-de-mr-anythingelse",
+                        name: "anything-else-freetext",
+                        id: "anything-else-freetext",
                         rows: "4",
                         label: {
                           text: "Record the details of what they would like to tell us",
@@ -45,37 +45,32 @@
               <!----------  ---------->
 
 
-                {{ govukRadios({
-                  idPrefix: "an-de-mr-anythingelse-check",
-                  name: "an-de-mr-anythingelse-check",
-                  classes: "govuk-checkboxes",
-                  fieldset: {
-                    legend: {
-                      html: "Is there anything else they would like to tell us?",
-                      isPageHeading: true,
-                      classes: "govuk-fieldset__legend--xl"
-                    }
-                  },
-                  hint: {
-                    html: ""
-                  },
-                  items: [
-                  {
-                    value: "Yes",
-                    text: "Yes",
-                    checked: (data["an-de-mr-anythingelse-check"] == "Yes"),
-                    conditional: {
-                      html: ConditionalHtml
-                    }
-                  },
+        {{ govukRadios({
+  idPrefix: "extra-info",
+  name: "extra-info",
+  classes: "govuk-radios",
+  fieldset: {
+    legend: {
+      html: "Is there anything else they would like to tell us?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: ConditionalHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
 
-                    {
-                      value: "No",
-                      text: "No",
-                      checked: (data["an-de-mr-anythingelse-check"] == "No")
-                    }
-                  ]
-                }) }}
 
 
 
@@ -89,7 +84,6 @@
 
         </div>
       </div>
-      <a class="govuk-link" href="an-de-disagree-reasons-nil">Nil options</a>
 
   </form>
 

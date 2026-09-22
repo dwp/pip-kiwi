@@ -1,0 +1,32 @@
+{% extends "layouts/pr-account.html" %}
+
+{% block pageContent %}
+
+<h1 class="govuk-heading-l">
+  Overview
+</h1>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Application/claim"
+      },
+      value: {
+        text: "[status]"
+      }
+    },
+    {
+      key: {
+        text: "Outcome"
+      },
+      value: {
+        html: "Daily living: Standard rate<br>Mobility: Standard rate"
+      }
+    }
+  ]
+}) }}
+
+{% endblock %}

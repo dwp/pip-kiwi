@@ -17,16 +17,15 @@
 {% block pageContent %}
 
 
-<form action="" method="post" class="form">
-
+<form action="/informed-how" method="post" class="form">
 
   <div class="govuk-grid-row">
 
 
       {{ govukRadios({
         classes: "govuk-radios govuk-!-margin-bottom-4",
-        idPrefix: "an-de-letter-check",
-        name: "an-de-letter-check",
+        idPrefix: "informed-how",
+        name: "informed-how",
         fieldset: {
           legend: {
             html: "How were they informed about their decision?",
@@ -41,7 +40,7 @@
         {
           value: "Over the phone",
           text: "Over the phone",
-          checked: (data["an-de-letter-check"] == "Over the phone"),
+          checked: (data["informed-how"] == "Over the phone"),
       hint: {
         text: "They have not yet received their decision letter"
       }
@@ -49,7 +48,7 @@
         {
           value: "By letter",
           text: "By letter",
-          checked: (data["an-de-letter-check"] == "By letter ")
+          checked: (data["informed-how"] == "By letter")
         }
         ]
         }) }}

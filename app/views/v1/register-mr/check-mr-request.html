@@ -14,29 +14,30 @@
   }
 ] %}
 
-{% block pageContent %}
+{% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <p>govuk-grid-column-full</p>
 
-    <h1 class="govuk-heading-l">govuk-heading-l</h1>
+    <h1 class="govuk-heading-l">Check the reasons for the mandatory reconsideration request</h1>
     {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+    <h2 class="govuk-heading-m">Dates mentioned in the decision letter</h2>
 
 {{ govukSummaryList({
   rows: [
     {
       key: {
-        text: "Name"
+        text: "Start date"
       },
       value: {
-        text: "Sarah Phillips"
+        text: "No disagreement"
       },
       actions: {
         items: [
           {
             href: "#",
-            text: "Change",
+            text: "Add",
             visuallyHiddenText: "name"
           }
         ]
@@ -44,16 +45,16 @@
     },
     {
       key: {
-        text: "Date of birth"
+        text: "Qualifying period"
       },
       value: {
-        text: "5 January 1978"
+        text: "No disagreement"
       },
       actions: {
         items: [
           {
             href: "#",
-            text: "Change",
+            text: "Add",
             visuallyHiddenText: "date of birth"
           }
         ]
@@ -61,45 +62,359 @@
     },
     {
       key: {
-        text: "Address"
+        text: "Perspective test"
       },
       value: {
-        html: "72 Guild Street<br>London<br>SE23 6FH"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "address"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Contact details"
-      },
-      value: {
-        html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+        html: "No disagreement"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Add",
-            visuallyHiddenText: "contact details"
-          },
+            visuallyHiddenText: "Address"
+          }
+        ]
+      }
+    },
+
+    {
+      key: {
+        text: "End date"
+      },
+      value: {
+        html: "No disagreement"
+      },
+      actions: {
+        items: [
           {
             href: "#",
-            text: "Change",
-            visuallyHiddenText: "contact details"
+            text: "Add",
+            visuallyHiddenText: "Address"
           }
         ]
       }
     }
   ]
 }) }}
+
+    <h2 class="govuk-heading-m">Length of award period</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Length of award details"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+    <h2 class="govuk-heading-m">Evidence used to make the decision</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Evidence used"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+    <h2 class="govuk-heading-m">Payment amount including arrears</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Payment details"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Daily living score</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Preparing food"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "preparing food"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Taking nutrition"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "taking nutrition"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Managing treatments"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "managing treatments"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Washing and bathing"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "washing and bathing"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Using the toilet or managing incontinence"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "using the toilet or managing incontinence"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Dressing and undressing"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "dressing and undressing"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Talking, listening and understanding"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "talking, listening and understanding"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Reading"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "reading"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Mixing with other people"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "mixing with other people"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Managing your money"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "managing your money"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+  <h2 class="govuk-heading-m">Mobility scoring</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Planning and following journeys"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "planning and following journeys"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Moving around"
+      },
+      value: {
+        text: "No disagreement"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "moving around"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">
+  Supporting evidence which was not available to us when the decision was made
+</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Expected evidence"
+      },
+      value: {
+        text: "No documents to be sent"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "expected evidence"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
 
   </div>
 </div>

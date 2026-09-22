@@ -1,0 +1,87 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+
+<form action="record-1-event-history#r-mr-registration" method="post" class="form">
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">We will now reconsider the decision</h1>
+
+
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-6">Additional supporting evidence can be submitted either online on by post.</p>
+
+
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><b>Uploading additional supporting evidence online <b></p>
+
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+      <li>Go to GOV.UK/PIP</li>
+      <li>Log in using the details from when they applied.</li>
+      <li>Select 'Upload evidence to support your PIP claim'.</li>
+      </ul>
+    </p>
+
+  <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0"><b>Address for sending additional supporting evidence by post<b></p>
+  <div class="govuk-inset-text govuk-!-margin-top-4">
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">Freepost RTEU-HBEC-RGTG</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">Personal Independence Payment 1</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">Mail Handling Site A</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">Wolverhampton</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">WV98 1AA</p>
+  </div>
+
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">Advise the person:
+      <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>to only send photocopies as we cannot return documents</li>
+        <li>to write their full name and reference number on the top of each photocopy they send</li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+      <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-2"><b>Explain what will happen next<b></p>
+        <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-8">
+          <li>They will get a letter to let them know that their mandatory reconsideration has been registered.</li>
+
+          <li>We will also send them a copy of their decision letter.</li>
+    
+
+          <li>As they did not want to send any additional supporting evidence, their decision will be reconsidered based on what we currently know and understand.</li>
+          <li>Someone will look at all the information again and make another decision. </li>
+          <li>They will get a letter called a Mandatory Reconsideration Notice telling them whether we've changed the decision.</li>
+          <li>They should receive this within 15 weeks.</li>
+        </ul>
+
+
+      {{ govukButton({
+        text: "Finish and close",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

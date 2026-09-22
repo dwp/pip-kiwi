@@ -15,7 +15,7 @@
 ] %}
 
 {% block pageContent %}
-  <form action="an-de-letter-inhand-check-router" method="post" class="form">
+<form class="form" action="/letter-in-hand" method="post">
 
 
   <div class="govuk-grid-row">
@@ -43,8 +43,8 @@
 
       {{ govukRadios({
         classes: "govuk-radios govuk-!-margin-bottom-4",
-        idPrefix: "an-de-letter-inhand-check",
-        name: "an-de-letter-inhand-check",
+        idPrefix: "letter-in-hand",
+        name: "letter-in-hand",
         fieldset: {
           legend: {
             html: "Do they have their decision letter with them?",
@@ -58,13 +58,11 @@
         items: [
         {
           value: "Yes",
-          text: "Yes",
-          checked: (data["an-de-letter-inhand-check"] == "Yes")
+          text: "Yes"
         },
         {
           value: "No",
-          text: "No",
-          checked: (data["an-de-letter-inhand-check"] == "No")
+          text: "No"
         }
         ]
         }) }}
