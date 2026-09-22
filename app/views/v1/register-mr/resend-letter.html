@@ -1,0 +1,68 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+  <form action="an-de-goodcause-check" method="post" class="form">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+
+
+
+
+      {{ govukRadios({
+        classes: "govuk-radios govuk-!-margin-bottom-4",
+        idPrefix: "an-de-reissue-lost-letter",
+        name: "an-de-reissue-lost-letter",
+        fieldset: {
+          legend: {
+            html: "Do they need us to resend their decision letter?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "The letter can take up to 3 weeks to arrive."
+        },
+        items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          checked: (data["an-de-reissue-lost-letter"] == "Yes")
+        },
+        {
+          value: "No",
+          text: "No",
+          checked: (data["an-de-reissue-lost-letter"] == "No")
+        }
+        ]
+        }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<form action="an-de-reg-mr-cya" method="post" class="form">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+
+              <!---------- Conditional ---------->
+
+                      {% set ConditionalHtml %}
+
+                      {{ govukTextarea({
+                        name: "an-de-mr-anythingelse",
+                        id: "an-de-mr-anythingelse",
+                        rows: "4",
+                        label: {
+                          text: "Record the details of what they would like to tell us",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        hint: {
+                          html: ""
+                        }
+                      }) }}
+
+                      {% endset -%}
+
+              <!----------  ---------->
+
+
+                {{ govukRadios({
+                  idPrefix: "an-de-mr-anythingelse-check",
+                  name: "an-de-mr-anythingelse-check",
+                  classes: "govuk-checkboxes",
+                  fieldset: {
+                    legend: {
+                      html: "Is there anything else they would like to tell us?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--xl"
+                    }
+                  },
+                  hint: {
+                    html: ""
+                  },
+                  items: [
+                  {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["an-de-mr-anythingelse-check"] == "Yes"),
+                    conditional: {
+                      html: ConditionalHtml
+                    }
+                  },
+
+                    {
+                      value: "No",
+                      text: "No",
+                      checked: (data["an-de-mr-anythingelse-check"] == "No")
+                    }
+                  ]
+                }) }}
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+
+
+
+        </div>
+      </div>
+      <a class="govuk-link" href="an-de-disagree-reasons-nil">Nil options</a>
+
+  </form>
+
+{% endblock %}

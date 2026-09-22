@@ -1,0 +1,82 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+  <form action="an-de-letter-inhand-check-router" method="post" class="form">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+      <!------------H1 LEGEND------------>
+        {% set dynamicHint %}
+
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">Advise them that having their decision letter with them during the call means we can:</p>
+        <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-2">
+
+        <li>accurately record which parts of the decision they disagree with</li>
+        <li>make sure we get the right outcome for them</li>
+        </ul>
+
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">We can still register the mandatory reconsideration if they do not have their letter with them.</p>
+
+
+
+            {% endset %}
+      <!------------Legend--------------->
+
+
+
+
+      {{ govukRadios({
+        classes: "govuk-radios govuk-!-margin-bottom-4",
+        idPrefix: "an-de-letter-inhand-check",
+        name: "an-de-letter-inhand-check",
+        fieldset: {
+          legend: {
+            html: "Do they have their decision letter with them?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl govuk-!-margin-bottom-6"
+          }
+        },
+        hint: {
+          html: dynamicHint
+        },
+        items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          checked: (data["an-de-letter-inhand-check"] == "Yes")
+        },
+        {
+          value: "No",
+          text: "No",
+          checked: (data["an-de-letter-inhand-check"] == "No")
+        }
+        ]
+        }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+{% endblock %}

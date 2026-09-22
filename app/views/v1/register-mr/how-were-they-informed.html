@@ -1,0 +1,70 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+
+<form action="" method="post" class="form">
+
+
+  <div class="govuk-grid-row">
+
+
+      {{ govukRadios({
+        classes: "govuk-radios govuk-!-margin-bottom-4",
+        idPrefix: "an-de-letter-check",
+        name: "an-de-letter-check",
+        fieldset: {
+          legend: {
+            html: "How were they informed about their decision?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+        {
+          value: "Over the phone",
+          text: "Over the phone",
+          checked: (data["an-de-letter-check"] == "Over the phone"),
+      hint: {
+        text: "They have not yet received their decision letter"
+      }
+    },
+        {
+          value: "By letter",
+          text: "By letter",
+          checked: (data["an-de-letter-check"] == "By letter ")
+        }
+        ]
+        }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+
+
+
+{% endblock %}

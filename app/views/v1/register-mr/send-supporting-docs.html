@@ -1,0 +1,71 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+
+<form action="an-de-doc-check-router" method="post" class="form">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+      {{ govukRadios({
+        classes: "govuk-radios govuk-!-margin-bottom-4",
+        idPrefix: "an-de-doc-check",
+        name: "an-de-doc-check",
+        fieldset: {
+          legend: {
+            html: "Do they want to send supporting documents which was not available to us when the decision was made?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+        {
+          value: "YesBasic",
+          text: "Yes (Basic)",
+          checked: (data["an-de-doc-check"] == "YesBasic")
+        },
+        {
+          value: "YesAdvanced",
+          text: "Yes (advanced)",
+          checked: (data["an-de-doc-check"] == "YesAdvanced")
+        },
+        {
+          value: "YesAdvancedAlt1",
+          text: "Yes (advanced alt1)",
+          checked: (data["an-de-doc-check"] == "YesAdvancedAlt1")
+        },
+        {
+          value: "No",
+          text: "No",
+          checked: (data["an-de-doc-check"] == "No")
+        }
+        ]
+        }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

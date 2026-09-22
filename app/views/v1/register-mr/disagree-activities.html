@@ -1,0 +1,429 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<form action="an-de-doc-check" method="post" class="form">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+      <!---------- 1 ---------->
+
+
+              {% set 1Html %}
+
+              {{ govukTextarea({
+                name: "an-de-preparing-food",
+                id: "an-de-preparing-food",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the points and justification given for preparing food",
+                  classes: "govuk-label--s ",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+            <!-- Hidden:  Record the details of why they disagree with the points and justification given for preparing food -->
+
+              {% endset -%}
+
+      <!---------- 2 ---------->
+
+              {% set 2Html %}
+
+              {{ govukTextarea({
+                name: "an-de-taking-nutrition",
+                id: "an-de-taking-nutrition",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the points and justification given for taking nutrition",
+                  classes: "govuk-label--s",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+              {% endset -%}
+
+      <!---------- 3 ---------->
+
+              {% set 3Html %}
+
+              {{ govukTextarea({
+                name: "an-de-managing-treatments",
+                id: "an-de-managing-treatments",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the points and justification given for managing therapy or monitoring a health condition",
+                  classes: "govuk-label--s",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+              {% endset -%}
+
+        <!---------- 4 ---------->
+
+                {% set 4Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-Washing-and-bathing",
+                  id: "an-de-Washing-and-bathing",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for washing and bathing",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 5 ---------->
+
+                {% set 5Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-toilet",
+                  id: "an-de-toilet",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for managing toilet needs or incontinence",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 6 ---------->
+
+                {% set 6Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-dressing",
+                  id: "an-de-dressing",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for dressing and undressing",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 7 ---------->
+
+                {% set 7Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-talking",
+                  id: "an-de-talking",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for communicating verbally",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 8 ---------->
+
+                {% set 8Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-reading",
+                  id: "an-de-reading",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for reading and understanding signs, symbols and words",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 9 ---------->
+
+                {% set 9Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-mixing",
+                  id: "an-de-mixing",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for engaging with other people face to face",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 10 ---------->
+
+                {% set 10Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-money",
+                  id: "an-de-money",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for making budgeting decisions",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 11 ---------->
+
+                {% set 11Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-planning",
+                  id: "an-de-planning",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for planning and following journeys",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 12 ---------->
+
+                {% set 12Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-moving-round",
+                  id: "an-de-moving-round",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the points and justification given for moving around",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!----------  ---------->
+
+
+
+
+
+        {% set DynamicHeaderHtml %}
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Which activities do they disagree with, based on the points and justification given?</h1>
+
+        <!-- <p class="govuk-body govuk-!-margin-bottom-2">Record the details of why they want us to reconsider their decision.</p> -->
+        <p class="govuk-body govuk-!-margin-bottom-2">For each activity include:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+          <li>reasons that they disagree</li>
+          <li>dates</li>
+          <li>any supporting evidence documents they refer to</li>
+        </ul>
+
+        {% endset -%}
+
+        <!-- an-de-preparing-food
+        an-de-taking-nutrition
+        an-de-managing-treatments
+        an-de-Washing-and-bathing
+        an-de-toilet
+        an-de-dressing
+        an-de-talking
+        an-de-reading
+        an-de-mixing
+        an-de-money
+        an-de-planning
+        an-de-moving-round -->
+
+        {{ govukCheckboxes({
+          idPrefix: "an-de-points-reasons",
+          name: "an-de-points-reasons",
+          classes: "govuk-checkboxes",
+          fieldset: {
+            legend: {
+              html: DynamicHeaderHtml,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            html: "Select all that apply."
+          },
+
+        items: [
+        {
+          value: "1",
+          text: "Preparing food",
+          checked: (data["an-de-points-reasons"] == "1"),
+          conditional: {
+            html: 1Html
+          }
+        },
+        {
+          value: "2",
+          text: "Taking nutrition",
+          checked: (data["an-de-points-reasons"] == "2"),
+          conditional: {
+            html: 2Html
+          }
+        },
+        {
+          value: "3",
+          text: "Managing therapy or monitoring a health condition",
+          checked: (data["an-de-points-reasons"] == "3"),
+          conditional: {
+            html: 3Html
+          }
+        },
+            {
+              value: "4",
+              text: "Washing and bathing",
+              checked: (data["an-de-points-reasons"] == "4"),
+              conditional: {
+                html: 4Html
+              }
+            },
+            {
+              value: "5",
+              text: "Managing toilet needs or incontinence",
+              checked: (data["an-de-points-reasons"] == "5"),
+              conditional: {
+                html: 5Html
+              }
+            },
+            {
+              value: "5",
+              text: "Dressing and undressing",
+              checked: (data["an-de-points-reasons"] == "6"),
+              conditional: {
+                html: 6Html
+              }
+            },
+            {
+              value: "7",
+              text: "Communicating verbally",
+              checked: (data["an-de-points-reasons"] == "7"),
+              conditional: {
+                html: 7Html
+              }
+            },
+            {
+              value: "8",
+              text: "Reading and understanding signs, symbols and words",
+              checked: (data["an-de-points-reasons"] == "8"),
+              conditional: {
+                html: 8Html
+              }
+            },
+            {
+              value: "9",
+              text: "Engaging with other people face to face",
+              checked: (data["an-de-points-reasons"] == "9"),
+              conditional: {
+                html: 9Html
+              }
+            },
+            {
+              value: "10",
+              text: "Making budgeting decisions",
+              checked: (data["an-de-points-reasons"] == "10"),
+              conditional: {
+                html: 10Html
+              }
+            },
+            {
+              value: "11",
+              text: "Planning and following journeys",
+              checked: (data["an-de-points-reasons"] == "11"),
+              conditional: {
+                html: 11Html
+              }
+            },
+            {
+              value: "12",
+              text: "Moving around",
+              checked: (data["an-de-points-reasons"] == "12"),
+              conditional: {
+                html: 12Html
+              }
+            }
+          ]
+        }) }}
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+        </div>
+      </div>
+
+
+  </form>
+
+{% endblock %}

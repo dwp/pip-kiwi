@@ -1,0 +1,43 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<h1 class="govuk-heading-l">This decision was made more than 13 months ago</h1>
+
+<p class="govuk-body">Advise the person:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>mandatory reconsiderations must be requested within one month of the date on the decision letter</li>
+  <li>we may still be able to consider the request if they have good reason for contacting us late</li>
+</ul>
+
+<h3 class="govuk-heading-s">
+  Record the reason they have requested the mandatory reconsideration more than one month after their decision
+</h3>
+
+{{ govukTextarea({
+  id: "more-detail",
+  name: "moreDetail",
+  rows: 5
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+{% endblock %}

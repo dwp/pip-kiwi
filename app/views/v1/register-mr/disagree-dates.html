@@ -1,0 +1,176 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<form action="an-de-points-reasons-conditional" method="post" class="form">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+
+        <!---------- 1 ---------->
+
+                {% set 1Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-disagree-reasons-start",
+                  id: "an-de-disagree-reasons-start",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the award start date",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 2 ---------->
+
+                {% set 2Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-disagree-reasons-qp",
+                  id: "an-de-disagree-reasons-qp",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the qualifying period",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!---------- 3 ---------->
+
+                {% set 3Html %}
+
+                {{ govukTextarea({
+                  name: "an-de-disagree-reasons-pt",
+                  id: "an-de-disagree-reasons-pt",
+                  rows: "4",
+                  label: {
+                    text: "Record the details of why they disagree with the prospective test",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                  },
+                  hint: {
+                    html: ""
+                  }
+                }) }}
+
+                {% endset -%}
+
+        <!----------  ---------->
+
+        {% set 4Html %}
+
+        {{ govukTextarea({
+          name: "an-de-disagree-reasons-end",
+          id: "an-de-disagree-reasons-end",
+          rows: "4",
+          label: {
+            text: "Record the details of why they disagree with the award end date",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          hint: {
+            html: ""
+          }
+        }) }}
+
+        {% endset -%}
+
+<!----------  ---------->
+
+
+        {{ govukCheckboxes({
+          idPrefix: "an-de-disagree-reasons",
+          name: "an-de-disagree-reasons",
+          classes: "govuk-checkboxes",
+          fieldset: {
+            legend: {
+              text: "Which dates in the letter do they disagree with?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            html: "Select all that apply."
+          },
+
+        items: [
+        {
+          value: "Start",
+          text: "Award start date",
+          checked: (data["an-de-disagree-reasons"] == "Start"),
+          conditional: {
+            html: 1Html
+          }
+        },
+        {
+          value: "QP",
+          text: "Qualifying period",
+          checked: (data["an-de-disagree-reasons"] == "QP"),
+          conditional: {
+            html: 2Html
+          }
+        },
+        {
+          value: "PT",
+          text: "Prospective test",
+          checked: (data["an-de-disagree-reasons"] == "PT"),
+          conditional: {
+            html: 3Html
+          }
+        },
+        {
+          value: "End",
+          text: "Award end date",
+          checked: (data["an-de-disagree-reasons"] == "End"),
+          conditional: {
+            html: 4Html
+          }
+        }
+          ]
+        }) }}
+
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+
+
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

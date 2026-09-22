@@ -1,0 +1,155 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<form action="an-de-disagree-reasons-router" method="post" class="form">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-thirds">
+
+
+      <!---------- 1 ---------->
+
+              {% set 1Html %}
+
+              {{ govukTextarea({
+                name: "an-de-disagree-reasons-award",
+                id: "an-de-disagree-reasons-award",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the length of the award period",
+                  classes: "govuk-label--s",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+              {% endset -%}
+
+      <!---------- 2 ---------->
+
+              {% set 2Html %}
+
+              {{ govukTextarea({
+                name: "an-de-disagree-reasons-doc",
+                id: "an-de-disagree-reasons-doc",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the evidence used to make the decision",
+                  classes: "govuk-label--s",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+              {% endset -%}
+
+      <!---------- 3 ---------->
+
+              {% set 3Html %}
+
+              {{ govukTextarea({
+                name: "an-de-disagree-reasons-payments",
+                id: "an-de-disagree-reasons-payments",
+                rows: "4",
+                label: {
+                  text: "Record the details of why they disagree with the payment amounts, including arrears",
+                  classes: "govuk-label--s",
+                  isPageHeading: true
+                },
+                hint: {
+                  html: ""
+                }
+              }) }}
+
+              {% endset -%}
+
+      <!----------  ---------->
+
+
+        {{ govukCheckboxes({
+          idPrefix: "an-de-disagree-reasons",
+          name: "an-de-disagree-reasons",
+          classes: "govuk-checkboxes",
+          fieldset: {
+            legend: {
+              text: "Which part of their decision do they disagree with?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            html: "Select all that apply."
+          },
+          items: [
+          {
+            value: "Points",
+            text: "Points and justification given for one or more of the activities",
+            checked: (data["an-de-disagree-reasons"] == "Points")
+          },
+
+            {
+              value: "Dates",
+              text: "Dates mentioned in the decision letter",
+              checked: (data["an-de-disagree-reasons"] == "Dates")
+            },
+
+            {
+              value: "Award",
+              text: "Length of the award period",
+              checked: (data["an-de-disagree-reasons"] == "Award"),
+              conditional: {
+                html: 1Html
+              }
+            },
+            {
+              value: "Doc",
+              text: "Evidence used to make the decision",
+              checked: (data["an-de-disagree-reasons"] == "Doc"),
+              conditional: {
+                html: 2Html
+              }
+            },
+            {
+              value: "Payments",
+              text: "Payment amounts including arrears",
+              checked: (data["an-de-disagree-reasons"] == "Payments"),
+              conditional: {
+                html: 3Html
+              }
+            }
+          ]
+        }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
+
+
+
+
+        </div>
+      </div>
+
+  </form>
+
+{% endblock %}

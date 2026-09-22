@@ -20,4 +20,226 @@
   Decision overview
 </h1>
 
+<table class="govuk-table govuk-!-margin-bottom-8">
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Status
+      </th>
+      <td class="govuk-table__cell">
+        [Status]
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Outcome
+      </th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body govuk-!-margin-bottom-1">
+          Daily living: Enhanced rate (12 points)
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          Mobility: Enhanced rate (12 points)
+        </p>
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Start of application
+      </th>
+      <td class="govuk-table__cell">
+        1 December 2023
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Award start date
+      </th>
+      <td class="govuk-table__cell">
+        1 December 2023
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Award review date
+      </th>
+      <td class="govuk-table__cell">
+        1 December 2027
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        Award end date
+      </th>
+      <td class="govuk-table__cell">
+        1 December 2028
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<p class="govuk-heading-l govuk-!-margin-bottom-6">Decision events</p>
+
+
+      <table class="govuk-table govuk-!-margin-bottom-8">
+        <!-- <caption class="govuk-table__caption govuk-table__caption--m">Personal Independence status</caption> -->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"></th>
+            <th scope="col" class="govuk-table__header govuk-!-width-two-quarters"></th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"></th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          {% if data["entry-home-processing-options"] == "MakeMRNil" or data["entry-home-processing-options"] == "MakeMRChange"%}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Today</th>
+            <td class="govuk-table__cell">Mandatory reconsideration decision made</td>
+              <td class="govuk-table__cell"><a class="govuk-aligned-right" href="/another-decision-0-0-2/cya-letter-review" target="">View</a></td> <!--View HIG details -->
+          </tr>
+          {% else %}
+          {% endif %}
+
+          {% if data["entry-home-processing-options"] == "MakeMRNil" or data["entry-home-processing-options"] == "MakeMRChange"%}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">15 March</th>
+            <td class="govuk-table__cell">Mandatory reconsideration requested</td>
+                <td class="govuk-table__cell"><a class="govuk-aligned-right" href="record-applicaion-evidence-notes" target="">View</a></td> <!--View HIG details -->
+          </tr>
+          {% else %}
+          {% endif %}
+
+
+          {% if data["applicaiton-actions"] == "ok" or data["applicaiton-actions"] == "1m" or data["applicaiton-actions"] == "13m" %}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Today</th>
+            <td class="govuk-table__cell">Mandatory reconsideration requested</td>
+            <td class="govuk-table__cell govuk-aligned-right">
+
+              <!-- <a class="govuk-aligned-right" href="record-applicaion-evidence-notes" target="">View</a></td> -->
+
+              <ul class="govuk-aligned-right govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="r-decision-actions-mr">Actions<span class="govuk-visually-hidden"></span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="record-applicaion-evidence-notes">View<span class="govuk-visually-hidden"> contact details</span></a>
+                </li>
+              </ul>
+              </td>
+
+          </tr>
+          {% else %}
+          {% endif %}
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">1 March 2024</td>
+        <td class="govuk-table__cell">Paying claimant</td>
+
+        {% if data["find-someone-1-offline-return"]  == "YesLinked" %}
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="https://pip-end-to-end-84bc0caed567.herokuapp.com/agent/case-manager-review-dev/decision" target="">View (C)</a></td>
+        {% else %}
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="record-application-payment-structure" target="">View</a></td>
+        {% endif %}
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">1 March 2024</td>
+        <td class="govuk-table__cell">Decision made: [outcome]</td>
+
+        {% if data["find-someone-1-offline-return"]  == "YesLinked" %}
+        <td class="govuk-table__cell govuk-aligned-right">
+
+
+        <ul class="govuk-aligned-right govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item">
+            <a class="govuk-link" href="r-decision-actions">Actions<span class="govuk-visually-hidden"></span></a>
+          </li>
+          <li class="govuk-summary-list__actions-list-item">
+            <a class="govuk-link" href="record-applicaion-evidence-decision">View<span class="govuk-visually-hidden"> contact details</span></a>
+          </li>
+        </ul>
+        </td>
+
+        {% else %}
+        <td class="govuk-table__cell govuk-aligned-right">
+
+
+        <ul class="govuk-aligned-right govuk-summary-list__actions-list">
+          <li class="govuk-summary-list__actions-list-item">
+            <a class="govuk-link" href="r-decision-actions">Actions<span class="govuk-visually-hidden"></span></a>
+          </li>
+          <li class="govuk-summary-list__actions-list-item">
+            <a class="govuk-link" href="record-applicaion-evidence-decision">View<span class="govuk-visually-hidden"> contact details</span></a>
+          </li>
+        </ul>
+
+        </td>
+
+        {% endif %}
+        </tr>
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">28 February 2024</td>
+        <td class="govuk-table__cell">Pre-decision checks completed</td>
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="record-applicaion-prep-checks" target="">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">2 February 2024</td>
+        <td class="govuk-table__cell">Returned from assessment provider</td>
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="record-applicaion-evidence-ap" target="">View</a></td> <!--View assessment report -->
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">2 December 2023</td>
+        <td class="govuk-table__cell">Pre-assessment checks completed</td>
+        <td class="govuk-table__cell"><a class="govuk-aligned-right" href="record-applicaion-prep-checks" target="">View </a></td>
+      </tr>
+
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">1 December 2023</td>
+        <td class="govuk-table__cell">Received health information gather</td>
+
+        {% if data["find-someone-1-offline-return"]  == "YesLinked" %}
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="https://supporting-docs-prototype.herokuapp.com/manage-prototype/password?returnURL=%2FvStarling-award%2Fdocument-list" target="">View</a></td>
+        {% else %}
+        <td class="govuk-table__cell"><a class="govuk-aligned-right" href="record-applicaion-evidence-pip2" target="">View</a></td> <!--View HIG details -->
+        {% endif %}
+
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">1 December 2023</td>
+        <td class="govuk-table__cell">Start of application</td>
+
+        {% if data["find-someone-1-offline-return"]  == "YesLinked" %}
+        <td class="govuk-table__cell "><a class="govuk-aligned-right" href="/v13/case-review/personal-details-cmr" target="">View (C)</a></td>
+        {% else %}
+        <td class="govuk-table__cell"><a class="govuk-aligned-right" href="record-applicaion-evidence-pip1" target="">View</a></td> <!--View registration details -->
+        {% endif %}
+
+      </tr>
+
+
+        </tbody>
+      </table>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8"><a href="https://pip-end-to-end-84bc0caed567.herokuapp.com/agent/case-manager-review/event-history" class="govuk-link" rel="noreferrer noopener" target="">View full event history</a></p>
+
+
+
+        </div>
+      </div>
+</table>
+
 {% endblock %}
