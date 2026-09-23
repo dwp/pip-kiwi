@@ -1,0 +1,100 @@
+{% set pageTitle = "Do they have any stays in hospital or similar institutions? - PIP Service" %}
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: "/v1/make-a-decision/make-a-decision-tasklist"
+  },
+  {
+    text: "Payability"
+  }
+] %}
+
+{% extends "layouts/pips-nav.html" %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+     
+<h1 class="govuk-heading-l">Check whether the application or claim can remain in PIP Service</h1>
+
+<h2 class="govuk-heading-m">Review the original decison and supporting documents</h2>
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Decision overview</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Event history</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Supporting documents service</a>
+  </li>
+</ul>
+
+
+<h2 class="govuk-heading-m">Were there any issues in the pre-decision checks?</h2>
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% call govukDetails({
+  summaryText: "List of pre-decision checks"
+}) %}<ul class="govuk-list govuk-list--bullet">
+  <li>Identity verification</li>
+  <li>Name</li>
+  <li>Address</li>
+  <li>Correspondence address</li>
+  <li>Date of death</li>
+  <li>Nationality</li>
+  <li>Residency and presence</li>
+  <li>Immigration status</li>
+  <li>Special Rules End of Life (SREL)</li>
+  <li>Representative or appointee</li>
+  <li>Withdrawn</li>
+  <li>Age criteria</li>
+  <li>Additional support</li>
+  <li>Alternative format</li>
+  <li>Fraud</li>
+  <li>Keep customer interactions safe (KCIS)</li>
+  <li>Working abroad</li>
+  <li>Foreign benefits</li>
+  <li>Disability Living Allowance (DLA)</li>
+  <li>Child Disability Payment or Adult Disability Payment</li>
+  <li>Armed Forces Independence Payment (AFIP)</li>
+  <li>War Pensioners' Mobility Supplement (WPMS)</li>
+  <li>Constant Attendance Allowance (CAA)</li>
+  <li>Hospital or similar institutions</li>
+  <li>Care homes</li>
+  <li>Nursing homes</li>
+  <li>Residential schools or colleges</li>
+  <li>Prison or legal custody</li>
+</ul> 
+
+
+</div>
+
+    </div>
+    
+</div>
+
+
+{% endcall %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layouts/pips-nav.html" %}
+{% set pageTitle = "Application overview - PIP Service" %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-thirds">
+
+
+<br>
+
+    <h1 class="govuk-heading-xl">
+      Review the mandatory reconsideration request
+    </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Start of application" },
+          value: { text: "DD MM YY" }
+        },
+        {
+          key: { text: "Date of decision" },
+          value: { text: "DD MMM YY" }
+        },
+        {
+          key: { text: "Mandatory reconsideration registered" },
+          value: { text: "DD MM YYYY" }
+        },
+        {
+          key: { text: "Decision to be reconsidered" },
+          value: { text: "Original decision" }
+        },
+        {
+          key: { text: "Time from decision to mandatory reconsideration request" },
+          value: { text: "More than one month" }
+        },
+        {
+          key: { text: "Do they want to send supporting documents which were not available to use when the decision was made?" },
+          value: { text: "No" }
+        }
+      ]
+    }) }}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/review-mr/pipcs/pre-checks-list"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

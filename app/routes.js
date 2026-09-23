@@ -356,4 +356,16 @@ router.post('/v1/move-to-pipcs/select-reason', function (req, res) {
 
 })
 
+router.post('/dmwa-scenario-selector', function (req, res) {
+  const scenarioSelector = req.session.data['scenarioSelector']
+
+  if (scenarioSelector === 'decision-maker') {
+    res.redirect('/v1/pips/agent-home')
+  } else if (scenarioSelector === 'mr-review') {
+    res.redirect('/v1/review-mr/pipcs/agent-home')
+  } else {
+    res.redirect('/v1/scenario-selector')
+  }
+})
+
 registerMrRoutes(router)

@@ -1,0 +1,70 @@
+{% set pageTitle = " Did the applicant meet the 3 month qualifying period for mobility when they submitted their application? - PIP Service" %}
+{% set breadcrumbs = [
+  {
+    text: "Make a decision",
+    href: ""
+  },
+  {
+    text: "Qualifying period and prospective test"
+  }
+] %}
+
+{% extends "layouts/pips-nav.html" %}
+
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<form action="" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "mobilityQualifyingPeriod",
+  fieldset: {
+    legend: {
+      text: "Did the applicant meet the 3 month qualifying period for mobility when they submitted their application on 10 March 2026?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no-enter-date",
+      text: "No, I need to enter the date the qualifying period will be met"
+    },
+    {
+      value: "no-not-met",
+      text: "No, they will not meet the qualifying period for this application"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "split-rate",
+      text: "I need to make a split rate decision"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+</form>
+    </div>
+  </div>
+
+  <p class="govuk-body">
+  <a href="" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+</p>
+
+{% endblock %}

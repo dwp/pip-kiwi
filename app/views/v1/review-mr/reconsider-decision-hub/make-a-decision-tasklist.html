@@ -1,0 +1,304 @@
+{% set pageTitle = " Make a decision - PIP Service" %}
+{% extends "layouts/pips-nav.html" %}
+
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">Review original decision and supporting documents</h1>
+
+      <h2 class="govuk-heading-m">x</h2>
+
+      {% set doneStatus = {
+  text: "Done"
+} %}
+
+{% set issueStatus = {
+  tag: {
+    text: "Issue",
+    classes: "govuk-tag--red"
+  }
+} %}
+
+{% set inProgressStatus = {
+  tag: {
+    text: "In progress",
+    classes: "govuk-tag--yellow"
+  }
+} %}
+
+{% set toDoStatus = {
+  tag: {
+    text: "To do",
+    classes: "govuk-tag--blue"
+  }
+} %}
+
+ {% set dailyLivingStatus =
+  issueStatus if (
+    data['dailyLivingQualifyingPeriod'] != 'yes'
+    and data['dailyLivingQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['dailyLivingForNineMonths'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['dailyLivingQualifyingPeriod'] == 'yes'
+        and data['dailyLivingForNineMonths'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['dailyLivingQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
+{% set mobilityStatus =
+  issueStatus if (
+    data['mobilityQualifyingPeriod'] != 'yes'
+    and data['mobilityQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['mobilityLikelyToContinue'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['mobilityQualifyingPeriod'] == 'yes'
+        and data['mobilityLikelyToContinue'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['mobilityQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
+{% set moveToPIPCS =
+  (
+    (
+      (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
+      or data['dailyLivingForNineMonths'] == 'no'
+    )
+    or
+    (
+      (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
+      or data['mobilityLikelyToContinue'] == 'no'
+    )
+  )
+  or data['hospital-stay'] == 'yes'
+  or data['care-home'] == 'yes'
+  or data['nursing-home'] == 'yes'
+  or data['rescol-stay'] == 'yes'
+  or data['prison-stay'] == 'yes'
+%}
+
+{% set allPayabilityDone =
+  data['hospital-stay'] == 'no'
+  and data['care-home'] == 'no'
+  and data['nursing-home'] == 'no'
+  and data['rescol-stay'] == 'no'
+  and data['prison-stay'] == 'no'
+%}
+
+{% set allSectionsDone =
+  data['dailyLivingQualifyingPeriod'] == 'yes'
+  and data['dailyLivingForNineMonths'] == 'yes'
+  and data['mobilityQualifyingPeriod'] == 'yes'
+  and data['mobilityLikelyToContinue'] == 'yes'
+  and data['hospital-stay'] == 'no'
+  and data['care-home'] == 'no'
+  and data['nursing-home'] == 'no'
+  and data['rescol-stay'] == 'no'
+  and data['prison-stay'] == 'no'
+%}
+
+
+      {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
+
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Review information and select documents used"
+            },
+            href: "/v1/make-a-decision/review-and-select-evidence-used"
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+  title: {
+    text: "Daily living"
+  },
+  href: "/v1/pips/qppts-daily-living-q1",
+  status: dailyLivingStatus
+},
+          {
+  title: {
+    text: "Mobility"
+  },
+  href: "/v1/pips/qppts-mobility-q1",
+  status: mobilityStatus
+}
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Complete payability checks</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Hospital or similar institutions"
+            },
+            href: "/v1/pips/payability-q1",
+            status: (
+  issueStatus
+  if data['hospital-stay'] == 'yes'
+  else (
+    inProgressStatus
+    if data['hospital-stay'] == 'pause'
+    else (
+      doneStatus
+      if data['hospital-stay'] == 'no'
+      else toDoStatus
+    )
+  )
+)
+          },
+          {
+            title: {
+              text: "Care homes"
+            },
+            href: "/v1/pips/payability-q2",
+            status: (
+  issueStatus
+  if data['care-home'] == 'yes'
+  else (
+    inProgressStatus
+    if data['care-home'] == 'pause'
+  else (
+    doneStatus
+    if data['care-home'] == 'no'
+    else toDoStatus
+  )
+)
+            )
+          },
+
+          {
+  title: {
+    text: "Nursing homes"
+  },
+  href: "/v1/pips/payability-q3",
+  status: (
+    issueStatus
+    if data['nursing-home'] == 'yes'
+    else (
+      inProgressStatus
+      if data['nursing-home'] == 'pause'
+      else (
+        doneStatus
+        if data['nursing-home'] == 'no'
+        else toDoStatus
+      )
+    )
+  )
+},
+{
+  title: {
+    text: "Residential schools or colleges"
+  },
+  href: "/v1/pips/payability-q4",
+  status: (
+    issueStatus
+    if data['rescol-stay'] == 'yes'
+    else (
+      inProgressStatus
+      if data['rescol-stay'] == 'pause'
+      else (
+        doneStatus
+        if data['rescol-stay'] == 'no'
+        else toDoStatus
+      )
+    )
+  )
+},
+
+          {
+            title: {
+              text: "Prison or legal custody"
+            },
+            href: "/v1/pips/payability-q5",
+            status: (
+  issueStatus
+  if data['prison-stay'] == 'yes'
+  else (
+    inProgressStatus
+    if data['prison-stay'] == 'pause'
+    else (
+      doneStatus
+      if data['prison-stay'] == 'no'
+      else toDoStatus
+    )
+  )
+)
+          }
+        ]
+      }) }}
+
+       <h2 class="govuk-heading-m govuk-!-margin-top-5">Help with your decision</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Get support or request more evidence"
+            },
+            href: "/v1/dmwa-tools/select-dmf-tool-from-half-tasklist"
+          }
+        ]
+      }) }}
+
+
+{% if moveToPIPCS %}
+
+<h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
+
+<p class="govuk-body">
+  We are currently unable to process it in this service.
+</p>
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/move-to-pipcs/move-to-pipcs-half-tasklist"
+}) }}
+
+{% elif allSectionsDone %}
+
+<script>
+  window.location.href = "/v1/make-a-decision/make-a-decision-tasklist-full";
+</script>
+
+{% endif %}
+
+</div>
+</div>
+{% endblock %}

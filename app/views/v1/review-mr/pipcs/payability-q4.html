@@ -1,19 +1,24 @@
-{% set pageTitle = "Do they have any stays in hospital or similar institutions? - PIP Service" %}
+{% set pageTitle = "Do they have any stays in residential schools or colleges? - PIP Service" %}
 {% set breadcrumbs = [
   {
     text: "Make a decision",
     href: ""
   },
   {
-    text: "Payability"
+    text: "Payability checks"
   }
 ] %}
 
 {% extends "layouts/pips-nav.html" %}
 
+{% block pageTitle %}
+  Process a PIP application
+{% endblock %}
 
 {% block content %}
+
 <form class="form" action="" method="post">
+
 
   <div class="govuk-grid-row">
 
@@ -22,11 +27,11 @@
 
       {{ govukRadios({
         classes: "govuk-radios govuk-!-margin-bottom-4",
-        name: "hospital-stay",
-        value: data['hospital-stay'],
+        name: "rescol-stay",
+        value: data['rescol-stay'],
         fieldset: {
           legend: {
-            html: "Do they have any stays in hospital or similar institutions?",
+            html: "Do they have any stays in residential schools or colleges?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
@@ -41,14 +46,14 @@
         },
         {
           value: "no",
-          text: "No"        },
+          text: "No"
+        },
         {
-          value: "pause",
-          text: "I need to come back to this later"        }
+          value: "Pause",
+          text: "I need to come back to this later"
+        }
         ]
         }) }}
-
-        <!-- text: "Yes, but they are self-funding", -->
 
 
         {{ govukButton({
@@ -59,9 +64,9 @@
 
     </div>
   </div>
-</form>
+  </form>
 
-<p class="govuk-body">
+  <p class="govuk-body">
   <a href="" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
 </p>
 
