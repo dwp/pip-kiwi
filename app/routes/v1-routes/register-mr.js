@@ -116,4 +116,15 @@ router.post('/extra-info', function (req, res) {
 
 })
 
+router.post('/decision-next-steps', function (req, res) {
+  const nextStep = req.session.data['decision-next-steps']
+
+  if (nextStep === 'register-mr') {
+    res.redirect('/v1/register-mr/register-mr')
+  } else {
+    res.redirect('/v1/register-mr/decision-overview')
+  }
+})
+
+
 }

@@ -1,0 +1,241 @@
+{% extends "layouts/pr-standard.html" %}
+
+{% set breadcrumbs = [
+  {
+    text: "Overview",
+    href: "/overview"
+  },
+  {
+    text: "Applications and decisions",
+    href: "/applications-and-decisions"
+  },
+  {
+    text: "x"
+  }
+] %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <h1 class="govuk-heading-l">Information captured from the mandatory reconsideration call</h1>
+
+    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        <h2 class="govuk-heading-m">Registration details</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Mandatory reconsideration registration date"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Registered by?"
+      },
+      value: {
+        text: "x"
+      }
+    }
+  ]
+}) }}
+
+        <h2 class="govuk-heading-m">About their decision letter</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Reason request is more than one month after decision"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Have they recieved their decision letter?"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Do they have their decision letter with them?"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Do they need us to resend their decision letter?"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    }
+  ]
+}) }}
+
+        <h2 class="govuk-heading-m">Length of award period</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Qualifying period"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Prospecive test"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    },
+    {
+      key: {
+        text: "Award end date"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    }
+  ]
+}) }}
+
+        <h2 class="govuk-heading-m">Length of award period</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Lenght of award details"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    }
+  ]
+}) }}
+
+        <h2 class="govuk-heading-m">Evidence used to make the decision</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Evidence details"
+      },
+      value: {
+        text: "No disagreement"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Daily living scoring</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Preparing food" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Taking nutrition" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Managing treatments" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Washing and bathing" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Using the toilet or managing incontinence" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Dressing and undressing" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Talking, listening and understanding" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Reading" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Mixing with other people" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Managing your money" },
+      value: { text: "No disagreement" }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">Mobility scoring</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Planning and following journeys" },
+      value: { text: "No disagreement" }
+    },
+    {
+      key: { text: "Moving around" },
+      value: { text: "No disagreement" }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">
+  Supporting evidence which was not available to us when the decision was made
+</h2>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Expected evidence" },
+      value: { text: "No documents to be sent" }
+    }
+  ]
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

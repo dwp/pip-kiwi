@@ -16,7 +16,6 @@
 
 {% block pageContent %}
 
-<form action="record-1-event-history#an-de-callback-notification" method="post" class="form">
 
 
   <div class="govuk-grid-row">
@@ -28,7 +27,7 @@
       <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">If the person does not have the time to complete the call today, explain that:
 
       <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-6">
-<li>they will need around 30 minutes for the call</li>
+<li>they will need around 30 minutes for the call.</li>
         <li>they should call us back on the phone number on their decision letter</li>
           <li>they will need to have received their decision letter</li>
           <!-- <li>we'll register that they've asked us to reconsider their decision</li> -->
@@ -39,7 +38,8 @@
 
       {{ govukButton({
         text: "Finish and close",
-        classes: "govuk-!-margin-bottom-8"
+        classes: "govuk-!-margin-bottom-8", 
+        href: "/v1/register-mr/event-history-mr-requested-CRMR1"
       }) }}
 
 

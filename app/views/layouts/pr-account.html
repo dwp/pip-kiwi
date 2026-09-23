@@ -26,9 +26,30 @@
 
 {% endblock %}
 
+
 {% block content %}
 
 <div class="govuk-width-container">
+
+  {% if successBanner %}
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% call govukNotificationBanner({
+      type: "success"
+    }) %}
+      <h3 class="govuk-notification-banner__heading">
+        {{ successBanner.heading }}
+      </h3>
+
+      {% if successBanner.body %}
+        <p class="govuk-body">
+          {{ successBanner.body }}
+        </p>
+      {% endif %}
+    {% endcall %}
+
+  {% endif %}
 
   <div class="govuk-grid-row">
 
@@ -38,17 +59,15 @@
 
     <div class="govuk-grid-column-three-quarters">
 
-  <div style="margin-top: 100px;">
+      <div style="margin-top: 100px;">
 
-    {% block pageContent %}
-    <h1 class="govuk-heading-l">govuk-heading-l</h1>
-    {% endblock %}
+        {% block pageContent %}
+          <h1 class="govuk-heading-l">govuk-heading-l</h1>
+        {% endblock %}
 
-  </div>
+      </div>
 
-</div>
-
-</div>
+    </div>
 
   </div>
 

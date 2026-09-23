@@ -16,7 +16,7 @@
 
 {% block pageContent %}
 
-<form action="record-1-event-history#an-de-mr-reg-flag" method="post" class="form">
+<form action="" method="post" class="form">
 
 
   <div class="govuk-grid-row">
@@ -50,7 +50,8 @@
 
       {{ govukButton({
         text: "Finish and close",
-        classes: "govuk-!-margin-bottom-8"
+        classes: "govuk-!-margin-bottom-8", 
+        href: "/v1/register-mr/event-history-mr-registered-success-banner"
       }) }}
 
 

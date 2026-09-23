@@ -16,6 +16,9 @@
 
 {% block pageContent %}
 
+<form action="/decision-next-steps" method="post" class="form">
+
+
 <h1 class="govuk-heading-l">
   Decision overview
 </h1>
@@ -41,10 +44,10 @@
       </th>
       <td class="govuk-table__cell">
         <p class="govuk-body govuk-!-margin-bottom-1">
-          Daily living: Enhanced rate (12 points)
+          Daily living: Standard (8 points)
         </p>
         <p class="govuk-body govuk-!-margin-bottom-0">
-          Mobility: Enhanced rate (12 points)
+          Mobility: nil (0 points)
         </p>
       </td>
     </tr>
@@ -54,7 +57,7 @@
         Start of application
       </th>
       <td class="govuk-table__cell">
-        1 December 2023
+        DD MM YY
       </td>
     </tr>
 
@@ -63,7 +66,7 @@
         Award start date
       </th>
       <td class="govuk-table__cell">
-        1 December 2023
+        DD MM YY
       </td>
     </tr>
 
@@ -72,7 +75,7 @@
         Award review date
       </th>
       <td class="govuk-table__cell">
-        1 December 2027
+        DD MM YY
       </td>
     </tr>
 
@@ -81,7 +84,7 @@
         Award end date
       </th>
       <td class="govuk-table__cell">
-        1 December 2028
+        DD MM YY
       </td>
     </tr>
 
@@ -205,7 +208,7 @@
 
       <tr class="govuk-table__row">
         <td scope="row" class="govuk-table__cell">2 December 2023</td>
-        <td class="govuk-table__cell">Pre-assessment checks completed</td>
+        <td class="govuk-table__cell">Application checks completed</td>
         <td class="govuk-table__cell"><a class="govuk-aligned-right" href="record-applicaion-prep-checks" target="">View </a></td>
       </tr>
 
@@ -237,12 +240,47 @@
 
         </tbody>
       </table>
-      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8"><a href="https://pip-end-to-end-84bc0caed567.herokuapp.com/agent/case-manager-review/event-history" class="govuk-link" rel="noreferrer noopener" target="">View full event history</a></p>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+{{ govukRadios({
+  name: "decision-next-steps",
+  fieldset: {
+    legend: {
+      text: "What would you like to do?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "register-mr",
+      text: "Register mandatory reconsideration"
+    },
+    {
+      value: "pause-payments",
+      text: "Pause payments"
+    },
+    {
+      value: "end-archive",
+      text: "End award and archive case"
+    },
+    {
+      value: "something-else",
+      text: "Something else"
+    }
+  ]
+}) }}
 
+ {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-bottom-8"
+      }) }}
 
         </div>
       </div>
 </table>
+
+
+</form>
 
 {% endblock %}
