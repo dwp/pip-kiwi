@@ -146,23 +146,19 @@
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
-      <h2 class="govuk-heading-m">Review supporting documents</h2>
+            <h2 class="govuk-heading-m govuk-!-margin-top-5">Review supplied information</h2>
+      <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Registration (PIP1) (opens in new tab)</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Supporting documents service (opens in new tab)</a>
+  </li>
+</ul>
 
-      
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
-
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Review information and select documents used"
-            },
-            href: "/v1/make-a-decision/review-and-select-evidence-used"
-          }
-        ]
-      }) }}
+          
 
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 
@@ -284,7 +280,7 @@
       },
       {
         text: data.preparingFoodDescriptor or "0",
-        format: "numeric"
+        classes: "score-column"
       },
       {
   html: (
@@ -301,7 +297,7 @@
       },
       {
         text: data.takingNutritionDescriptor or "0",
-        format: "numeric"
+        classes: "score-column"
       },
       {
   html: (
@@ -318,7 +314,7 @@
   },
   {
     text: data.managingTherapyDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -335,7 +331,7 @@
   },
   {
     text: data.washingBathingDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -352,7 +348,7 @@
   },
   {
     text: data.toiletNeedsDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -370,7 +366,7 @@
   },
   {
     text: data.dressingUndressingDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -387,7 +383,7 @@
   },
   {
     text: data.communicateVerballyDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -404,7 +400,7 @@
   },
   {
     text: data.readUnderstandDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -421,7 +417,7 @@
   },
   {
     text: data.engagingOthersDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -439,7 +435,7 @@
   },
   {
     text: data.budgetDecisionsDescriptor or "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     html: (
@@ -456,7 +452,7 @@
   },
   {
     text: "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     text: ""
@@ -476,7 +472,7 @@
     },
     {
       text: "Score",
-      format: "numeric"
+      classes: "score-column"
     },
     {
       text: "Status"
@@ -489,7 +485,7 @@
       },
       {
         text: data.planningJourneysDescriptor or "0",
-        format: "numeric"
+        classes: "score-column"
       },
       {
         html: (
@@ -506,7 +502,7 @@
       },
       {
         text: data.movingAroundDescriptor or "0",
-        format: "numeric"
+        classes: "score-column"
       },
       {
         html: (
@@ -523,12 +519,29 @@
   },
   {
     text: "0",
-    format: "numeric"
+    classes: "score-column"
   },
   {
     text: ""
   }
 ]
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-5">
+  Select documents used to make the decision
+</h2>
+
+{{ govukTaskList({
+  idPrefix: "first-section",
+  items: [
+    {
+      title: {
+        text: "Select documents"
+      },
+      href: "/v1/make-a-decision/application-evidence-used",
+      status: (doneStatus if data['application-evidence-used'] else toDoStatus)
+    }
   ]
 }) }}
 

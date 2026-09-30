@@ -11,7 +11,6 @@
 
       <h1 class="govuk-heading-l">Make a decision</h1>
 
-      <h2 class="govuk-heading-m">Review supporting documents</h2>
 
       {% set doneStatus = {
   text: "Done"
@@ -123,18 +122,16 @@
 
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Review supplied information</h2>
+      <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Registration (PIP1) (opens in new tab)</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Supporting documents service (opens in new tab)</a>
+  </li>
+</ul>
 
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Review information and select documents used"
-            },
-            href: "/v1/make-a-decision/review-and-select-evidence-used"
-          }
-        ]
-      }) }}
 
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 

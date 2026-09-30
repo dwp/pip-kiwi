@@ -284,4 +284,18 @@ router.post('/dmwa-scenario-selector', function (req, res) {
   }
 })
 
+router.get('/make-a-decision/task-list', function (req, res) {
+
+  const evidenceUsed = req.session.data['application-evidence-used']
+
+  const selectDocumentsStatus = evidenceUsed
+    ? { text: 'Done', classes: 'govuk-tag--green' }
+    : { text: 'Not started' }
+
+  res.render('v1/make-a-decision/task-list', {
+    selectDocumentsStatus
+  })
+
+})
+
 registerMrRoutes(router)

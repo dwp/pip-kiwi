@@ -11,8 +11,6 @@
 
       <h1 class="govuk-heading-l">Make a decision </h1>
 
-      <h2 class="govuk-heading-m">Review supporting documents</h2>
-
       {% set doneStatus = {
         text: "Done"
       } %}
@@ -401,6 +399,23 @@
     text: ""
   }
 ]
+  ]
+}) }}
+
+<h2 class="govuk-heading-m govuk-!-margin-top-5">
+  Application evidence
+</h2>
+
+{{ govukTaskList({
+  idPrefix: "first-section",
+  items: [
+    {
+      title: {
+        text: "Select documents"
+      },
+      href: "/v1/make-a-decision/application-evidence-used",
+      status: (doneStatus if data['application-evidence-used'] else toDoStatus)
+    }
   ]
 }) }}
 
