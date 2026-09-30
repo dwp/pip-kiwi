@@ -1,13 +1,13 @@
+
 {% set breadcrumbs = [
   {
     text: "Make a decision",
     href: "/v1/make-a-decision/make-a-decision-tasklist-full"
   },
   {
-    text: "
-Daily living activities"
+    text: "Communicate verbally"
   }
-] %}
+] %} 
 {% set question = "Which descriptor do you want to select for communicating verbally?" %}
 
 {% set descriptorField = "communicateVerballyDescriptor" %}
@@ -51,4 +51,4 @@ Cannot express or understand verbal information at all even with communication s
   }
 ] %}
 
-{% extends "layouts/descriptor.html" %}
+{% extends "layouts/descriptor-w-reason.html" %}
