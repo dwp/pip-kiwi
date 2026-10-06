@@ -42,26 +42,14 @@
   text: "Done"
 } %}
 
-{% set issueStatus = {
-  tag: {
-    text: "Issue",
-    classes: "govuk-tag--red"
-  }
-} %}
+{% set issueStatus = doneStatus %}
+{% set inProgressStatus = doneStatus %}
+{% set toDoStatus = doneStatus %}
 
-{% set inProgressStatus = {
-  tag: {
-    text: "In progress",
-    classes: "govuk-tag--yellow"
-  }
-} %}
+{% set issueStatus = doneStatus %}
+{% set inProgressStatus = doneStatus %}
+{% set toDoStatus = doneStatus %}
 
-{% set toDoStatus = {
-  tag: {
-    text: "To do",
-    classes: "govuk-tag--blue"
-  }
-} %}
 {% set dailyLivingStatus =
   issueStatus if (
     data['dailyLivingQualifyingPeriod'] != 'yes'
@@ -279,16 +267,11 @@
         html: '<a href="/v1/activity-descriptors/preparing-food">Preparing food</a>'
       },
       {
-        text: data.preparingFoodDescriptor or "0",
+        text: data.preparingFoodDescriptor or "2",
         classes: "score-column"
       },
       {
-  html: (
-    'Done'
-    if data.preparingFoodStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
+  text: "Done"
 }
     ],
     [
@@ -296,16 +279,11 @@
         html: '<a href="/v1/activity-descriptors/taking-nutrition">Taking nutrition</a>'
       },
       {
-        text: data.takingNutritionDescriptor or "0",
+        text: data.takingNutritionDescriptor or "2",
         classes: "score-column"
       },
       {
-  html: (
-    'Done'
-    if data.takingNutritionStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
+  text: "Done"
 }
     ],
     [
@@ -313,17 +291,12 @@
      html: '<a href="/v1/activity-descriptors/managing-therapy">Managing therapy and monitoring a health condition</a>'
   },
   {
-    text: data.managingTherapyDescriptor or "0",
+    text: data.managingTherapyDescriptor or "1",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.managingTherapyStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -333,14 +306,9 @@
     text: data.washingBathingDescriptor or "0",
     classes: "score-column"
   },
-  {
-    html: (
-    'Done'
-    if data.washingBathingStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+ {
+  text: "Done"
+}
 ],
     [
   {
@@ -351,14 +319,8 @@
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.toiletNeedsStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -369,13 +331,8 @@
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.dressingUndressingStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -386,13 +343,8 @@
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.communicateVerballyStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -403,13 +355,8 @@
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.readUnderstandStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -420,14 +367,8 @@
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.engagingOthersStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
@@ -437,21 +378,16 @@
     text: data.budgetDecisionsDescriptor or "0",
     classes: "score-column"
   },
-  {
-    html: (
-    'Done'
-    if data.budgetDecisionsStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+{
+  text: "Done"
+}
 ],
 [
   {
     html: '<strong>Score total</strong>'
   },
   {
-    text: "0",
+    text: "5",
     classes: "score-column"
   },
   {
@@ -484,17 +420,12 @@
         html: '<a href="/v1/activity-descriptors/mobility/planning-journeys">Planning and following journeys</a>'
       },
       {
-        text: data.planningJourneysDescriptor or "0",
+        text: data.planningJourneysDescriptor or "4",
         classes: "score-column"
       },
       {
-        html: (
-    'Done'
-    if data.planningJourneysStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-      }
+  text: "Done"
+}
     ],
     [
       {
@@ -504,21 +435,16 @@
         text: data.movingAroundDescriptor or "0",
         classes: "score-column"
       },
-      {
-        html: (
-    'Done'
-    if data.movingAroundStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-      }
+     {
+  text: "Done"
+}
     ],
 [
   {
     html: '<strong>Score total</strong>'
   },
   {
-    text: "0",
+    text: "4",
     classes: "score-column"
   },
   {
@@ -604,6 +530,21 @@
 
 {% endif %}
 
+<h2 class="govuk-heading-m">You have selected and justified your descriptors</h2>
+
+<p class="govuk-body">
+      This applicant will not be awarded PIP.
+  </a>
+</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/form-letter/form-decision-letter-not-awarded"
+}) }}
+
+
 
 <p class="govuk-body">
   <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist">
@@ -611,20 +552,6 @@
   </a>
 </p>
 
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-<p class="govuk-body">
-  <a href="/v1/make-a-decision/make-a-decision-tasklist-full-awarded">
-    Fast track prototype to ---> Applicant will be awarded PIP
-  </a>
-</p>
-
-<p class="govuk-body">
-  <a href="/v1/make-a-decision/make-a-decision-tasklist-full-not-awarded">
-    Fast track prototype to ---> Applicant will not be awarded PIP
-  </a>
-</p>
 
 {% endif %}
 

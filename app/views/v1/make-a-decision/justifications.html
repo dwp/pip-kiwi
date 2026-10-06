@@ -37,13 +37,6 @@
 
 <div class="govuk-width-container">
         
-<nav class="govuk-breadcrumbs" aria-label="Breadcrumb" style="margin-top: 0;">
-
-</nav>
-
-          
-
-<br>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -54,7 +47,7 @@
   name: "reviewPeriodJustification",
   fieldset: {
     legend: {
-      html: "Add your justification for setting a x review period",
+      html: "Add your justification for setting a " + data['awardReviewPeriod'] + " review period",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -93,7 +86,8 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue"
+  text: "Continue", 
+  href: "/v1/form-letter/form-decision-letter-awarded"
 }) }}
 
 </form>

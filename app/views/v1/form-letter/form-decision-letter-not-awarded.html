@@ -1,4 +1,4 @@
-{% set pageTitle = "page title here" %}
+{% set pageTitle = "" %}
 {% extends "layouts/pips-nav.html" %}
 
 
@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">Check the information you are adding to the decision letter</h1>
 
@@ -428,7 +428,7 @@
 
 {{ govukButton({
   text: "Continue", 
-  href: "/v1/pips/agent-home-awarded-pip-success"
+  href: "/v1/pips/agent-home-not-awarded-pip-success"
 }) }}
       
 

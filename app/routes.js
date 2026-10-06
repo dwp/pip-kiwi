@@ -298,4 +298,18 @@ router.get('/make-a-decision/task-list', function (req, res) {
 
 })
 
+router.post('/standard-three-year-answer', function (req, res) {
+  const answer = req.session.data['standardThreeYear']
+
+  if (answer === 'yes') {
+    res.redirect('/v1/form-letter/form-decision-letter-awarded')
+  } else {
+    res.redirect('/v1/make-a-decision/award-review-period')
+  }
+})
+
+router.post('/award-review-period', function (req, res) {
+  res.redirect('/v1/make-a-decision/justifications')
+})
+
 registerMrRoutes(router)

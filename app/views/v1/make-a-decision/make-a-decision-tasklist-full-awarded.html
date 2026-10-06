@@ -1,41 +1,152 @@
 {% set pageTitle = " Make a decision - PIP Service" %}
 {% extends "layouts/pips-nav.html" %}
 
-
-{% block containerStart %}{% endblock %}
-
 {% block content %}
+
+
+
+{% set payabilityDone =
+  data.hospitalStayStatus and
+  data.careHomeStatus and
+  data.nursingHomeStatus and
+  data.rescolStayStatus and
+  data.prisonStayStatus
+%}
+
+{% set dailyLivingDone =
+  data.preparingFoodStatus == "Done" and
+  data.takingNutritionStatus == "Done" and
+  data.managingTherapyStatus == "Done" and
+  data.washingBathingStatus == "Done" and
+  data.toiletNeedsStatus == "Done" and
+  data.dressingUndressingStatus == "Done" and
+  data.communicateVerballyStatus == "Done" and
+  data.readUnderstandStatus == "Done" and
+  data.engagingOthersStatus == "Done" and
+  data.budgetDecisionsStatus == "Done"
+%}
+
+{% set mobilityDone =
+  data.planningJourneysStatus == "Done" and
+  data.movingAroundStatus == "Done"
+%}
+
+{% set allTasksDone =
+  dailyLivingDone and
+  mobilityDone and
+  qualifyingPeriodDone and
+  payabilityDone
+%}
+
+{% set doneStatus = {
+  text: "Done"
+} %}
+
+{% set issueStatus = doneStatus %}
+{% set inProgressStatus = doneStatus %}
+{% set toDoStatus = doneStatus %}
+
+{% set issueStatus = doneStatus %}
+{% set inProgressStatus = doneStatus %}
+{% set toDoStatus = doneStatus %}
+
+{% set dailyLivingStatus =
+  issueStatus if (
+    data['dailyLivingQualifyingPeriod'] != 'yes'
+    and data['dailyLivingQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['dailyLivingForNineMonths'] == 'no'
+    )
+    else (
+      doneStatus if (
+        data['dailyLivingQualifyingPeriod'] == 'yes'
+        and data['dailyLivingForNineMonths'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['dailyLivingQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
+{% set mobilityStatus =
+  issueStatus if (
+    data['mobilityQualifyingPeriod'] != 'yes'
+    and data['mobilityQualifyingPeriod']
+  )
+  else (
+    issueStatus if (
+      data['mobilityLikelyToContinue'] == 'no-not-likely'
+    )
+    else (
+      doneStatus if (
+        data['mobilityQualifyingPeriod'] == 'yes'
+        and data['mobilityLikelyToContinue'] == 'yes'
+      )
+      else (
+        inProgressStatus if data['mobilityQualifyingPeriod']
+        else toDoStatus
+      )
+    )
+  )
+%}
+
+{% set qualifyingPeriodDone =
+  data.dailyLivingQualifyingPeriod == "yes" and
+  data.dailyLivingForNineMonths == "yes" and
+  data.mobilityQualifyingPeriod == "yes" and
+  data.mobilityLikelyToContinue == "yes"
+%}
+
+{% set payabilityDone =
+  data.hospitalStayStatus and
+  data.careHomeStatus and
+  data.nursingHomeStatus and
+  data.rescolStayStatus and
+  data.prisonStayStatus
+%}
+
+{% set moveToPIPCS =
+  (
+    (
+      (data['dailyLivingQualifyingPeriod'] and data['dailyLivingQualifyingPeriod'] != 'yes')
+      or data['dailyLivingForNineMonths'] == 'no'
+    )
+    or
+    (
+      (data['mobilityQualifyingPeriod'] and data['mobilityQualifyingPeriod'] != 'yes')
+      or data['mobilityLikelyToContinue'] == 'no'
+    )
+  )
+  or data['hospital-stay'] == 'yes'
+  or data['care-home'] == 'yes'
+  or data['nursing-home'] == 'yes'
+  or data['rescol-stay'] == 'yes'
+  or data['prison-stay'] == 'yes'
+%}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
 
-      <h1 class="govuk-heading-l">Make a decision </h1>
+      <h1 class="govuk-heading-l">Make a decision</h1>
 
-      {% set doneStatus = {
-        text: "Done"
-      } %}
+            <h2 class="govuk-heading-m govuk-!-margin-top-5">Review supplied information</h2>
+      <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Registration (PIP1) (opens in new tab)</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Supporting documents service (opens in new tab)</a>
+  </li>
+</ul>
 
-      {% set toDoStatus = {
-        tag: {
-          text: "To do",
-          classes: "govuk-tag--blue"
-        }
-      } %}
 
       {# To switch between the Done and To do statues, use some inline logic within the component below, like this: "status: (doneStatus if ... else toDoStatus)" #}
-
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Review information and select documents used"
-            },
-            href: "/v1/make-a-decision/review-and-select-evidence-used",
-            status: toDoStatus
-          }
-        ]
-      }) }}
+          
 
       <h2 class="govuk-heading-m govuk-!-margin-top-5">Confirm qualifying period and prospective test</h2>
 
@@ -47,14 +158,14 @@
               text: "Daily living"
             },
             href: "/v1/pips/qppts-daily-living-q1",
-            status: (doneStatus if dailyLivingDone else toDoStatus)
+            status: dailyLivingStatus
           },
           {
             title: {
               text: "Mobility"
             },
             href: "/v1/pips/qppts-mobility-q1",
-            status: (doneStatus if mobilityDone else toDoStatus)
+            status: mobilityStatus
           }
         ]
       }) }}
@@ -111,7 +222,7 @@
             title: {
               text: "Get support or request more evidence"
             },
-            href: "/v1/dmwa-tools/select-dmf-tool-2"
+            href: "/v1/dmwa-tools/select-dmf-tool-from-full-tasklist"
           }
         ]
       }) }}
@@ -125,16 +236,17 @@
             title: {
               text: "Health conditions or disabilities"
             },
-            href: "#",
-            status: toDoStatus
+            href: "/v1/about-your-health/rds-picker",
+            status: (doneStatus if data['primaryCondition'] or data['primaryConditionManual'] else toDoStatus)
           }
         ]
       }) }}
-
       <br>
-      {% from "govuk/components/table/macro.njk" import govukTable %}
-            <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each daily living activity</h2>
 
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+                  <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each daily living activity</h2>
+
+      
     {{ govukTable({
   firstCellIsHeader: false,
   head: [
@@ -142,9 +254,9 @@
       text: "Activity"
     },
     {
-      text: "Score",
-      classes: "score-column"
-    },
+  text: "Score",
+  classes: "score-column"
+},
     {
       text: "Status"
     }
@@ -155,16 +267,11 @@
         html: '<a href="/v1/activity-descriptors/preparing-food">Preparing food</a>'
       },
       {
-        text: "0",
+        text: data.preparingFoodDescriptor or "2",
         classes: "score-column"
       },
       {
-  html: (
-    'Done'
-    if data.preparingFoodStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
+  text: "Done"
 }
     ],
     [
@@ -172,16 +279,11 @@
         html: '<a href="/v1/activity-descriptors/taking-nutrition">Taking nutrition</a>'
       },
       {
-        text: "0",
+        text: data.takingNutritionDescriptor or "2",
         classes: "score-column"
       },
       {
-  html: (
-    'Done'
-    if data.takingNutritionStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
+  text: "Done"
 }
     ],
     [
@@ -189,143 +291,103 @@
      html: '<a href="/v1/activity-descriptors/managing-therapy">Managing therapy and monitoring a health condition</a>'
   },
   {
-    text: "0",
+    text: data.managingTherapyDescriptor or "1",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.managingTherapyStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/washing-and-bathing">Washing and bathing</a>'
   },
   {
-    text: "0",
+    text: data.washingBathingDescriptor or "2",
     classes: "score-column"
   },
-  {
-    html: (
-    'Done'
-    if data.washingBathingStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+ {
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/toilet-needs">Managing toilet needs and incontinence</a>'
   },
   {
-    text: "0",
+    text: data.toiletNeedsDescriptor or "2",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.toiletNeedsStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/dressing-undressing">Dressing and undressing</a>'
   },
   {
-    text: "0",
+    text: data.dressingUndressingDescriptor or "2",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.dressingUndressingStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/communicate-verbally">Communicating verbally</a>'
   },
   {
-    text: "0",
+    text: data.communicateVerballyDescriptor or "0",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.communicateVerballyStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/read-understand">Reading and understanding signs, symbols and words</a>'
   },
   {
-    text: "0",
+    text: data.readUnderstandDescriptor or "0",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.readUnderstandStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/engaging-others">Engaging with other people face to face</a>'
   },
   {
-    text: "0",
+    text: data.engagingOthersDescriptor or "0",
     classes: "score-column"
   },
   {
-    html: (
-    'Done'
-    if data.engagingOthersStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+  text: "Done"
+}
 ],
     [
   {
      html: '<a href="/v1/activity-descriptors/budget-decisions">Making budgeting decisions</a>'
   },
   {
-    text: "0",
+    text: data.budgetDecisionsDescriptor or "0",
     classes: "score-column"
   },
-  {
-    html: (
-    'Done'
-    if data.budgetDecisionsStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-  }
+{
+  text: "Done"
+}
 ],
 [
   {
     html: '<strong>Score total</strong>'
   },
   {
-    text: "0",
+    text: "11",
     classes: "score-column"
   },
   {
@@ -336,7 +398,7 @@
 }) }}
 
       {% from "govuk/components/table/macro.njk" import govukTable %}
-            <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each mobility activity</h2>
+                        <h2 class="govuk-heading-m govuk-!-margin-top-5">Select and justify a descriptor for each mobility activity</h2>
 
     {{ govukTable({
   firstCellIsHeader: false,
@@ -358,41 +420,31 @@
         html: '<a href="/v1/activity-descriptors/mobility/planning-journeys">Planning and following journeys</a>'
       },
       {
-        text: "0",
+        text: data.planningJourneysDescriptor or "4",
         classes: "score-column"
       },
       {
-        html: (
-    'Done'
-    if data.planningJourneysStatus == "Done"
-    else
-   '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-      }
+  text: "Done"
+}
     ],
     [
       {
         html: '<a href="/v1/activity-descriptors/mobility/moving-around">Moving around</a>'
       },
       {
-        text: "0",
+        text: data.movingAroundDescriptor or "4",
         classes: "score-column"
       },
-      {
-        html: (
-    'Done'
-    if data.movingAroundStatus == "Done"
-    else
-    '<strong class="govuk-tag govuk-tag--blue">To do</strong>'
-  )
-      }
+     {
+  text: "Done"
+}
     ],
 [
   {
     html: '<strong>Score total</strong>'
   },
   {
-    text: "0",
+    text: "8",
     classes: "score-column"
   },
   {
@@ -403,7 +455,7 @@
 }) }}
 
 <h2 class="govuk-heading-m govuk-!-margin-top-5">
-  Application evidence
+  Select documents used to make your decision
 </h2>
 
 {{ govukTaskList({
@@ -419,10 +471,88 @@
   ]
 }) }}
 
-      <p class="govuk-body">
-  <a href="#" class="govuk-link govuk-link--no-visited-state">I cannot process this application</a>
+{% if moveToPIPCS %}
+
+<h2 class="govuk-heading-m">This application needs to move to PIPCS</h2>
+
+<p class="govuk-body">
+  We are currently unable to process it in this service.
 </p>
 
-    </div>
-  </div>
+{{ govukButton({
+  text: "Continue",
+  href: "/v1/move-to-pipcs/move-to-pipcs-full-tasklist"
+}) }}
+
+{% else %}
+
+{% set dailyLivingScore =
+  (data.preparingFoodDescriptor | default('0') | int) +
+  (data.takingNutritionDescriptor | default('0') | int) +
+  (data.managingTherapyDescriptor | default('0') | int) +
+  (data.washingBathingDescriptor | default('0') | int) +
+  (data.toiletNeedsDescriptor | default('0') | int) +
+  (data.dressingUndressingDescriptor | default('0') | int) +
+  (data.communicateVerballyDescriptor | default('0') | int) +
+  (data.readUnderstandDescriptor | default('0') | int) +
+  (data.engagingOthersDescriptor | default('0') | int) +
+  (data.budgetDecisionsDescriptor | default('0') | int)
+%}
+
+{% set mobilityScore =
+  (data.planningJourneysDescriptor | default('0') | int) +
+  (data.movingAroundDescriptor | default('0') | int)
+%}
+
+{% if allTasksDone %}
+
+  {% if dailyLivingScore >= 8 or mobilityScore >= 8 %}
+
+    <h1 class="govuk-heading-m">
+      You have selected and justified your descriptors
+    </h1>
+
+    <p class="govuk-body">
+      This applicant will be awarded PIP
+    </p>
+
+  {% else %}
+
+    <h1 class="govuk-heading-m">
+      You have selected and justified your descriptors
+    </h1>
+
+    <p class="govuk-body">
+      This applicant will not be awarded PIP
+    </p>
+
+  {% endif %}
+
+{% endif %}
+
+<h2 class="govuk-heading-m">You have selected and justified your descriptors</h2>
+
+<p class="govuk-body">
+      This applicant will be awarded PIP.
+  </a>
+</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue", 
+  href: "/v1/make-a-decision/standard-three-yr-award-q"
+}) }}
+
+
+
+<p class="govuk-body">
+  <a href="/v1/move-to-pipcs/move-to-pipcs-full-tasklist">
+    I cannot process this application
+  </a>
+</p>
+
+
+{% endif %}
+
 {% endblock %}
